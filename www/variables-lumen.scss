@@ -1,0 +1,190 @@
+// Lumen 5.3.3
+// Bootswatch
+
+$theme: "lumen" !default;
+
+//
+// Color system
+//
+
+$white:    #fff !default;
+$gray-100: #f6f6f6 !default;
+$gray-200: #f0f0f0 !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #999 !default;
+$gray-700: #555 !default;
+$gray-800: #333 !default;
+$gray-900: #222 !default;
+$black:    #000 !default;
+
+$blue:    #158cba !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #ff4136 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ff851b !default;
+$green:   #28b62c !default;
+$teal:    #20c997 !default;
+$cyan:    #75caeb !default;
+
+$primary:       $blue !default;
+$secondary:     $gray-200 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-700 !default;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+//Body
+
+$body-color:                $gray-900 !default;
+
+$min-contrast-ratio:   1.75 !default;
+
+// Prefix for :root CSS variables
+
+$variable-prefix:             bs- !default; // Deprecated in v5.2.0 for the shorter `$prefix`
+$prefix:                      $variable-prefix !default;
+
+//Spacers
+
+$spacer: 1rem !default;
+
+//Components
+
+$border-width:                1px !default;
+
+// Fonts
+
+// stylelint-disable-next-line value-keyword-case
+$font-family-sans-serif:      "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+// Font, line-height, and color for body text, headings, and more.
+
+$font-size-base:              2rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg:                ($font-size-base * 1.25) !default;
+$font-size-sm:                ($font-size-base * .875) !default;
+
+$font-weight-lighter:         lighter !default;
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+$font-weight-bolder:          bolder !default;
+
+$font-weight-base:            $font-weight-normal !default;
+$line-height-base:            1.5 !default;
+
+$h1-font-size:                $font-size-base * 2.5 !default;
+$h2-font-size:                $font-size-base * 2 !default;
+$h3-font-size:                $font-size-base * 1.75 !default;
+$h4-font-size:                $font-size-base * 1.5 !default;
+$h5-font-size:                $font-size-base * 1.25 !default;
+$h6-font-size:                $font-size-base !default;
+
+$headings-margin-bottom:      $spacer / 2 !default;
+$headings-font-family:        inherit !default;
+$headings-font-weight:        500 !default;
+$headings-line-height:        1.2 !default;
+$headings-color:              inherit !default;
+
+$display1-size:               6rem !default;
+$display2-size:               5.5rem !default;
+$display3-size:               4.5rem !default;
+$display4-size:               3.5rem !default;
+
+$display1-weight:             300 !default;
+$display2-weight:             300 !default;
+$display3-weight:             300 !default;
+$display4-weight:             300 !default;
+$display-line-height:         $headings-line-height !default;
+
+$lead-font-size:              ($font-size-base * 1.25) !default;
+$lead-font-weight:            300 !default;
+
+$small-font-size:             80% !default;
+
+$text-muted:                  $gray-600 !default;
+
+$blockquote-small-color:      $gray-600 !default;
+$blockquote-small-font-size:  $small-font-size !default;
+$blockquote-font-size:        ($font-size-base * 1.25) !default;
+
+$hr-border-color:             rgba($black, .1) !default;
+$hr-border-width:             $border-width !default;
+
+$mark-padding:                .2em !default;
+
+$dt-font-weight:              $font-weight-bold !default;
+
+$kbd-box-shadow:              inset 0 -.1rem 0 rgba($black, .25) !default;
+$nested-kbd-font-weight:      $font-weight-bold !default;
+
+$list-inline-padding:         .5rem !default;
+
+$mark-bg:                     #fcf8e3 !default;
+
+$hr-margin-y:                 $spacer !default;
+
+// Tables
+
+$table-bg-scale:              0% !default;
+
+// Buttons
+
+$btn-font-weight:             700 !default;
+
+// Dropdowns
+
+$dropdown-link-color:         var(--#{$prefix}tertiary-color) !default;
+
+// Navs
+
+$nav-link-color:                    var(--#{$prefix}link-color) !default;
+$nav-tabs-border-color:             $gray-300 !default;
+
+// Pagination
+
+$pagination-color:                  $gray-700 !default;
+$pagination-bg:                     var(--#{$prefix}tertiary-bg) !default;
+$pagination-border-color:           var(--#{$prefix}border-color) !default;
+$pagination-hover-color:            $pagination-color !default;
+$pagination-hover-bg:               $pagination-bg !default;
+$pagination-active-border-color:    darken($primary, 5%) !default;
+$pagination-disabled-color:         $gray-600 !default;
+$pagination-disabled-bg:            $pagination-bg !default;
+
+// Breadcrumbs
+
+$breadcrumb-padding-y:              .375rem !default;
+$breadcrumb-padding-x:              .75rem !default;
+$breadcrumb-bg:                     $pagination-bg !default;
+$breadcrumb-border-radius:          .25rem !default;
+
+// Modals
+
+$modal-content-border-color:        rgba($black, .1) !default;
+
+// Close
+
+$btn-close-color:            $white !default;
+$btn-close-opacity:          .4 !default;
+$btn-close-hover-opacity:    1 !default;
+
+//Options
+
+$enable-shadows:                              false !default;
