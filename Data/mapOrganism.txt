@@ -1,0 +1,3 @@
+Code	Organism
+hsa	Human
+mmu	Mouse
