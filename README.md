@@ -2,7 +2,7 @@
 Shiny R web-app for comparing perturbed pathways associated to different phenotypes.
 
 <b>URL:</b>
-<a href="https://alpha.dmi.unict.it/shiny/users/gmicale/PathwayComparator/"></a>.
+<a href="https://alpha.dmi.unict.it/shiny/users/gmicale/PathwayComparator/">https://alpha.dmi.unict.it/shiny/users/gmicale/PathwayComparator/</a>.
 
 <b>Input data:</b>
 
@@ -15,6 +15,7 @@ Example files are available in the "Data" folder.
 Currently supported organisms:
 - Human
 - Mouse
+
 More organisms will be supported in the future.
 
 <br/><br/>
@@ -22,11 +23,14 @@ More organisms will be supported in the future.
 <b>PHENSIM simulation file:</b>
 
 PHENSIM (PHENotype SIMulator) (<a href="https://phensim.tech/"></a>) is a tool developed to simulate the de-regulation of pathways biological elements, as a result of the over- or under-expression of user-specified molecules (e.g. genes or miRNAs).
+
 De-regulation of pathway nodes is measured by an activity score, which can be positive or negative, denoting a biological element which is more or less active than normal condition.
+
 After a new simulation has been launched and complete, PHENSIM simulation file can be downloaded as follows:
 - Go to the "Simulations" panel on the left sidebar
 - Click on "Show simulation" ('eye' icon on the right) to view more details about the simulation
 - Go to the "Download results" box at the bottom of the page and click on "Download raw results"
+
 Scores associated to nodes are the values "Activity Score" column.
 
 Example:
@@ -53,6 +57,8 @@ Node column specifies the id of the biological element, which must be:
 Perturbation score can be any real number (positive, negative or zero).
 
 Example:
+
+<pre>
 Organism	Node	Score
 Human	6197	-3.74
 Human	6196	0
@@ -60,11 +66,12 @@ Human	hsa-miR-199b-3p	0
 Human	hsa-miR-128-3p	2.5
 Human	hsa-miR-214-3p	0
 Human	chebi:43474	0
+</pre>
 
 <br/><br/>
 
 <b>References:</b>
 
-- Alaimo S, Rapicavoli RV, Marceca GP, La Ferlita A, Serebrennikova OB, et al. (2021). <i>PHENSIM: Phenotype Simulator.</i> PLOS Computational Biology 17(6): e1009069. <a href="https://doi.org/10.1371/journal.pcbi.1009069"></a>
+- Alaimo S, Rapicavoli RV, Marceca GP, La Ferlita A, Serebrennikova OB, et al. (2021). <i>PHENSIM: Phenotype Simulator.</i> PLOS Computational Biology 17(6): e1009069. <a href="https://doi.org/10.1371/journal.pcbi.1009069">https://doi.org/10.1371/journal.pcbi.1009069</a>
 
 <br/><br/>
