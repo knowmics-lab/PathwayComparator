@@ -18,7 +18,7 @@ Currently supported organisms:
 
 More organisms will be supported in the future.
 
-<br/><br/>
+<br/>
 
 <b>PHENSIM simulation file:</b>
 
@@ -42,7 +42,7 @@ R-HSA-198753	ERK/MAPK targets	6196	RPS6KA2	No	No	0.0	0.9960000000000008	1.0	-20.
 R-HSA-198753	ERK/MAPK targets	hsa-miR-199b-3p	hsa-miR-199b-3p	No	No	0.0	0.9970000000000008	1.0	-20.72326583994641,-20.72326583994641,-1.999999945436137E-9	0.0	0.5760000000000004	1.0	-20.72326583994641,-20.72326583994641,-1.999999945436137E-9		-6.314636151692764E-13	-2.4006391023997053E-5
 </pre>
 
-<br/><br/>
+<br/>
 
 <b>Custom file:</b>
 
@@ -68,10 +68,9 @@ Human	hsa-miR-214-3p	0
 Human	chebi:43474	0
 </pre>
 
-<br/><br/>
+<br/>
 
 <b>References:</b>
 
 - Alaimo S, Rapicavoli RV, Marceca GP, La Ferlita A, Serebrennikova OB, et al. (2021). <i>PHENSIM: Phenotype Simulator.</i> PLOS Computational Biology 17(6): e1009069. <a href="https://doi.org/10.1371/journal.pcbi.1009069">https://doi.org/10.1371/journal.pcbi.1009069</a>
 
-<br/><br/>
