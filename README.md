@@ -26,12 +26,12 @@ PHENSIM (PHENotype SIMulator) (<a href="https://phensim.tech/"></a>) is a tool d
 
 De-regulation of pathway nodes is measured by an activity score, which can be positive or negative, denoting a biological element which is more or less active than normal condition.
 
-After a new simulation has been launched and complete, PHENSIM simulation file can be downloaded as follows:
+After a new simulation has been launched and completed, PHENSIM simulation file can be downloaded as follows:
 - Go to the "Simulations" panel on the left sidebar
 - Click on "Show simulation" ('eye' icon on the right) to view more details about the simulation
 - Go to the "Download results" box at the bottom of the page and click on "Download raw results"
 
-Scores associated to nodes are the values "Activity Score" column.
+Scores associated to nodes are the values of "Activity Score" column.
 
 Example:
 
