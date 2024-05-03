@@ -101,22 +101,21 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
     
   #Create inter-layer connections
   if(length(multilayer.net)>1) {
-    for(i in 1:(length(multilayer.net)-1)) {
-      first.org <- data.list[[i]]$organism
-      for(j in (i+1):length(multilayer.net)) {
-        second.org <- data.list[[j]]$organism
-        ortho.data <- ortho.list[[paste0(first.org,"-",second.org)]]
-        ortho.data <- ortho.data[ortho.data[,paste0(first.org," id")] %in% multilayer.nodes$node & 
+    org.pairs <- t(combn(names(multilayer.net),2))
+    for(i in 1:nrow(org.pairs)) {
+      first.org <- data.list[[org.pairs[i,1]]]$organism
+      second.org <- data.list[[org.pairs[i,2]]]$organism
+      ortho.data <- ortho.list[[paste0(first.org,"-",second.org)]]
+      ortho.data <- ortho.data[ortho.data[,paste0(first.org," id")] %in% multilayer.nodes$node & 
                                ortho.data[,paste0(second.org," id")] %in% multilayer.nodes$node,]
-        if(nrow(ortho.data)>0) {
-          ortho.data <- ortho.data[,c(paste0(first.org," id"),paste0(first.org," symbol"),
+      if(nrow(ortho.data)>0) {
+        ortho.data <- ortho.data[,c(paste0(first.org," id"),paste0(first.org," symbol"),
                                     paste0(second.org," id"),paste0(second.org," symbol"))]
-          colnames(ortho.data) <- c("source","sourceName","target","targetName")
-          ortho.data$weight <- 0
-          ortho.data$type <- "inter"
-          multilayer.edges <- rbind(multilayer.edges,ortho.data)
-          multilayer.edges <- multilayer.edges[!duplicated(multilayer.edges[,c("source","target")]),]
-        }
+        colnames(ortho.data) <- c("source","sourceName","target","targetName")
+        ortho.data$weight <- 0
+        ortho.data$type <- "inter"
+        multilayer.edges <- rbind(multilayer.edges,ortho.data)
+        multilayer.edges <- multilayer.edges[!duplicated(multilayer.edges[,c("source","target")]),]
       }
     }
   }
@@ -211,15 +210,16 @@ plot.pathway <- function(multilayer.nodes,multilayer.edges,pathway)
     multilayer.plot <- visIgraphLayout(multilayer.plot,layout="layout_with_kk", type = "full", weights=edge.plot.weigths)
   } else {
     multilayer.plot <- visIgraphLayout(multilayer.plot,layout="layout_with_sugiyama", layers = multilayer.nodes$level, type="full")
-    lower.limit <- -1.5
-    if(num.layers==3)
-      lower.limit <- -2.25
-    multilayer.plot$x$nodes[multilayer.plot$x$nodes$level==1,"y"] <- runif(sum(multilayer.plot$x$nodes$level==1),lower.limit,lower.limit+1.5)
+    window <- 1
+    span <- 0.25
+    net.space <- window+span
+    lower.limit <- -(net.space*num.layers/2)
+    multilayer.plot$x$nodes[multilayer.plot$x$nodes$level==1,"y"] <- runif(sum(multilayer.plot$x$nodes$level==1),lower.limit,lower.limit+window)
     tmp <- multilayer.edges[multilayer.edges$type=="inter",]
     for(i in 2:num.layers) {
       sub.tmp <- tmp[tmp$from %in% multilayer.nodes[multilayer.nodes$level==(i-1),"id"] & tmp$to %in% multilayer.nodes[multilayer.nodes$level==i,"id"],]
-      list.ids <- tmp[match(multilayer.plot$x$nodes[multilayer.plot$x$nodes$id %in% multilayer.edges[multilayer.edges$type=="inter","to"],"id"],tmp$to),"from"]
-      multilayer.plot$x$nodes[multilayer.plot$x$nodes$id %in% multilayer.edges[multilayer.edges$type=="inter","to"],"y"] <- 1.5+multilayer.plot$x$nodes[match(list.ids,multilayer.plot$x$nodes$id),"y"]
+      list.ids <- sub.tmp[match(multilayer.plot$x$nodes[multilayer.plot$x$nodes$level==i & multilayer.plot$x$nodes$id %in% multilayer.edges[multilayer.edges$type=="inter","to"],"id"],sub.tmp$to),"from"]
+      multilayer.plot$x$nodes[multilayer.plot$x$nodes$level==i & multilayer.plot$x$nodes$id %in% multilayer.edges[multilayer.edges$type=="inter","to"],"y"][!is.na(list.ids)] <- net.space+multilayer.plot$x$nodes[match(list.ids,multilayer.plot$x$nodes$id),"y"][!is.na(list.ids)]
     }
   }
   

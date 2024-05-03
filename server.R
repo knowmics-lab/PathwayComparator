@@ -16,9 +16,9 @@ function(input, output, session) {
   output$listFiles <- DT::renderDT({
    #print(uploaded.files())
     if(length(uploaded.files())==0) {
-      tab.data <- data.frame("Pathway files"=character()," "=character(),check.names = F)
+      tab.data <- data.frame("  "=character()," "=character(),check.names = F)
     } else {
-      tab.data <- data.frame("Pathway files"=uploaded.files()," "=rep("Remove",length(uploaded.files())),check.names = F)
+      tab.data <- data.frame("  "=uploaded.files()," "=rep("Remove",length(uploaded.files())),check.names = F)
       tab.data[," "] <- shinyInput(actionButton, length(uploaded.files()),'delete_',label = "",icon=icon("trash"),
                               style = "color: white; background-color: black",
                               onclick = paste0('Shiny.onInputChange( \"delete_button\" , this.id, {priority: \"event\"})'))
@@ -43,19 +43,24 @@ function(input, output, session) {
   })
   
   observeEvent(input$hiddenUpload,{
-    file <- input$hiddenUpload
-    req(file)
-    dataname <- strsplit(file$name,"\\.")[[1]][1]
-    file.data <- read.phensim.file(file$datapath)
-    if(dataname %in% names(data.list)) {
-      dataname <- paste0(dataname,"_",(length(input$uploadedFiles)+1))
+    file.list <- input$hiddenUpload
+    req(file.list)
+    dataname.list <- c()
+    for(i in 1:nrow(file.list)) {
+      file <- file.list[i,]
+      dataname <- strsplit(file$name,"\\.")[[1]][1]
+      file.data <- read.phensim.file(file$datapath)
+      if(dataname %in% names(data.list)) {
+        dataname <- paste0(dataname,"_",(length(input$uploadedFiles)+1))
+      }
+      data.list[[dataname]] <<- file.data
+      if(is.null(metapathway.list[[file.data$organism]])) {
+        metapathway.list[[file.data$organism]] <<- readRDS(paste0("Data/Metapathways/",file.data$organism,".rds"))
+        pathway.list[[file.data$organism]] <<- readRDS(paste0("Data/Pathways/",file.data$organism,".rds"))
+      }
+      dataname.list <- c(dataname.list,dataname)
     }
-    data.list[[dataname]] <<- file.data
-    if(is.null(metapathway.list[[file.data$organism]])) {
-      metapathway.list[[file.data$organism]] <<- readRDS(paste0("Data/Metapathways/",file.data$organism,".rds"))
-      pathway.list[[file.data$organism]] <<- readRDS(paste0("Data/Pathways/",file.data$organism,".rds"))
-    }
-    updateSelectInput(session,"uploadedFiles",choices=c(input$uploadedFiles,dataname),selected=c(input$uploadedFiles,dataname))
+    updateSelectInput(session,"uploadedFiles",choices=c(input$uploadedFiles,dataname.list),selected=c(input$uploadedFiles,dataname.list))
   })
   
   observeEvent(input$compare, {
