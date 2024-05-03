@@ -15,6 +15,7 @@ Example files are available in the "Data" folder.
 Currently supported organisms:
 - Human
 - Mouse
+- Rat
 
 More organisms will be supported in the future.
 
