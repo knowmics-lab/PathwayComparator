@@ -37,8 +37,11 @@ function(input, output, session) {
     selectedRow <- as.numeric(strsplit(input$delete_button, "_")[[1]][2])
     rem.organism <- data.list[[selectedRow]]$organism
     data.list[[selectedRow]] <<- NULL
-    metapathway.list[[rem.organism]] <<- NULL
-    pathway.list[[rem.organism]] <<- NULL
+    freq.organisms <- table(sapply(data.list,function(el){el$organism}))
+    if(freq.organisms[rem.organism]==1) {
+      metapathway.list[[rem.organism]] <<- NULL
+      pathway.list[[rem.organism]] <<- NULL
+    }
     updateSelectInput(session,"uploadedFiles",choices=input$uploadedFiles[-selectedRow],selected=input$uploadedFiles[-selectedRow])
   })
   
@@ -71,7 +74,11 @@ function(input, output, session) {
       ortho.list[[pair]] <<- readRDS(paste0("Data/Orthologs/",pair,".rds"))
     }
     list.pathways <- sapply(list.organism,function(org){unique(pathway.list[[org]]$pathwayName)})
-    common.pathways <- Reduce(intersect,list.pathways)
+    if(is.list(list.pathways)) {
+      common.pathways <- Reduce(intersect,list.pathways)
+    } else {
+      common.pathways <- list.pathways
+    }
     updateSelectizeInput(session,"pathwaySel",choices=sort(common.pathways), server=TRUE)
     max.opt <- 3
     if(length(data.list)==2)

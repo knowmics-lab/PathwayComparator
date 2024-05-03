@@ -39,6 +39,7 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
       }
     }
   }
+  id.count <- 1
   
   for(net in networks)
   {
@@ -63,7 +64,7 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
       pathway.nodes.info <- pathway.nodes.info[!grepl("-miR",pathway.nodes.info$node),]
       pathway.nodes.info <- pathway.nodes.info[!grepl("-let",pathway.nodes.info$node),]
     }
-    pathway.nodes.info$layer <- strsplit(net,"\\.")[[1]][1]
+    pathway.nodes.info$layer <- net
     
     #Retrieve pathway edges
     pathway.edges.info <- metapathway.info[metapathway.info$source %in% pathway.nodes.info$node & metapathway.info$target %in% pathway.nodes.info$node,]
@@ -82,6 +83,15 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
       pathway.nodes.info <- pathway.nodes.info[pathway.nodes.info$nodeName==gene,]
     }
     
+    #Re-map ids
+    pathway.nodes.info$id <- id.count:(id.count+nrow(pathway.nodes.info)-1)
+    sub.nodes.info <- pathway.nodes.info[,c("node","id")]
+    pathway.edges.info <- merge(pathway.edges.info,sub.nodes.info,by.x="source",by.y="node")
+    pathway.edges.info <- merge(pathway.edges.info,sub.nodes.info,by.x="target",by.y="node")
+    pathway.edges.info <- pathway.edges.info[,c(6,2,3,7,1,4,5)]
+    colnames(pathway.edges.info) <- c("sourceId","source","sourceName","targetId","target","targetName","weight")
+    id.count <- id.count+nrow(pathway.nodes.info)
+    
     #Add node and edge data to the final network
     multilayer.net[[net]] <- list(nodes=pathway.nodes.info,edges=pathway.edges.info)
     
@@ -90,7 +100,7 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
   #Merge nodes and edges in a unique multilayer network
   multilayer.nodes <- lapply(multilayer.net,function(el){el$nodes})
   multilayer.nodes <- Reduce(rbind,multilayer.nodes)
-  multilayer.nodes <- multilayer.nodes[!duplicated(multilayer.nodes$node),]
+  multilayer.nodes <- multilayer.nodes[!duplicated(multilayer.nodes$id),]
   multilayer.edges <- lapply(multilayer.net,function(el){el$edges})
   multilayer.edges <- Reduce(rbind,multilayer.edges)
   if(nrow(multilayer.edges)>0) {
@@ -112,10 +122,14 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
         ortho.data <- ortho.data[,c(paste0(first.org," id"),paste0(first.org," symbol"),
                                     paste0(second.org," id"),paste0(second.org," symbol"))]
         colnames(ortho.data) <- c("source","sourceName","target","targetName")
+        ortho.data <- merge(ortho.data,multilayer.net[[org.pairs[i,1]]]$nodes[,c("node","id")],by.x="source",by.y="node")
+        ortho.data <- merge(ortho.data,multilayer.net[[org.pairs[i,2]]]$nodes[,c("node","id")],by.x="target",by.y="node")
+        ortho.data <- ortho.data[,c(5,2,3,6,1,4)]
+        colnames(ortho.data) <- c("sourceId","source","sourceName","targetId","target","targetName")
         ortho.data$weight <- 0
         ortho.data$type <- "inter"
         multilayer.edges <- rbind(multilayer.edges,ortho.data)
-        multilayer.edges <- multilayer.edges[!duplicated(multilayer.edges[,c("source","target")]),]
+        multilayer.edges <- multilayer.edges[!duplicated(multilayer.edges[,c("sourceId","targetId")]),]
       }
     }
   }
@@ -197,10 +211,11 @@ plot.pathway <- function(multilayer.nodes,multilayer.edges,pathway)
   edge.plot.weigths[multilayer.edges$weight==0] <- 2
   
   #Plot pathway
-  colnames(multilayer.nodes)[1] <- "id"
+  #colnames(multilayer.nodes)[1] <- "id"
   colnames(multilayer.edges)[1] <- "from"
-  colnames(multilayer.edges)[3] <- "to"
+  colnames(multilayer.edges)[4] <- "to"
   multilayer.plot <- visNetwork(multilayer.nodes, multilayer.edges, main=pathway) %>%
+    visPhysics(enabled = F) %>%
     visEdges(arrows="to",color = "black") %>%
     visOptions(clickToUse = F) %>%
     visInteraction(hover = TRUE) %>%
