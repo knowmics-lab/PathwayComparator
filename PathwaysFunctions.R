@@ -68,23 +68,25 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
     
     #Retrieve pathway edges
     pathway.edges.info <- metapathway.info[metapathway.info$source %in% pathway.nodes.info$node & metapathway.info$target %in% pathway.nodes.info$node,]
-    if(ref.gene!="All")
-    {
+    if(ref.gene!="All") {
       #gene.id <- pathway.nodes.info[pathway.nodes.info$nodeName==gene,"node"]
       gene.edges <- pathway.edges.info[pathway.edges.info$source %in% ortho.nodes | pathway.edges.info$target %in% ortho.nodes,]
       sub.nodes.list <- unique(c(gene.edges$source,gene.edges$target))
       pathway.edges.info <- pathway.edges.info[pathway.edges.info$source %in% sub.nodes.list & pathway.edges.info$target %in% sub.nodes.list,]
     }
-    if(nrow(pathway.edges.info)>0)
-    {
+    if(nrow(pathway.edges.info)>0) {
       pathway.nodes.ids <- unique(c(pathway.edges.info$source,pathway.edges.info$target))
       pathway.nodes.info <- unique(pathway.nodes.info[pathway.nodes.info$node %in% pathway.nodes.ids,])
     } else if(ref.gene!="All") {
-      pathway.nodes.info <- pathway.nodes.info[pathway.nodes.info$nodeName==gene,]
+      pathway.nodes.info <- pathway.nodes.info[pathway.nodes.info$node %in% ortho.nodes,]
     }
     
     #Re-map ids
-    pathway.nodes.info$id <- id.count:(id.count+nrow(pathway.nodes.info)-1)
+    if(nrow(pathway.nodes.info)>0) {
+      pathway.nodes.info$id <- id.count:(id.count+nrow(pathway.nodes.info)-1)
+    } else {
+      pathway.nodes.info$id <- numeric(0)
+    }
     sub.nodes.info <- pathway.nodes.info[,c("node","id")]
     pathway.edges.info <- merge(pathway.edges.info,sub.nodes.info,by.x="source",by.y="node")
     pathway.edges.info <- merge(pathway.edges.info,sub.nodes.info,by.x="target",by.y="node")

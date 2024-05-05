@@ -101,7 +101,8 @@ function(input, output, session) {
   },{
     if(input$pathwaySel!="" && !is.null(input$networkSel)) {
       updated.list <- get.list.selectable.nodes(input$pathwaySel,input$networkSel,input$hideElements)
-      if(last.choice() %in% updated.list) {
+      choice.info <- strsplit(last.choice(),"\n")[[1]]
+      if(last.choice() %in% updated.list[[choice.info[2]]]) {
         updateSelectizeInput(session, "geneSel", selected=last.choice(), choices=updated.list, server=TRUE)
       } else{
         updateSelectizeInput(session, "geneSel", selected="All", choices=updated.list, server=TRUE)
