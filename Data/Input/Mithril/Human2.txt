@@ -1,0 +1,1195 @@
+# Pathway Id	Pathway Name	Gene Id	Gene Name	Perturbation	Accumulator	pValue
+path:hsa00190	Oxidative phosphorylation - Enriched	64077	LHPP	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	5464	PPA1	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	hsa-miR-101-3p	hsa-miR-101-3p	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	245972	ATP6V0D2	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	245973	ATP6V1C2	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	BRCA1	BRCA1	-1.23	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	479	ATP12A	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	513	ATP5F1D	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	514	ATP5F1E	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	515	ATP5PB	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	516	ATP5MC1	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	517	ATP5MC2	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	518	ATP5MC3	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	cpd:C00008	ADP	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	155066	ATP6V0E2	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	51606	ATP6V1H	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	9114	ATP6V0D1	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	9551	ATP5MF	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	hsa-miR-1-3p	hsa-miR-1-3p	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	9550	ATP6V1G1	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	521	ATP5ME	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	522	ATP5PF	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	523	ATP6V1A	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	525	ATP6V1B1	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	526	ATP6V1B2	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	527	ATP6V0C	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	528	ATP6V1C1	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	hsa-miR-518d-3p	hsa-miR-518d-3p	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	529	ATP6V1E1	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	8992	ATP6V0E1	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	90423	ATP6V1E2	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	127124	ATP6V1G3	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	23545	ATP6V0A2	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	51382	ATP6V1D	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	495	ATP4A	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	4508	ATP6	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	496	ATP4B	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	4509	ATP8	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	498	ATP5F1A	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	533	ATP6V0B	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	534	ATP6V1G2	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	535	ATP6V0A1	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	27068	PPA2	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	537	ATP6AP1	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	539	ATP5PO	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	10312	TCIRG1	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	10476	ATP5PD	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	10632	ATP5MG	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	hsa-miR-1289	hsa-miR-1289	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	50617	ATP6V0A4	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	hsa-let-7c-3p	hsa-let-7c-3p	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	ISG15	ISG15	2.25	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	9296	ATP6V1F	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	506	ATP5F1B	0.0	0.0	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	509	ATP5F1C	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C21939	(5Z,8Z,11Z)-Icosatrienoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	hsa-miR-130b-3p	hsa-miR-130b-3p	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C03035	gamma-Linolenoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C03595	8,11,14-Eicosatrienoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	BRCA1	BRCA1	-1.23	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C00249	Hexadecanoic acid	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16180	(11Z,14Z)-Icosadienoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C01530	Octadecanoic acid	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C06425	Icosanoic acid	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C06426	(6Z,9Z,12Z)-Octadecatrienoic acid	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C06427	(9Z,12Z,15Z)-Octadecatrienoic acid	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C21943	Sapienoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C06428	(5Z,8Z,11Z,14Z,17Z)-Icosapentaenoic acid	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C06429	(4Z,7Z,10Z,13Z,16Z,19Z)-Docosahexaenoic acid	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	641371	ACOT1	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C03242	Dihomo-gamma-linolenate	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C00412	Stearoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	79966	SCD5	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	6319	SCD	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C21937	(8Z,11Z)-Icosadienoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C21935	(6Z,9Z)-Octadecadienoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C00219	Arachidonate	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C02041	Eicosanoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	570	BAAT	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16160	Linoleoyl-[acyl-carrier protein]	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16161	alpha-Linolenoyl-ACP	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C02249	Arachidonyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C01595	Linoleate	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16168	(6Z,9Z,12Z,15Z,18Z,21Z)-Tetracosahexaenoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16169	(4Z,7Z,10Z,13Z,16Z,19Z)-Docosahexaenoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16167	(9Z,12Z,15Z,18Z,21Z)-Tetracosapentaenoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16164	(8Z,11Z,14Z,17Z)-Icosatetraenoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16165	(5Z,8Z,11Z,14Z,17Z)-Icosapentaenoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16162	(9Z,12Z,15Z)-Octadecatrienoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16163	(6Z,9Z,12Z,15Z)-Octadecatetraenoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	9415	FADS2	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	3992	FADS1	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	ISG15	ISG15	2.25	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C21072	Palmitoleoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C02050	Linoleoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	10965	ACOT2	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16171	(9Z,12Z,15Z,18Z)-Tetracosatetraenoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C00510	Oleoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16172	(6Z,9Z,12Z,15Z,18Z)-Tetracosapentaenoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C01203	Oleoyl-[acyl-carrier protein]	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	122970	ACOT4	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C00154	Palmitoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C05764	Hexadecanoyl-[acp]	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16179	(11Z,14Z,17Z)-Icosatrienoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	11332	ACOT7	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C16530	Icosenoyl-CoA	0.0	0.0	1.0
+path:hsa01040	Biosynthesis of unsaturated fatty acids - Enriched	cpd:C00712	(9Z)-Octadecenoic acid	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	4055	LTBR	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-101-3p	hsa-miR-101-3p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	BRCA1	BRCA1	-1.23	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	8174	MADCAM1	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-21-5p	hsa-miR-21-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-155-5p	hsa-miR-155-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-23a-3p	hsa-miR-23a-3p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	9020	MAP3K14	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-133b	hsa-miR-133b	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-139-5p	hsa-miR-139-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-137	hsa-miR-137	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-520e	hsa-miR-520e	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-383-5p	hsa-miR-383-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-494-3p	hsa-miR-494-3p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-335-5p	hsa-miR-335-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	3676	ITGA4	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-146a-5p	hsa-miR-146a-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	958	CD40	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	959	CD40LG	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	2826	CCR10	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-886-3p	hsa-miR-886-3p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	8741	TNFSF13	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	7852	CXCR4	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	3695	ITGB7	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-1-3p	hsa-miR-1-3p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-503-5p	hsa-miR-503-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-150-5p	hsa-miR-150-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-663a	hsa-miR-663a	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-202-3p	hsa-miR-202-3p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	3601	IL15RA	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-125b-5p	hsa-miR-125b-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	3600	IL15	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	mmu-miR-140-5p	mmu-miR-140-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	23495	TNFRSF13B	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-204-5p	hsa-miR-204-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-448	hsa-miR-448	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	608	TNFRSF17	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-126-5p	hsa-miR-126-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	5284	PIGR	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	23308	ICOSLG	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	102723407	LOC102723407	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-9-5p	hsa-miR-9-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	6370	CCL25	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-224-5p	hsa-miR-224-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	56477	CCL28	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-17-5p	hsa-miR-17-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-494-5p	hsa-miR-494-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-146a-3p	hsa-miR-146a-3p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	10673	TNFSF13B	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-454-3p	hsa-miR-454-3p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	6387	CXCL12	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-1-5p	hsa-miR-1-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	ISG15	ISG15	2.25	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	102723996	LOC102723996	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	115650	TNFRSF13C	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-202-5p	hsa-miR-202-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	940	CD28	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	10803	CCR9	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-221-3p	hsa-miR-221-3p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	941	CD80	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	29851	ICOS	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	942	CD86	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-31-5p	hsa-miR-31-5p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-126-3p	hsa-miR-126-3p	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-622	hsa-miR-622	0.0	0.0	1.0
+path:hsa04672	Intestinal immune network for IgA production - Enriched	hsa-miR-145-5p	hsa-miR-145-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	3280	HES1	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-96-5p	hsa-miR-96-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	378708	CENPS	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-19a-5p	hsa-miR-19a-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-375-3p	hsa-miR-375-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-92a-3p	hsa-miR-92a-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	BRCA1	BRCA1	-1.23	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	55120	FANCL	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-155-5p	hsa-miR-155-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-9-3p	hsa-miR-9-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-23a-3p	hsa-miR-23a-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	4292	MLH1	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-125a-3p	hsa-miR-125a-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	672	BRCA1	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-19b-1-5p	hsa-miR-19b-1-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	84126	ATRIP	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	675	BRCA2	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-383-5p	hsa-miR-383-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-205-3p	hsa-miR-205-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-335-5p	hsa-miR-335-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	2189	FANCG	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	83990	BRIP1	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	22909	FAN1	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-17-3p	hsa-miR-17-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-146a-5p	hsa-miR-146a-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-18a-5p	hsa-miR-18a-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-148b-3p	hsa-miR-148b-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-593-3p	hsa-miR-593-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	91442	FAAP24	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	5395	PMS2	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-24-3p	hsa-miR-24-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	8940	TOP3B	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-19b-3p	hsa-miR-19b-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-410-3p	hsa-miR-410-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-503-5p	hsa-miR-503-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-524-5p	hsa-miR-524-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	80233	FAAP100	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	201254	CENPX	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	641	BLM	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	55215	FANCI	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	57599	WDR48	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	6117	RPA1	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-16-5p	hsa-miR-16-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	79728	PALB2	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	6119	RPA3	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-146b-3p	hsa-miR-146b-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	6118	RPA2	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-185-5p	hsa-miR-185-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-92a-1-5p	hsa-miR-92a-1-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-20a-3p	hsa-miR-20a-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-765	hsa-miR-765	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-199b-5p	hsa-miR-199b-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-15a-5p	hsa-miR-15a-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	2177	FANCD2	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	2176	FANCC	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	116028	RMI2	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	2175	FANCA	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-19a-3p	hsa-miR-19a-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-155-3p	hsa-miR-155-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-9-5p	hsa-miR-9-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-let-7i-5p	hsa-let-7i-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	29089	UBE2T	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-381-5p	hsa-miR-381-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-30a-5p	hsa-miR-30a-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-593-5p	hsa-miR-593-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-17-5p	hsa-miR-17-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-146a-3p	hsa-miR-146a-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-18a-3p	hsa-miR-18a-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-20b-5p	hsa-miR-20b-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	9894	TELO2	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	7398	USP1	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	7156	TOP3A	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	2188	FANCF	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-205-5p	hsa-miR-205-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	2187	FANCB	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	ISG15	ISG15	2.25	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	29935	RPA4	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-34a-5p	hsa-miR-34a-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	100526739	CENPS-CORT	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-221-3p	hsa-miR-221-3p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	57697	FANCM	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	545	ATR	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	2178	FANCE	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-20a-5p	hsa-miR-20a-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-31-5p	hsa-miR-31-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	5888	RAD51	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-1245a	hsa-miR-1245a	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	5889	RAD51C	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	80010	RMI1	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-146b-5p	hsa-miR-146b-5p	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-107	hsa-miR-107	0.0	0.0	1.0
+path:hsa03460	Fanconi anemia pathway - Enriched	hsa-miR-145-5p	hsa-miR-145-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	122011	CSNK1A1L	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	1460	CSNK2B	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-195-3p	hsa-miR-195-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-99b-3p	hsa-miR-99b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	144165	PRICKLE1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	1459	CSNK2A2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-106a-3p	hsa-miR-106a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-137	hsa-miR-137	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-30c-5p	hsa-miR-30c-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	1457	CSNK2A1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	6907	TBL1X	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	4609	MYC	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	343637	RSPO4	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-19b-1-5p	hsa-miR-19b-1-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-548m	hsa-miR-548m	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-193a-3p	hsa-miR-193a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-371a-3p	hsa-miR-371a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-302c-5p	hsa-miR-302c-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	1454	CSNK1E	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-375	hsa-miR-375	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-503-3p	hsa-miR-503-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-205-3p	hsa-miR-205-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	1452	CSNK1A1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-146a-5p	hsa-miR-146a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-93-5p	hsa-miR-93-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-518c-3p	hsa-miR-518c-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-561-3p	hsa-miR-561-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-24-3p	hsa-miR-24-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-130a-3p	hsa-miR-130a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-519d-3p	hsa-miR-519d-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	81839	VANGL1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-503-5p	hsa-miR-503-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	54361	WNT4	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7c-5p	hsa-let-7c-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-378a-3p	hsa-miR-378a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-29c-5p	hsa-miR-29c-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-129-2-3p	hsa-miR-129-2-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-30d-3p	hsa-miR-30d-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-302d-3p	hsa-miR-302d-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-493-3p	hsa-miR-493-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-204-5p	hsa-miR-204-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-181a-2-3p	hsa-miR-181a-2-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-183-3p	hsa-miR-183-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-20a-3p	hsa-miR-20a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-101-5p	hsa-miR-101-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-367-3p	hsa-miR-367-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-504-3p	hsa-miR-504-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-605-5p	hsa-miR-605-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	283106	CSNK2A3	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-129-1-3p	hsa-miR-129-1-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-302c-3p	hsa-miR-302c-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-515-5p	hsa-miR-515-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-93-3p	hsa-miR-93-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	815	CAMK2A	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	816	CAMK2B	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-371a-5p	hsa-miR-371a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	817	CAMK2D	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	818	CAMK2G	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-516a-3p	hsa-miR-516a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-744-5p	hsa-miR-744-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-130a-5p	hsa-miR-130a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-194-5p	hsa-miR-194-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-150-3p	hsa-miR-150-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-519d-5p	hsa-miR-519d-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-296-5p	hsa-miR-296-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	1488	CTBP2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7d-3p	hsa-let-7d-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	1487	CTBP1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-183-5p	hsa-miR-183-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-20a-5p	hsa-miR-20a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5601	MAPK9	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	6932	TCF7	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5602	MAPK10	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	6934	TCF7L2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-124-5p	hsa-miR-124-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	4772	NFATC1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	102800317	TPTEP2-CSNK1E	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	4773	NFATC2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-101-3p	hsa-miR-101-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	80319	CXXC4	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-19a-5p	hsa-miR-19a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-184	hsa-miR-184	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-92a-3p	hsa-miR-92a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7b-3p	hsa-let-7b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-1285-3p	hsa-miR-1285-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7a-2-3p	hsa-let-7a-2-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-25-5p	hsa-miR-25-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-30e-3p	hsa-miR-30e-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	80326	WNT10A	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	1499	CTNNB1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-501-5p	hsa-miR-501-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-494-3p	hsa-miR-494-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-199a-3p	hsa-miR-199a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-215-5p	hsa-miR-215-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-449a	hsa-miR-449a	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-1-3p	hsa-miR-1-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-19b-3p	hsa-miR-19b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-150-5p	hsa-miR-150-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	2239	GPC4	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-203a-5p	hsa-miR-203a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-502-3p	hsa-miR-502-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	1387	CREBBP	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-483-3p	hsa-miR-483-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	4775	NFATC3	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-550a-5p	hsa-miR-550a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	4776	NFATC4	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-371b-3p	hsa-miR-371b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-124-3p	hsa-miR-124-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-92a-1-5p	hsa-miR-92a-1-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-25-3p	hsa-miR-25-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5880	RAC2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5881	RAC3	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	57680	CHD8	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-195-5p	hsa-miR-195-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-134-5p	hsa-miR-134-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-502-5p	hsa-miR-502-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-19a-3p	hsa-miR-19a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-644a	hsa-miR-644a	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7b-5p	hsa-let-7b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-198	hsa-miR-198	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-377-3p	hsa-miR-377-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	2487	FRZB	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-146a-3p	hsa-miR-146a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-3188	hsa-miR-3188	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5879	RAC1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	22943	DKK1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5530	PPP3CA	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-100-5p	hsa-miR-100-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	6500	SKP1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5532	PPP3CB	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-205-5p	hsa-miR-205-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7c-3p	hsa-let-7c-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-30d-5p	hsa-miR-30d-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-203a-3p	hsa-miR-203a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	57216	VANGL2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-302d-5p	hsa-miR-302d-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-92b-3p	hsa-miR-92b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	340419	RSPO2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-409-3p	hsa-miR-409-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-371b-5p	hsa-miR-371b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-219a-5p	hsa-miR-219a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	4316	MMP7	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-145-5p	hsa-miR-145-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-199b-3p	hsa-miR-199b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-340-5p	hsa-miR-340-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5663	PSEN1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-770-5p	hsa-miR-770-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-214-3p	hsa-miR-214-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-375-3p	hsa-miR-375-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	2033	EP300	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-134-3p	hsa-miR-134-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-506-3p	hsa-miR-506-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-21-5p	hsa-miR-21-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-490-3p	hsa-miR-490-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-30a-3p	hsa-miR-30a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5533	PPP3CC	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5534	PPP3R1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	79816	TLE6	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5535	PPP3R2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-18a-5p	hsa-miR-18a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-148b-3p	hsa-miR-148b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	rno-miR-194-5p	rno-miR-194-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-23b-3p	hsa-miR-23b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-152-3p	hsa-miR-152-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	64321	SOX17	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	6885	MAP3K7	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-100-3p	hsa-miR-100-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-582-3p	hsa-miR-582-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-128-1-5p	hsa-miR-128-1-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-655-5p	hsa-miR-655-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-202-3p	hsa-miR-202-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-26a-2-3p	hsa-miR-26a-2-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-18b-3p	hsa-miR-18b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-122-5p	hsa-miR-122-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	10023	FRAT1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-185-5p	hsa-miR-185-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-145-3p	hsa-miR-145-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-148a-5p	hsa-miR-148a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-885-5p	hsa-miR-885-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-214-5p	hsa-miR-214-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-21-3p	hsa-miR-21-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-506-5p	hsa-miR-506-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	mmu-miR-24-2-5p	mmu-miR-24-2-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7g-3p	hsa-let-7g-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	51384	WNT16	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	894	CCND2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-186-5p	hsa-miR-186-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	896	CCND3	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-328-3p	hsa-miR-328-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	54894	RNF43	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7855	FZD5	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7976	FZD3	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	8945	BTRC	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-18a-3p	hsa-miR-18a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-574-5p	hsa-miR-574-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	79718	TBL1XR1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-16-1-3p	hsa-miR-16-1-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-200c-5p	hsa-miR-200c-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-144-5p	hsa-miR-144-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5330	PLCB2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-199a-5p	hsa-miR-199a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-23b-5p	hsa-miR-23b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5331	PLCB3	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5332	PLCB4	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	6423	SFRP2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	6422	SFRP1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-215-3p	hsa-miR-215-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-769-5p	hsa-miR-769-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7f-5p	hsa-let-7f-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	102723796	TLE7	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-489-3p	hsa-miR-489-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5566	PRKACA	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5567	PRKACB	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5568	PRKACG	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-122-3p	hsa-miR-122-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	11211	FZD10	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-424-5p	hsa-miR-424-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-2861	hsa-miR-2861	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-520a-3p	hsa-miR-520a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5582	PRKCG	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-342-3p	hsa-miR-342-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-504-5p	hsa-miR-504-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-373-5p	hsa-miR-373-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	23401	FRAT2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	147111	NOTUM	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-23a-3p	hsa-miR-23a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7e-3p	hsa-let-7e-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-133a-3p	hsa-miR-133a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-1826	hsa-miR-1826	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-224-3p	hsa-miR-224-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	6425	SFRP5	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	6424	SFRP4	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5578	PRKCA	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5579	PRKCB	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	4007	PRICKLE3	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-32-3p	hsa-miR-32-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-144-3p	hsa-miR-144-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-574-3p	hsa-miR-574-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	8607	RUVBL1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-22-5p	hsa-miR-22-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-7-1-3p	hsa-miR-7-1-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-106b-5p	hsa-miR-106b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-30b-5p	hsa-miR-30b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7d-5p	hsa-let-7d-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-491-5p	hsa-miR-491-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	51176	LEF1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	324	APC	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5467	PPARD	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-143-5p	hsa-miR-143-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-424-3p	hsa-miR-424-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-23a-5p	hsa-miR-23a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	25805	BAMBI	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-199b-5p	hsa-miR-199b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	90665	TBL1Y	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	147495	APCDD1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-125b-1-3p	hsa-miR-125b-1-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	23500	DAAM2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7e-5p	hsa-let-7e-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-224-5p	hsa-miR-224-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-30a-5p	hsa-miR-30a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-26a-1-3p	hsa-miR-26a-1-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-133a-5p	hsa-miR-133a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	56998	CTNNBIP1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-106a-5p	hsa-miR-106a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-1277-3p	hsa-miR-1277-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5599	MAPK8	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-32-5p	hsa-miR-32-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	4040	LRP6	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	89780	WNT3A	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	4041	LRP5	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-154-3p	hsa-miR-154-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-148a-3p	hsa-miR-148a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-22-3p	hsa-miR-22-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-181b-2-3p	hsa-miR-181b-2-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-143-3p	hsa-miR-143-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-30b-3p	hsa-miR-30b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-18b-5p	hsa-miR-18b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-655-3p	hsa-miR-655-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-202-5p	hsa-miR-202-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-106b-3p	hsa-miR-106b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-16-2-3p	hsa-miR-16-2-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	6477	SIAH1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-7-5p	hsa-miR-7-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7i-3p	hsa-let-7i-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	85409	NKD2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-216b-5p	hsa-miR-216b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-133b	hsa-miR-133b	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	595	CCND1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-1277-5p	hsa-miR-1277-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-383-5p	hsa-miR-383-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-337-3p	hsa-miR-337-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-222-5p	hsa-miR-222-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	9978	RBX1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-142-5p	hsa-miR-142-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-200a-5p	hsa-miR-200a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-135b-5p	hsa-miR-135b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-211-5p	hsa-miR-211-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-1470	hsa-miR-1470	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	11197	WIF1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-372-5p	hsa-miR-372-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	64840	PORCN	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-376c-5p	hsa-miR-376c-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-34c-5p	hsa-miR-34c-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-154-5p	hsa-miR-154-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	85407	NKD1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	23291	FBXW11	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-590-5p	hsa-miR-590-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-200b-3p	hsa-miR-200b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-24-2-5p	hsa-miR-24-2-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-31-3p	hsa-miR-31-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-212-3p	hsa-miR-212-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-3940-5p	hsa-miR-3940-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-497-5p	hsa-miR-497-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	8312	AXIN1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-98-5p	hsa-miR-98-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-487b-3p	hsa-miR-487b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	8313	AXIN2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-373-3p	hsa-miR-373-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-155-3p	hsa-miR-155-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7i-5p	hsa-let-7i-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-142-3p	hsa-miR-142-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-17-5p	hsa-miR-17-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-200a-3p	hsa-miR-200a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-135b-3p	hsa-miR-135b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-3661	hsa-miR-3661	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-532-5p	hsa-miR-532-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-3662	hsa-miR-3662	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-1246	hsa-miR-1246	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7473	WNT3	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	8321	FZD1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7472	WNT2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	8322	FZD4	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7475	WNT6	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7474	WNT5A	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	5176	SERPINF1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-452-5p	hsa-miR-452-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7477	WNT7B	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	8325	FZD8	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-10b-5p	hsa-miR-10b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7476	WNT7A	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	8326	FZD9	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	4089	SMAD4	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7479	WNT8B	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	8323	FZD6	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7478	WNT8A	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	8324	FZD7	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	cpd:C00076	Calcium cation	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-34c-3p	hsa-miR-34c-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7471	WNT1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-451a	hsa-miR-451a	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-28-5p	hsa-miR-28-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-141-5p	hsa-miR-141-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	387	RHOA	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	6259	RYK	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-31-5p	hsa-miR-31-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-944	hsa-miR-944	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-33a-5p	hsa-miR-33a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-4521	hsa-miR-4521	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7484	WNT9B	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7483	WNT9A	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	8454	CUL1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-10a-5p	hsa-miR-10a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-210-3p	hsa-miR-210-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-15a-3p	hsa-miR-15a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	23002	DAAM1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	BRCA1	BRCA1	-1.23	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7480	WNT10B	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-155-5p	hsa-miR-155-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7482	WNT2B	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7g-5p	hsa-let-7g-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7481	WNT11	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-191-3p	hsa-miR-191-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-374a-5p	hsa-miR-374a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-125a-3p	hsa-miR-125a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	10297	APC2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-200c-3p	hsa-miR-200c-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-129-5p	hsa-miR-129-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-612	hsa-miR-612	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-10b-3p	hsa-miR-10b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-450b-3p	hsa-miR-450b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-181a-5p	hsa-miR-181a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-3162-3p	hsa-miR-3162-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-141-3p	hsa-miR-141-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-221-5p	hsa-miR-221-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-196a-5p	hsa-miR-196a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-135a-5p	hsa-miR-135a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-26b-5p	hsa-miR-26b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-29b-2-5p	hsa-miR-29b-2-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-603	hsa-miR-603	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-10a-3p	hsa-miR-10a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-15a-5p	hsa-miR-15a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-181b-5p	hsa-miR-181b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-210-5p	hsa-miR-210-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-374a-3p	hsa-miR-374a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-125a-5p	hsa-miR-125a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-630	hsa-miR-630	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-222-3p	hsa-miR-222-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-103a-3p	hsa-miR-103a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-1206	hsa-miR-1206	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-638	hsa-miR-638	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-1204	hsa-miR-1204	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-576-3p	hsa-miR-576-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-1323	hsa-miR-1323	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-454-3p	hsa-miR-454-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-372-3p	hsa-miR-372-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7157	TP53	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-449c-5p	hsa-miR-449c-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-15b-3p	hsa-miR-15b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-376c-3p	hsa-miR-376c-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-542-3p	hsa-miR-542-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	23236	PLCB1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-450b-5p	hsa-miR-450b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	2932	GSK3B	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	84133	ZNRF3	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-338-3p	hsa-miR-338-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-26b-3p	hsa-miR-26b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-200b-5p	hsa-miR-200b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-96-5p	hsa-miR-96-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-302a-3p	hsa-miR-302a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-892b	hsa-miR-892b	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	1855	DVL1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-139-5p	hsa-miR-139-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	27121	DKK4	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-1260b	hsa-miR-1260b	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	27123	DKK2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-381-3p	hsa-miR-381-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-26a-5p	hsa-miR-26a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-29b-1-5p	hsa-miR-29b-1-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-657	hsa-miR-657	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	1857	DVL3	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	1856	DVL2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-127-5p	hsa-miR-127-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-370-3p	hsa-miR-370-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-34a-3p	hsa-miR-34a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	9475	ROCK2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-15b-5p	hsa-miR-15b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7a-3p	hsa-let-7a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	166336	PRICKLE2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-192-5p	hsa-miR-192-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-374b-5p	hsa-miR-374b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-663a	hsa-miR-663a	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-139-3p	hsa-miR-139-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	9350	CER1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	164284	APCDD1L	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	1501	CTNND2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-365a-3p	hsa-miR-365a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	27130	INVS	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-125b-5p	hsa-miR-125b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-29a-3p	hsa-miR-29a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-760	hsa-miR-760	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-27b-5p	hsa-miR-27b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-1228-3p	hsa-miR-1228-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	50964	SOST	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-96-3p	hsa-miR-96-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-30e-5p	hsa-miR-30e-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-191-5p	hsa-miR-191-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-138-5p	hsa-miR-138-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-381-5p	hsa-miR-381-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	27101	CACYBP	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-494-5p	hsa-miR-494-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	51701	NLK	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-127-3p	hsa-miR-127-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-181c-5p	hsa-miR-181c-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	ISG15	ISG15	2.25	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7a-5p	hsa-let-7a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-374b-3p	hsa-miR-374b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-520b	hsa-miR-520b	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-151a-3p	hsa-miR-151a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-192-3p	hsa-miR-192-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-543	hsa-miR-543	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-421	hsa-miR-421	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-300	hsa-miR-300	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	4919	ROR1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-27b-3p	hsa-miR-27b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-221-3p	hsa-miR-221-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-483-5p	hsa-miR-483-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-193b-5p	hsa-miR-193b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-29a-5p	hsa-miR-29a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-429	hsa-miR-429	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-149-5p	hsa-miR-149-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-942-5p	hsa-miR-942-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7088	TLE1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-367-5p	hsa-miR-367-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7089	TLE2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-181d-5p	hsa-miR-181d-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-301a-3p	hsa-miR-301a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-130b-3p	hsa-miR-130b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-497-3p	hsa-miR-497-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-34b-5p	hsa-miR-34b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-9-3p	hsa-miR-9-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	83439	TCF7L1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-27a-5p	hsa-miR-27a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-29b-3p	hsa-miR-29b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-605-3p	hsa-miR-605-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-335-5p	hsa-miR-335-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	284654	RSPO1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-20b-3p	hsa-miR-20b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-17-3p	hsa-miR-17-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	4920	ROR2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-182-3p	hsa-miR-182-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-616-5p	hsa-miR-616-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-1275	hsa-miR-1275	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-151a-5p	hsa-miR-151a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7091	TLE4	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-let-7f-1-3p	hsa-let-7f-1-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	7090	TLE3	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	8061	FOSL1	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-28-3p	hsa-miR-28-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-320a	hsa-miR-320a	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-193b-3p	hsa-miR-193b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-562	hsa-miR-562	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-302b-5p	hsa-miR-302b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-485-5p	hsa-miR-485-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	84870	RSPO3	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-16-5p	hsa-miR-16-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-218-5p	hsa-miR-218-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-206	hsa-miR-206	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-126-5p	hsa-miR-126-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	3725	JUN	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-149-3p	hsa-miR-149-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	59343	SENP2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	29964	PRICKLE4	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-34b-3p	hsa-miR-34b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-9-5p	hsa-miR-9-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-599	hsa-miR-599	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-27a-3p	hsa-miR-27a-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-302a-5p	hsa-miR-302a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-708-5p	hsa-miR-708-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-182-5p	hsa-miR-182-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-20b-5p	hsa-miR-20b-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-324-3p	hsa-miR-324-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-137-3p	hsa-miR-137-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-34a-5p	hsa-miR-34a-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-380-5p	hsa-miR-380-5p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-346	hsa-miR-346	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	81029	WNT5B	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	2535	FZD2	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-29c-3p	hsa-miR-29c-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-302b-3p	hsa-miR-302b-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-126-3p	hsa-miR-126-3p	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-107	hsa-miR-107	0.0	0.0	1.0
+path:hsa04310	Wnt signaling pathway - Enriched	hsa-miR-590-3p	hsa-miR-590-3p	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	113612	CYP2U1	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C00162	Fatty acid	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	BRCA1	BRCA1	-1.23	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	hsa-miR-155-5p	hsa-miR-155-5p	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	23205	ACSBG1	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C00249	Hexadecanoic acid	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	126129	CPT1C	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	1376	CPT2	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	1892	ECHS1	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	1375	CPT1B	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05258	(S)-3-Hydroxyhexadecanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	hsa-miR-548a-3p	hsa-miR-548a-3p	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05259	3-Oxopalmitoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	51	ACOX1	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	10455	ECI2	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C00527	Glutaryl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05261	3-Oxotetradecanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05262	(S)-3-Hydroxydodecanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	hsa-miR-370-3p	hsa-miR-370-3p	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05263	3-Oxododecanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05264	(S)-Hydroxydecanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05265	3-Oxodecanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05266	(S)-3-Hydroxyoctanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05267	3-Oxooctanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05268	(S)-Hydroxyhexanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C02990	L-Palmitoylcarnitine	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C00010	CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C02593	Tetradecanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05260	(S)-3-Hydroxytetradecanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C00136	Butanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	124	ADH1A	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	125	ADH1B	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	126	ADH1C	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C01144	(S)-3-Hydroxybutanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	127	ADH4	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C00332	Acetoacetyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	128	ADH5	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05269	3-Oxohexanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	2639	GCDH	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C01944	Octanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05272	trans-Hexadec-2-enoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	8310	ACOX3	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05273	trans-Tetradec-2-enoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05274	Decanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05275	trans-Dec-2-enoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05276	trans-Oct-2-enoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05279	trans,cis-Lauro-2,6-dienoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	130	ADH6	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05270	Hexanoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	hsa-miR-9-5p	hsa-miR-9-5p	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05271	trans-Hex-2-enoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	131	ADH7	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	23305	ACSL6	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C01832	Lauroyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	hsa-miR-26a-1-3p	hsa-miR-26a-1-3p	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	1632	ECI1	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C00226	Primary alcohol	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C00024	Acetyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	217	ALDH2	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	219	ALDH1B1	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	30	ACAA1	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	51703	ACSL5	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	33	ACADL	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	2180	ACSL1	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	34	ACADM	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	35	ACADS	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	36	ACADSB	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	37	ACADVL	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	38	ACAT1	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	39	ACAT2	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	1374	CPT1A	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	hsa-miR-205-5p	hsa-miR-205-5p	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C03221	2-trans-Dodecenoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	3033	HADH	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	ISG15	ISG15	2.25	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	3032	HADHB	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	3030	HADHA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C05280	cis,cis-3,6-Dodecadienoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	2182	ACSL4	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	81616	ACSBG2	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C00071	Aldehyde	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	2181	ACSL3	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	hsa-miR-34a-5p	hsa-miR-34a-5p	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C03547	omega-Hydroxy fatty acid	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	1962	EHHADH	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	10449	ACAA2	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	223	ALDH9A1	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	224	ALDH3A2	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C00154	Palmitoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	501	ALDH7A1	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	cpd:C00877	Crotonoyl-CoA	0.0	0.0	1.0
+path:hsa00071	Fatty acid degradation - Enriched	hsa-miR-33a-5p	hsa-miR-33a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	100506658	OCLN	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-7-5p	hsa-miR-7-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-133b	hsa-miR-133b	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-137	hsa-miR-137	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-30c-5p	hsa-miR-30c-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-499a-5p	hsa-miR-499a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-193a-3p	hsa-miR-193a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-375	hsa-miR-375	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-337-3p	hsa-miR-337-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-486-5p	hsa-miR-486-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	83593	RASSF5	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	11069	RAPGEF4	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-146a-5p	hsa-miR-146a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	10411	RAPGEF3	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	137075	CLDN23	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-142-5p	hsa-miR-142-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-200a-5p	hsa-miR-200a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-211-5p	hsa-miR-211-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-584-5p	hsa-miR-584-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-24-3p	hsa-miR-24-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-487a-3p	hsa-miR-487a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-372-5p	hsa-miR-372-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-519d-3p	hsa-miR-519d-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	24146	CLDN15	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	9073	CLDN8	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	9071	CLDN10	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-767-5p	hsa-miR-767-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-503-5p	hsa-miR-503-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	9076	CLDN1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	9074	CLDN6	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-34c-5p	hsa-miR-34c-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	9075	CLDN2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5829	PXN	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-223-3p	hsa-miR-223-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-204-5p	hsa-miR-204-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-200b-3p	hsa-miR-200b-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-24-2-5p	hsa-miR-24-2-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-31-3p	hsa-miR-31-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-183-3p	hsa-miR-183-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	6494	SIPA1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-212-3p	hsa-miR-212-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-101-5p	hsa-miR-101-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-98-5p	hsa-miR-98-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-373-3p	hsa-miR-373-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-142-3p	hsa-miR-142-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	9080	CLDN9	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-17-5p	hsa-miR-17-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-200a-3p	hsa-miR-200a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	53842	CLDN22	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5295	PIK3R1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5175	PECAM1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5296	PIK3R2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-10b-5p	hsa-miR-10b-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	6387	CXCL12	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-744-5p	hsa-miR-744-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	1495	CTNNA1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-194-5p	hsa-miR-194-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-150-3p	hsa-miR-150-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5290	PIK3CA	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-34c-3p	hsa-miR-34c-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5291	PIK3CB	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-451a	hsa-miR-451a	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5293	PIK3CD	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-28-5p	hsa-miR-28-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-141-5p	hsa-miR-141-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	387	RHOA	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	1003	CDH5	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	1366	CLDN7	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	1365	CLDN3	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	1364	CLDN4	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-183-5p	hsa-miR-183-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5600	MAPK11	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-31-5p	hsa-miR-31-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	4633	MYL2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5603	MAPK13	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	4636	MYL5	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-124-5p	hsa-miR-124-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-33a-5p	hsa-miR-33a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-1256	hsa-miR-1256	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	7122	CLDN5	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	3683	ITGAL	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-15a-3p	hsa-miR-15a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	3684	ITGAM	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	2909	ARHGAP35	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-101-3p	hsa-miR-101-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-184	hsa-miR-184	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	BRCA1	BRCA1	-1.23	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-155-5p	hsa-miR-155-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	394	ARHGAP5	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-30e-3p	hsa-miR-30e-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	1499	CTNNB1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-517c-3p	hsa-miR-517c-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-362-3p	hsa-miR-362-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-494-3p	hsa-miR-494-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	1496	CTNNA2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	3676	ITGA4	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-1303	hsa-miR-1303	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-200c-3p	hsa-miR-200c-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	51208	CLDN18	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-199a-3p	hsa-miR-199a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-608	hsa-miR-608	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-181a-5p	hsa-miR-181a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-1-3p	hsa-miR-1-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	29119	CTNNA3	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-150-5p	hsa-miR-150-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-3162-3p	hsa-miR-3162-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-524-5p	hsa-miR-524-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	83700	JAM3	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-203a-5p	hsa-miR-203a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-141-3p	hsa-miR-141-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	10627	MYL12A	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-135a-5p	hsa-miR-135a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	49861	CLDN20	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	60	ACTB	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	3688	ITGB1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-124-3p	hsa-miR-124-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	3689	ITGB2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5747	PTK2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-296-3p	hsa-miR-296-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	9564	BCAR1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5880	RAC2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-15a-5p	hsa-miR-15a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-181b-5p	hsa-miR-181b-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-195-5p	hsa-miR-195-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-134-5p	hsa-miR-134-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-19a-3p	hsa-miR-19a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-644a	hsa-miR-644a	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-let-7b-5p	hsa-let-7b-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-125a-5p	hsa-miR-125a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-222-3p	hsa-miR-222-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	4301	AFDN	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	93408	MYL10	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-146a-3p	hsa-miR-146a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	71	ACTG1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	10398	MYL9	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5879	RAC1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-454-3p	hsa-miR-454-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-372-3p	hsa-miR-372-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-100-5p	hsa-miR-100-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-542-3p	hsa-miR-542-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-1-5p	hsa-miR-1-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-30d-5p	hsa-miR-30d-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-203a-3p	hsa-miR-203a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-338-3p	hsa-miR-338-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	4313	MMP2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-200b-5p	hsa-miR-200b-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	4318	MMP9	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-622	hsa-miR-622	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-145-5p	hsa-miR-145-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-942-3p	hsa-miR-942-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-128-3p	hsa-miR-128-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-96-5p	hsa-miR-96-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-340-5p	hsa-miR-340-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-770-5p	hsa-miR-770-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-214-3p	hsa-miR-214-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	23562	CLDN14	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-375-3p	hsa-miR-375-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-506-3p	hsa-miR-506-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-21-5p	hsa-miR-21-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-139-5p	hsa-miR-139-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-490-3p	hsa-miR-490-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	998	CDC42	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	4688	NCF2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	4689	NCF4	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-148b-3p	hsa-miR-148b-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	rno-miR-194-5p	rno-miR-194-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-370-3p	hsa-miR-370-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-34a-3p	hsa-miR-34a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-152-3p	hsa-miR-152-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	9475	ROCK2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-15b-5p	hsa-miR-15b-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	90952	ESAM	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	7852	CXCR4	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	149461	CLDN19	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-663a	hsa-miR-663a	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	7294	TXK	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-376a-3p	hsa-miR-376a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	26285	CLDN17	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	1500	CTNND1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-125b-5p	hsa-miR-125b-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-329-3p	hsa-miR-329-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-29a-3p	hsa-miR-29a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-27b-5p	hsa-miR-27b-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-122-5p	hsa-miR-122-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-185-5p	hsa-miR-185-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-520g-3p	hsa-miR-520g-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	50848	F11R	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-96-3p	hsa-miR-96-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-885-5p	hsa-miR-885-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-214-5p	hsa-miR-214-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-422a	hsa-miR-422a	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	3383	ICAM1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-30e-5p	hsa-miR-30e-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	6093	ROCK1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-506-5p	hsa-miR-506-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	mmu-miR-24-2-5p	mmu-miR-24-2-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-138-5p	hsa-miR-138-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-494-5p	hsa-miR-494-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-144-5p	hsa-miR-144-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-199a-5p	hsa-miR-199a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	6300	MAPK12	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	100288814	CLDN34	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-181c-5p	hsa-miR-181c-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	ISG15	ISG15	2.25	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	7070	THY1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	2185	PTK2B	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-543	hsa-miR-543	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	653361	NCF1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-300	hsa-miR-300	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-27b-3p	hsa-miR-27b-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-221-3p	hsa-miR-221-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	29895	MYLPF	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-483-5p	hsa-miR-483-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	4478	MSN	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-552-3p	hsa-miR-552-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	3702	ITK	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	644672	CLDN25	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5582	PRKCG	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-181d-5p	hsa-miR-181d-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-130b-3p	hsa-miR-130b-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-373-5p	hsa-miR-373-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-34b-5p	hsa-miR-34b-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-9-3p	hsa-miR-9-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-23a-3p	hsa-miR-23a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	1536	CYBB	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	1535	CYBA	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-218-1-3p	hsa-miR-218-1-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-133a-3p	hsa-miR-133a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-29b-3p	hsa-miR-29b-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-1826	hsa-miR-1826	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-335-5p	hsa-miR-335-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5335	PLCG1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	10451	VAV3	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5578	PRKCA	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5336	PLCG2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5579	PRKCB	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-17-3p	hsa-miR-17-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-574-3p	hsa-miR-574-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-182-3p	hsa-miR-182-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-886-3p	hsa-miR-886-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	7410	VAV2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-518b	hsa-miR-518b	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	7412	VCAM1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	4267	CD99	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-106b-5p	hsa-miR-106b-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-320a	hsa-miR-320a	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-216a-5p	hsa-miR-216a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5906	RAP1A	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5908	RAP1B	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-491-5p	hsa-miR-491-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	mmu-miR-140-5p	mmu-miR-140-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-16-5p	hsa-miR-16-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-218-5p	hsa-miR-218-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-448	hsa-miR-448	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-126-5p	hsa-miR-126-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	7409	VAV1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-132-3p	hsa-miR-132-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	2771	GNAI2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-1280	hsa-miR-1280	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	2770	GNAI1	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	58494	JAM2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-9-5p	hsa-miR-9-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-320c	hsa-miR-320c	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-379-5p	hsa-miR-379-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-let-7e-5p	hsa-let-7e-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-224-5p	hsa-miR-224-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-320d	hsa-miR-320d	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-193a-5p	hsa-miR-193a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	100132463	CLDN24	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-30a-5p	hsa-miR-30a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-27a-3p	hsa-miR-27a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-133a-5p	hsa-miR-133a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	1432	MAPK14	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	58498	MYL7	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-490-5p	hsa-miR-490-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-302a-5p	hsa-miR-302a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-708-5p	hsa-miR-708-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	83692	CD99L2	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-182-5p	hsa-miR-182-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	8503	PIK3R3	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-584-3p	hsa-miR-584-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	5010	CLDN11	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	7430	EZR	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-148a-3p	hsa-miR-148a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-517a-3p	hsa-miR-517a-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-137-3p	hsa-miR-137-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-34a-5p	hsa-miR-34a-5p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-143-3p	hsa-miR-143-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	2773	GNAI3	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-29c-3p	hsa-miR-29c-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	10686	CLDN16	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-330-3p	hsa-miR-330-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-126-3p	hsa-miR-126-3p	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	hsa-miR-107	hsa-miR-107	0.0	0.0	1.0
+path:hsa04670	Leukocyte transendothelial migration - Enriched	103910	MYL12B	0.0	0.0	1.0
