@@ -34,7 +34,7 @@ sidebar <- dashboardSidebar(
               placement = "bottom", trigger = "hover"),
     DTOutput("listFiles"),
     fileInput("hiddenUpload",label=NULL,multiple=T,buttonLabel = "Add file"),
-    actionButton("compare","Compare")
+    actionButton("compare","Show",disabled = T)
   )
 )
 

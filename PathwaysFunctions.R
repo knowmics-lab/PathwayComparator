@@ -2,15 +2,20 @@ read.phensim.file <- function(file)
 {
   pathways.data <- as.data.frame(fread(file))
   if("Activity Score" %in% colnames(pathways.data)) {
-    organism <- map.organism[map.organism$Code==tolower(unlist(strsplit(pathways.data[1,1],":|-"))[2]),"Organism"]
-    pathways.data <- as.data.frame(unique(pathways.data[,c("Node Id","Activity Score")]))
+    organism <- map.organism[sapply(map.organism$Code,grepl,tolower(pathways.data[1,1])),"Organism"]
+    #organism <- map.organism[map.organism$Code==tolower(unlist(strsplit(pathways.data[1,1],":|-"))[2]),"Organism"]
+    pathways.data <- unique(pathways.data[,c("Node Id","Activity Score")])
+  } else if("Perturbation" %in% colnames(pathways.data)) {
+    organism <- map.organism[sapply(map.organism$Code,grepl,tolower(pathways.data[1,1])),"Organism"]
+    #organism <- map.organism[map.organism$Code==tolower(unlist(strsplit(pathways.data[1,1],":|-"))[2]),"Organism"]
+    pathways.data <- unique(pathways.data[,c("Gene Id","Perturbation")])
   } else {
-    organism <- as.character(map.organism[map.organism$Organism==pathways.data$Organism[1],"Organism"])
-    pathways.data <- pathways.data[,c("Node","Score")]
+    organism.name <- names(fread(file,nrows=1))
+    organism <- as.character(map.organism[map.organism$Organism==organism.name,"Organism"])
+    pathways.data <- unique(pathways.data)
   }
   colnames(pathways.data) <- c("node","activity")
   final.data <- list(organism=organism,data=pathways.data)
-  #tolower(substr(unlist(lapply(strsplit(pathways.data$Pathway,":|-"),function(x){x[2]})),1,3))
   return(final.data)
 }
 
@@ -23,13 +28,13 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
   ref.gene <- strsplit(gene,"\n")[[1]][1]
   if(ref.gene!="All") {
     ref.net <- strsplit(gene,"\n")[[1]][2]
-    ref.organism <- data.list[[ref.net]]$organism
+    ref.organism <- as.character(data.list[[ref.net]]$organism)
     ref.pathways <- pathway.list[[ref.organism]]
     ref.id <- c(ref.pathways[ref.pathways$pathwayName==pathway & ref.pathways$nodeName==ref.gene,"node"])
     ortho.nodes <- c(ref.id)
     for(net in networks) {
       if(net!=ref.net) {
-        net.organism <- data.list[[net]]$organism
+        net.organism <- as.character(data.list[[net]]$organism)
         if(ref.organism<=net.organism) {
           ref.ortho <- ortho.list[[paste0(ref.organism,"-",net.organism)]]
         } else {

@@ -36,18 +36,27 @@ function(input, output, session) {
   observeEvent(input$delete_button, {
     selectedRow <- as.numeric(strsplit(input$delete_button, "_")[[1]][2])
     rem.organism <- data.list[[selectedRow]]$organism
-    data.list[[selectedRow]] <<- NULL
     freq.organisms <- table(sapply(data.list,function(el){el$organism}))
     if(freq.organisms[rem.organism]==1) {
       metapathway.list[[rem.organism]] <<- NULL
       pathway.list[[rem.organism]] <<- NULL
     }
+    data.list[[selectedRow]] <<- NULL
+    #if(length(data.list)>0) {}
     updateSelectInput(session,"uploadedFiles",choices=input$uploadedFiles[-selectedRow],selected=input$uploadedFiles[-selectedRow])
+    if(length(data.list)==1) {
+      updateActionButton(session,"compare",label="Show",disabled=F)
+    } else if(length(data.list)>1) {
+      updateActionButton(session,"compare",label="Compare",disabled=F)
+    } else {
+      updateActionButton(session,"compare",label="Show",disabled=T)
+    }
   })
   
   observeEvent(input$hiddenUpload,{
     file.list <- input$hiddenUpload
     req(file.list)
+    print(file.list)
     dataname.list <- c()
     for(i in 1:nrow(file.list)) {
       file <- file.list[i,]
@@ -57,20 +66,34 @@ function(input, output, session) {
         dataname <- paste0(dataname,"_",(length(input$uploadedFiles)+1))
       }
       data.list[[dataname]] <<- file.data
-      if(is.null(metapathway.list[[file.data$organism]])) {
-        metapathway.list[[file.data$organism]] <<- readRDS(paste0("Data/Metapathways/",file.data$organism,".rds"))
-        pathway.list[[file.data$organism]] <<- readRDS(paste0("Data/Pathways/",file.data$organism,".rds"))
+      organism <- as.character(file.data$organism)
+      if(!organism %in% names(metapathway.list)) {
+        metapathway.list[[organism]] <<- readRDS(paste0("Data/Metapathways/",organism,".rds"))
+        pathway.list[[organism]] <<- readRDS(paste0("Data/Pathways/",organism,".rds"))
       }
       dataname.list <- c(dataname.list,dataname)
     }
     updateSelectInput(session,"uploadedFiles",choices=c(input$uploadedFiles,dataname.list),selected=c(input$uploadedFiles,dataname.list))
+    if(length(data.list)==1) {
+      updateActionButton(session,"compare",label="Show",disabled=F)
+    } else if(length(data.list)>1) {
+      updateActionButton(session,"compare",label="Compare",disabled=F)
+    } else {
+      updateActionButton(session,"compare",label="Show",disabled=T)
+    }
   })
   
   observeEvent(input$compare, {
     data.list <- data.list[order(sapply(data.list, function(el) el$organism))]
-    list.organism <- sapply(data.list,function(el){el$organism})
-    org.pairs <- apply(t(combn(sort(list.organism),2)),1,function(row){paste0(row,collapse="-")})
-    for(pair in org.pairs) {
+    list.organism <- as.character(sapply(data.list,function(el){el$organism}))
+    #print(list.organism)
+    if(length(list.organism)>1){
+      org.pairs <- apply(t(combn(sort(list.organism),2)),1,function(row){paste0(row,collapse="-")})
+      for(pair in org.pairs) {
+        ortho.list[[pair]] <<- readRDS(paste0("Data/Orthologs/",pair,".rds"))
+      } 
+    } else {
+      pair <- paste0(list.organism,"-",list.organism)
       ortho.list[[pair]] <<- readRDS(paste0("Data/Orthologs/",pair,".rds"))
     }
     list.pathways <- sapply(list.organism,function(org){unique(pathway.list[[org]]$pathwayName)})
