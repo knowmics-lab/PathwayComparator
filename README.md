@@ -54,7 +54,7 @@ chebi:43474	0
 
 MITHrIL evaluate the de-regulation of pathways due to expression changes of one or more pathway elements. MITHrIL requires a list of biological entities with their log-fold expression changes as input. De-regulation of pathway nodes is measured by a perturbation score, which can be positive or negative.
 
-MITHril is available as a command line tool (<a href="https://github.com/alaimos/mithril-standalone"></a>), and its output is a perturbation file that can be directly uploaded as input to PACO. The scores associated with nodes and used by PACO are the values of the "Perturbation" column.
+MITHril is available as a command line tool (<a href="https://github.com/alaimos/mithril-standalone">https://github.com/alaimos/mithril-standalone</a>), and its output is a perturbation file that can be directly uploaded as input to PACO. The scores associated with nodes and used by PACO are the values of the "Perturbation" column.
 
 Example:
 
@@ -69,7 +69,7 @@ path:hsa00190	Oxidative phosphorylation - Enriched	hsa-miR-101-3p	hsa-miR-101-3p
 
 <b>PHENSIM simulation file:</b>
 
-PHENSIM (PHENotype SIMulator) (<a href="https://phensim.tech/"></a>) is a tool developed to simulate the de-regulation of pathways biological elements, as a result of the over- or under-expression of user-specified molecules (e.g. genes or miRNAs).
+PHENSIM (PHENotype SIMulator) (<a href="https://phensim.tech/">https://phensim.tech/</a>) is a tool developed to simulate the de-regulation of pathways biological elements, as a result of the over- or under-expression of user-specified molecules (e.g. genes or miRNAs).
 
 De-regulation of pathway nodes is measured by an activity score, which can be positive or negative, denoting a biological element which is more or less active than normal condition.
 
@@ -77,6 +77,8 @@ After a new simulation has been launched and completed, PHENSIM simulation file 
 - Go to the "Simulations" panel on the left sidebar
 - Click on "Show simulation" ('eye' icon on the right) to view more details about the simulation
 - Go to the "Download results" box at the bottom of the page and click on "Download raw results"
+
+PHENSIM can be also executed from command line as a service of MITHril algorithm (<a href="https://github.com/alaimos/mithril-standalone">https://github.com/alaimos/mithril-standalone</a>).
 
 Scores associated to nodes are the values of "Activity Score" column.
 
