@@ -6,9 +6,10 @@ Shiny R web-app for comparing perturbed pathways associated to different phenoty
 
 <b>Input data:</b>
 
-Two types of text files can be uploaded by the user for pathway comparison:
-- PHENSIM simulation file
+Three types of text files can be uploaded by the user for pathway comparison:
 - Custom file
+- MIThRIL perturbation file
+- PHENSIM simulation file
 
 Example files are available in the "Data" folder.
 
@@ -18,6 +19,51 @@ Currently supported organisms:
 - Rat
 
 More organisms will be supported in the future.
+
+<br/>
+
+<b>Custom file:</b>
+
+The user can provide the app with any custom text file containing a score for each biological element.
+The first line of the text file must contain the common name of one of the supported organisms (e.g. 'Human', 'Mouse') to which biological elements belong. 
+The second line contains the name of the columns, "Node" and "Score".
+The following lines indicate for each biological entity (gene, miRNAs, compound) a perturbation score.
+Nodes are referred to by the id of the corresponding biological element, which must be: 
+- The Entrez ID for genes
+- The miRBase entry name for miRNAs
+- The ChEBI id, the KEGG COMPOUND id or the KEGG GLYCAN id for chemical compounds
+- The KEGG DRUG id for drugs
+Perturbation score can be any real number (positive, negative or zero).
+
+Example:
+
+<pre>
+Human
+Node	Score
+6197	-3.74
+6196	0
+hsa-miR-199b-3p	0
+hsa-miR-128-3p	2.5
+hsa-miR-214-3p	0
+chebi:43474	0
+</pre>
+
+<br/>
+
+<b>MITHrIL perturbation file:</b>
+
+MITHrIL evaluate the de-regulation of pathways due to expression changes of one or more pathway elements. MITHrIL requires a list of biological entities with their log-fold expression changes as input. De-regulation of pathway nodes is measured by a perturbation score, which can be positive or negative.
+
+MITHril is available as a command line tool (<a href="https://github.com/alaimos/mithril-standalone"></a>), and its output is a perturbation file that can be directly uploaded as input to PACO. The scores associated with nodes and used by PACO are the values of the "Perturbation" column.
+
+Example:
+
+<pre>
+# Pathway Id	Pathway Name	Gene Id	Gene Name	Perturbation	Accumulator	pValue
+path:hsa00190	Oxidative phosphorylation - Enriched	64077	LHPP	0.45	1.36	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	5464	PPA1	2.10	3.56	1.0
+path:hsa00190	Oxidative phosphorylation - Enriched	hsa-miR-101-3p	hsa-miR-101-3p	-0.79	-2.45	1.0
+</pre>
 
 <br/>
 
@@ -45,33 +91,9 @@ R-HSA-198753	ERK/MAPK targets	hsa-miR-199b-3p	hsa-miR-199b-3p	No	No	0.0	0.997000
 
 <br/>
 
-<b>Custom file:</b>
-
-The user can provide the app with any custom text file containing a score for each biological element.
-The text file must contain three columns, "Organism","Node" and "Score, indicating for each biological entity (gene, miRNAs, compound) the organism to which it belongs or refers and a perturbation score.
-Organism column is the common name of one of the supported organisms (e.g. 'Human', 'Mouse').
-Node column specifies the id of the biological element, which must be: 
-- The Entrez ID for genes
-- The miRBase entry name for miRNAs
-- The ChEBI id, the KEGG COMPOUND id or the KEGG GLYCAN id for chemical compounds
-- The KEGG DRUG id for drugs
-Perturbation score can be any real number (positive, negative or zero).
-
-Example:
-
-<pre>
-Organism	Node	Score
-Human	6197	-3.74
-Human	6196	0
-Human	hsa-miR-199b-3p	0
-Human	hsa-miR-128-3p	2.5
-Human	hsa-miR-214-3p	0
-Human	chebi:43474	0
-</pre>
-
-<br/>
-
 <b>References:</b>
+
+- Alaimo S, Giugno R, Acunzo M, Veneziano D, Ferro A, Pulvirenti A (2016). <i>Post-transcriptional knowledge in pathway analysis increases the accuracy of phenotypes classification.</i> Oncotarget 7(34):54572-54582. <a href="https://doi.org/10.18632/oncotarget.9788">https://doi.org/10.18632/oncotarget.9788</a>
 
 - Alaimo S, Rapicavoli RV, Marceca GP, La Ferlita A, Serebrennikova OB, et al. (2021). <i>PHENSIM: Phenotype Simulator.</i> PLOS Computational Biology 17(6): e1009069. <a href="https://doi.org/10.1371/journal.pcbi.1009069">https://doi.org/10.1371/journal.pcbi.1009069</a>
 
