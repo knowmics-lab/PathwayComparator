@@ -26,7 +26,6 @@ More organisms will be supported in the future.
 
 The user can provide the app with any custom text file containing a score for each biological element.
 The first line of the text file must contain the common name of one of the supported organisms (e.g. 'Human', 'Mouse') to which biological elements belong. 
-The second line contains the name of the columns, "Node" and "Score".
 The following lines indicate for each biological entity (gene, miRNAs, compound) a perturbation score.
 Nodes are referred to by the id of the corresponding biological element, which must be: 
 - The Entrez ID for genes
@@ -39,7 +38,6 @@ Example:
 
 <pre>
 Human
-Node	Score
 6197	-3.74
 6196	0
 hsa-miR-199b-3p	0
