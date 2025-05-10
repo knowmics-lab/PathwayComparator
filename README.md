@@ -8,7 +8,7 @@ Shiny R web-app for comparing perturbed pathways associated to different phenoty
 
 Three types of text files can be uploaded by the user for pathway comparison:
 - Custom file
-- MIThRIL perturbation file
+- MITHrIL perturbation file
 - PHENSIM simulation file
 
 Example files are available in the "Data" folder.
