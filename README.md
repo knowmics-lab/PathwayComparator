@@ -91,9 +91,27 @@ R-HSA-198753	ERK/MAPK targets	hsa-miR-199b-3p	hsa-miR-199b-3p	No	No	0.0	0.997000
 
 <br/>
 
+<b>Example of usage:</b>
+
+We want to compare perturbed immune system pathways (specifically the "Interferon Signaling" pathway) in mice and humans, following the upregulation of Interferon (IFN)-stimulated gene 15 (ISG15), a ubiquitin-like protein that functions both as an extracellular cytokine and an intracellular protein modifier.
+
+As a preliminary step, we first run two simulations using PHENSIM by upregulating ISG15 in humans and mice, respectively.
+
+Connect to the <a href="https://phensim.tech/">PHENSIM web portal</a>[^1]. Click on "Simulations" on the left sidebar. From the simulation page that appears, clik on "New simple simulation". Following the guided procedure, indicate a name for the new simulation and select "Homo sapiens" as organism. Next, write "ISG15" in the filter of "NAME" column and click on the red up-arrow to include ISG15 as up-regulated gene in the simulation. Finally, select the option "Add REACTOME pathways" in the "SELECT OPTIONAL PARAMETERS" tab to include REACTOME pathways in the simulation and click on "Create simulation" to run PHENSIM. 
+
+The launched simulation will then appear on the list of all simulations launched so far by the user using the PHENSIM portal, accessible by clicking on "Simulations" on the left sidebar. When the simulation ends, i.e. the value of the "STATUS" column in the table is "Completed", download the PHENSIM simulation file as follows:
+- Go to the "Simulations" panel
+- Click on "Show simulation" ('eye' icon on the right)
+- Go to the "Download results" box at the bottom of the page and click "Download raw results."
+
+To perform a PHENSIM simulation by upregulating ISG15 in mice, repeat the same steps on the PHENSIM portal, selecting now "Mus Musculus" as organism.
+
+Next, upload the two files into PACO and click on the "Compare" button. In the visualization panel, choose "Interferon Signaling" as "Pathway" and (optionally) "ISG15" as "Gene" to focus only on ISG15 gene and on its direct neighbors in the "Interferon Signaling" pathway of human and mouse.
+
 <b>References:</b>
 
 - Alaimo S, Giugno R, Acunzo M, Veneziano D, Ferro A, Pulvirenti A (2016). <i>Post-transcriptional knowledge in pathway analysis increases the accuracy of phenotypes classification.</i> Oncotarget 7(34):54572-54582. <a href="https://doi.org/10.18632/oncotarget.9788">https://doi.org/10.18632/oncotarget.9788</a>
 
 - Alaimo S, Rapicavoli RV, Marceca GP, La Ferlita A, Serebrennikova OB, et al. (2021). <i>PHENSIM: Phenotype Simulator.</i> PLOS Computational Biology 17(6): e1009069. <a href="https://doi.org/10.1371/journal.pcbi.1009069">https://doi.org/10.1371/journal.pcbi.1009069</a>
 
+[^1]: Before using PHENSIM web portal, a registration is required. After registration, log in to start new simulations.
