@@ -86,18 +86,25 @@ As a preliminary step, we first run two simulations using PHENSIM by upregulatin
 
 Connect to the <a href="https://phensim.tech/">PHENSIM web portal</a>[^1]. Click on "Simulations" on the left sidebar. From the simulation page that appears, clik on "New simple simulation". 
 
-![PHENSIM Simulation panel](https://github.com/knowmics-lab/PathwayComparator/tree/main/images/PHENSIM_Portal.png?raw=true)
+![PHENSIM_Portal](https://github.com/user-attachments/assets/0eca77c6-0251-44cd-bee1-700c17196415)
 
-Following the guided procedure, indicate a name for the new simulation and select "Homo sapiens" as organism. Next, write "ISG15" in the filter of "NAME" column and click on the red up-arrow to include ISG15 as up-regulated gene in the simulation. Finally, select the option "Add REACTOME pathways" in the "SELECT OPTIONAL PARAMETERS" tab to include REACTOME pathways in the simulation and click on "Create simulation" to run PHENSIM. 
+Following the guided procedure, indicate a name for the new simulation and select "Homo sapiens" as organism. Next, write "ISG15" in the filter of "NAME" column and click on the red up-arrow to include ISG15 as up-regulated gene in the simulation. Finally, select the option "Add REACTOME pathways" in the "SELECT OPTIONAL PARAMETERS" tab to include REACTOME pathways in the simulation and click on "Create simulation" to run PHENSIM.
+
+![PHENSIM_Simulation](https://github.com/user-attachments/assets/7a7bc7ee-3cf2-4209-b0b0-42f87fcd5041)
 
 The launched simulation will then appear on the list of all simulations launched so far by the user using the PHENSIM portal, accessible by clicking on "Simulations" on the left sidebar. When the simulation ends, i.e. the value of the "STATUS" column in the table is "Completed", download the PHENSIM simulation file as follows:
 - Go to the "Simulations" panel
 - Click on "Show simulation" ('eye' icon on the right)
 - Go to the "Download results" box at the bottom of the page and click "Download raw results."
 
+![PHENSIM_Results](https://github.com/user-attachments/assets/f52c9d9b-45ce-40bf-99bc-394b99759c53)
+
 To perform a PHENSIM simulation by upregulating ISG15 in mice, repeat the same steps on the PHENSIM portal, selecting now "Mus Musculus" as organism.
 
 Next, upload the two files into PACO and click on the "Compare" button. In the visualization panel, choose "Interferon Signaling" as "Pathway" and (optionally) "ISG15" as "Gene" to focus only on ISG15 gene and on its direct neighbors in the "Interferon Signaling" pathway of human and mouse.
+
+![PACOApp](https://github.com/user-attachments/assets/ccccbfd7-ff06-4215-a2aa-ba94d05c3881)
+
 
 <b>References:</b>
 
