@@ -86,7 +86,7 @@ As a preliminary step, we first run two simulations using PHENSIM by upregulatin
 
 Connect to the <a href="https://phensim.tech/">PHENSIM web portal</a>[^1]. Click on "Simulations" on the left sidebar. From the simulation page that appears, clik on "New simple simulation". 
 
-<img width="964" alt="PHENSIM simulation panel" src="https://github.com/knowmics-lab/PathwayComparator/tree/main/images/PHENSIM_Portal.png">
+![PHENSIM Simulation panel](https://github.com/knowmics-lab/PathwayComparator/tree/main/images/PHENSIM_Portal.png?raw=true)
 
 Following the guided procedure, indicate a name for the new simulation and select "Homo sapiens" as organism. Next, write "ISG15" in the filter of "NAME" column and click on the red up-arrow to include ISG15 as up-regulated gene in the simulation. Finally, select the option "Add REACTOME pathways" in the "SELECT OPTIONAL PARAMETERS" tab to include REACTOME pathways in the simulation and click on "Create simulation" to run PHENSIM. 
 
