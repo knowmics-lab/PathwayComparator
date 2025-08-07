@@ -1,0 +1,5 @@
+local({
+  options(shiny.port = 3838, shiny.host = "0.0.0.0")
+  options(repos = c(CRAN = 'https://p3m.dev/cran/__linux__/noble/latest'), download.file.method = 'libcurl')
+  options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version["platform"], R.version["arch"], R.version["os"])))
+})
