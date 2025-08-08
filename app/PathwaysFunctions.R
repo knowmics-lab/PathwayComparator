@@ -211,7 +211,7 @@ plot.pathway <- function(multilayer.nodes,multilayer.edges,pathway)
                              color.border = c(col.borders[1:num.layers], "black","black"),
                              font.size = c(rep(16,num.layers),16,16),
                              borderWidth = c(rep(3,num.layers),3,3),
-                             image=c(rep("",num.layers),"","https://alpha.dmi.unict.it/~gmicale/Documents/activity2.png"))
+                             image=c(rep("",num.layers),"","Icons/ScoreBar.png"))
   
   #Set edge weights for plotting network
   edge.plot.weigths <- rep(1,nrow(multilayer.edges))
