@@ -2,7 +2,7 @@
 Shiny R web-app for comparing perturbed pathways associated to different phenotypes.
 
 <b>URL:</b>
-<a href="https://alpha.dmi.unict.it/shiny/users/gmicale/PathwayComparator/">https://alpha.dmi.unict.it/shiny/users/gmicale/PathwayComparator/</a>.
+<a href="https://paco.dioncogen.eu/">https://paco.dioncogen.eu/</a>.
 
 <b>Input data:</b>
 
