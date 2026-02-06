@@ -42,8 +42,12 @@ body <- dashboardBody(
   use_theme(app.theme),
   useShinyjs(),
   fluidRow(
-    column(4,selectizeInput("pathwaySel","Pathway",choices=NULL,width="100%")),
-    column(2,selectizeInput("geneSel","Node",choices=NULL)),
+    column(12,radioButtons("searchOpt","Search by:",choices=c("Pathway","Node"),inline=T,selected="Pathway"))
+  ),
+  fluidRow(
+    column(6,uiOutput("startSel")),
+    # column(4,pickerInput("pathwaySel","Pathway",choices=NULL,multiple = T,width="100%",options=pickerOptions(actionsBox=T,liveSearch = T))),
+    # column(2,pickerInput("geneSel","Node",choices=NULL,multiple = T,options=pickerOptions(actionsBox=T,liveSearch = T))),
     column(2,pickerInput("networkSel","Layer",choices=NULL,multiple = T,options=list(`max-options`=3))),
     column(4,checkboxGroupInput("hideElements", "", c("Hide chemical entities","Hide drugs","Hide miRNAs"),
                                 selected = c("Hide chemical entities","Hide drugs","Hide miRNAs"), inline=T))
@@ -62,6 +66,7 @@ body <- dashboardBody(
   tags$head(tags$style(HTML(".form-group { font-size: 18px;}"))),
   tags$head(tags$style(HTML("p { margin-left: 20px; margin-top: 20px; font-weight: bold;}"))),
   tags$style("input[type=checkbox] { transform: scale(1.4); }"),
+  tags$style(HTML("#searchOpt {display: flex; align-items: center; gap: 10px;} #searchOpt label:first-child {margin-bottom: 0; margin-right: 5px;}")),
   tags$head(tags$style(HTML(".selectize-input { font-size: 18px; line-height: 20px;} .selectize-dropdown { font-size: 16px; line-height: 18px; }"))),
   tags$head(tags$style(HTML(".dropdown-menu ul li:nth-child(n) a { color: black !important; font-size: 18px;}"))),
   tags$head(tags$style(HTML(".picker {font-size: 16px; color: black;}")))

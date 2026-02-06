@@ -1,18 +1,23 @@
 read.phensim.file <- function(file)
 {
-  pathways.data <- as.data.frame(fread(file))
-  if("Activity Score" %in% colnames(pathways.data)) {
+  #Read file header
+  con <- file(file,"r")
+  file.header <- readLines(con,n=1)
+  close(con)
+  #Read data according to the file format
+  if(grepl("Activity Score",file.header,fixed=T)) {
+    pathways.data <- as.data.frame(fread(file))
     organism <- map.organism[sapply(map.organism$Code,grepl,tolower(pathways.data[1,1])),"Organism"]
-    #organism <- map.organism[map.organism$Code==tolower(unlist(strsplit(pathways.data[1,1],":|-"))[2]),"Organism"]
     pathways.data <- unique(pathways.data[,c("Node Id","Activity Score")])
-  } else if("Perturbation" %in% colnames(pathways.data)) {
+  } else if(grepl("Perturbation",file.header,fixed=T)) {
+    pathways.data <- as.data.frame(fread(file))
     organism <- map.organism[sapply(map.organism$Code,grepl,tolower(pathways.data[1,1])),"Organism"]
-    #organism <- map.organism[map.organism$Code==tolower(unlist(strsplit(pathways.data[1,1],":|-"))[2]),"Organism"]
     pathways.data <- unique(pathways.data[,c("Gene Id","Perturbation")])
   } else {
-    organism.name <- names(fread(file,nrows=1))
-    organism <- as.character(map.organism[map.organism$Organism==organism.name,"Organism"])
+    pathways.data <- as.data.frame(fread(file,skip=1))
     pathways.data <- unique(pathways.data)
+    organism.name <- file.header
+    organism <- as.character(map.organism[map.organism$Organism==organism.name,"Organism"])
   }
   colnames(pathways.data) <- c("node","activity")
   final.data <- list(organism=organism,data=pathways.data)
@@ -20,40 +25,41 @@ read.phensim.file <- function(file)
 }
 
 build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list,
-                              networks,pathway,gene,hide.elements)
+                              networks,pathways,genes,hide.elements)
 {
   multilayer.net <- list()
+  #print(genes)
   
   #Get reference genes for gene-centric visualization
-  ref.gene <- strsplit(gene,"\n")[[1]][1]
-  if(ref.gene!="All") {
-    ref.net <- strsplit(gene,"\n")[[1]][2]
-    ref.organism <- as.character(data.list[[ref.net]]$organism)
-    ref.pathways <- pathway.list[[ref.organism]]
-    ref.id <- c(ref.pathways[ref.pathways$pathwayName==pathway & ref.pathways$nodeName==ref.gene,"node"])
-    ortho.nodes <- c(ref.id)
-    for(net in networks) {
-      if(net!=ref.net) {
-        net.organism <- as.character(data.list[[net]]$organism)
-        if(ref.organism<=net.organism) {
-          ref.ortho <- ortho.list[[paste0(ref.organism,"-",net.organism)]]
-        } else {
-          ref.ortho <- ortho.list[[paste0(net.organism,"-",ref.organism)]]
+  ref.genes <- sapply(strsplit(genes,"\n"),function(x){x[1]})
+  if(!"All" %in% ref.genes) {
+    ref.nets <- unique(sapply(strsplit(genes,"\n"),function(x){x[2]}))
+    ref.organisms <- unname(sapply(data.list[ref.nets],function(x){x$organism}))
+    ref.pathways <- pathway.list[ref.organisms]
+    ref.ids <- lapply(ref.pathways,function(x){unique(x[x$nodeName %in% ref.genes,"node"])})
+    ortho.nodes <- c(unname(unlist(ref.ids)))
+    for(ref.organism in names(ref.ids)) {
+      for(net.organism in names(pathway.list)) {
+        if(net.organism!=ref.organism) {
+          if(ref.organism<=net.organism) {
+            ref.ortho <- ortho.list[[paste0(ref.organism,"-",net.organism)]]
+          } else {
+            ref.ortho <- ortho.list[[paste0(net.organism,"-",ref.organism)]]
+          }
+          ortho.nodes <- c(ortho.nodes,ref.ortho[ref.ortho[,paste0(ref.organism," id")] %in% ref.ids[[ref.organism]],paste0(net.organism," id")])
         }
-        ortho.nodes <- c(ortho.nodes,ref.ortho[ref.ortho[,paste0(ref.organism," id")]==ref.id,paste0(net.organism," id")])
       }
     }
   }
   id.count <- 1
   
-  for(net in networks)
-  {
+  for(net in networks) {
     net.node.data <- data.list[[net]]
     pathway.info <- pathway.list[[net.node.data$organism]]
     metapathway.info <- metapathway.list[[net.node.data$organism]]
     
     #Retrieve pathway nodes
-    pathway.info <- pathway.info[pathway.info$pathwayName==pathway,c("node","nodeName","endpoint")]
+    pathway.info <- unique(pathway.info[pathway.info$pathwayName %in% pathways,c("node","nodeName","endpoint")])
     pathway.nodes.info <- merge(pathway.info,net.node.data$data,all.x=T)
     pathway.nodes.info[is.na(pathway.nodes.info$activity),"activity"] <- 0
     #Hide extra element, if needed
@@ -73,7 +79,7 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
     
     #Retrieve pathway edges
     pathway.edges.info <- metapathway.info[metapathway.info$source %in% pathway.nodes.info$node & metapathway.info$target %in% pathway.nodes.info$node,]
-    if(ref.gene!="All") {
+    if(!"All" %in% ref.genes) {
       #gene.id <- pathway.nodes.info[pathway.nodes.info$nodeName==gene,"node"]
       gene.edges <- pathway.edges.info[pathway.edges.info$source %in% ortho.nodes | pathway.edges.info$target %in% ortho.nodes,]
       sub.nodes.list <- unique(c(gene.edges$source,gene.edges$target))
@@ -81,8 +87,8 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
     }
     if(nrow(pathway.edges.info)>0) {
       pathway.nodes.ids <- unique(c(pathway.edges.info$source,pathway.edges.info$target))
-      pathway.nodes.info <- unique(pathway.nodes.info[pathway.nodes.info$node %in% pathway.nodes.ids,])
-    } else if(ref.gene!="All") {
+      pathway.nodes.info <- unique(pathway.nodes.info[pathway.nodes.info$node %in% pathway.nodes.ids | pathway.nodes.info$node %in% ortho.nodes,])
+    } else if(!"All" %in% ref.genes) {
       pathway.nodes.info <- pathway.nodes.info[pathway.nodes.info$node %in% ortho.nodes,]
     }
     
@@ -146,7 +152,7 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
   
 }
 
-plot.pathway <- function(multilayer.nodes,multilayer.edges,pathway)
+plot.pathway <- function(multilayer.nodes,multilayer.edges)
 {
   if(nrow(multilayer.nodes)>0)
   {
@@ -221,7 +227,7 @@ plot.pathway <- function(multilayer.nodes,multilayer.edges,pathway)
   #colnames(multilayer.nodes)[1] <- "id"
   colnames(multilayer.edges)[1] <- "from"
   colnames(multilayer.edges)[4] <- "to"
-  multilayer.plot <- visNetwork(multilayer.nodes, multilayer.edges, main=pathway) %>%
+  multilayer.plot <- visNetwork(multilayer.nodes, multilayer.edges) %>%
     visPhysics(enabled = F) %>%
     visEdges(arrows="to",color = "black") %>%
     visOptions(clickToUse = F) %>%
@@ -249,14 +255,13 @@ plot.pathway <- function(multilayer.nodes,multilayer.edges,pathway)
   
 }
 
-get.list.selectable.nodes <- function(pathway,list.networks,hide.elements)
+get.list.selectable.nodes <- function(list.pathways,list.networks,hide.elements)
 {
   list.options <- list()
-  list.options$All <- c("All")
   for(network in list.networks) {
     organism <- data.list[[network]]$organism
     pathway.nodes <- pathway.list[[organism]]
-    list.nodes <- pathway.nodes[pathway.nodes$pathwayName==pathway,c("node","nodeName")]
+    list.nodes <- unique(pathway.nodes[pathway.nodes$pathwayName %in% list.pathways,c("node","nodeName")])
     if("Hide chemical entities" %in% hide.elements) {
       list.nodes <- list.nodes[!startsWith(list.nodes$node,"chebi:"),]
       list.nodes <- list.nodes[!startsWith(list.nodes$node,"cpd:"),]
@@ -275,6 +280,44 @@ get.list.selectable.nodes <- function(pathway,list.networks,hide.elements)
     list.options[[network]] <- final.options
   }
   return(list.options)
+}
+
+get.list.selectable.pathways <- function(list.nodes)
+{
+  #Group nodes by network
+  nodes.info <- do.call(rbind,strsplit(list.nodes, "\n"))
+  nodes.info <- split(nodes.info[,1],nodes.info[,2])
+  
+  #For each organism, get list of selectable pathways
+  list.options <- unique(unlist(sapply(names(nodes.info),function(network){
+    nodes.list <- nodes.info[[network]]
+    organism <- data.list[[network]]$organism
+    pathway.info <- pathway.list[[organism]]
+    sel.pathways <- unique(pathway.info[pathway.info$nodeName %in% nodes.list,"pathwayName"])
+    return(sel.pathways)
+  })))
+  return(list.options)
+}
+
+filter.selectable.nodes <- function(starting.list.nodes,list.networks,hide.elements)
+{
+  list.selectable.nodes <- starting.list.nodes[list.networks]
+  list.selectable.nodes <- lapply(list.selectable.nodes,function(el){
+    if("Hide chemical entities" %in% hide.elements) {
+      el <- el[!startsWith(el,"chebi:")]
+      el <- el[!startsWith(el,"cpd:")]
+      el <- el[!startsWith(el,"gl:")]
+    }
+    if("Hide drugs" %in% hide.elements) {
+      el <- el[!startsWith(el,"dr:")]
+    }
+    if("Hide miRNAs" %in% hide.elements) {
+      el <- el[!grepl("-miR",el)]
+      el <- el[!grepl("-let",el)]
+    }
+    return(el)
+  })
+  return(list.selectable.nodes)
 }
 
 metapathway.list <- list()

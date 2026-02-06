@@ -2,8 +2,16 @@ function(input, output, session) {
   
   options(shiny.maxRequestSize=200*1024^2)
   
-  last.choice <- reactive(input$geneSel)
+  #last.choice <- reactive(input$geneSel)
   uploaded.files <- reactive(input$uploadedFiles)
+  
+  shinyjs::hide("searchOpt")
+  shinyjs::hide("startSel")
+  shinyjs::hide("networkSel")
+  shinyjs::hide("hideElements")
+  
+  last.sel.pathways <- reactiveVal(NULL)
+  last.sel.genes <- reactiveVal(NULL)
   
   shinyInput <- function(FUN, len, id, ...) {
     inputs <- character(len)
@@ -12,6 +20,31 @@ function(input, output, session) {
     }
     inputs
   }
+  
+  observe({
+    last.sel.pathways(input$pathwaySel)
+  })
+  
+  observe({
+    last.sel.genes(input$geneSel)
+  })
+  
+  # Renderizza dinamicamente i picker in base alla selezione
+  output$startSel <- renderUI({
+    if (input$searchOpt == "Pathway") {
+      # Prima pathway, poi gene
+      tagList(
+        pickerInput("pathwaySel","Pathway",choices=NULL,multiple = T,width="100%",options=pickerOptions(actionsBox=T,liveSearch = T)),
+        pickerInput("geneSel","Node",choices=NULL,multiple = T,options=pickerOptions(actionsBox=T,liveSearch = T))
+      )
+    } else {
+      # Prima gene, poi pathway
+      tagList(
+        pickerInput("geneSel","Node",choices=NULL,multiple = T,options=pickerOptions(actionsBox=T,liveSearch = T)),
+        pickerInput("pathwaySel","Pathway",choices=NULL,multiple = T,width="100%",options=pickerOptions(actionsBox=T,liveSearch = T))
+      )
+    }
+  })
   
   output$listFiles <- DT::renderDT({
    #print(uploaded.files())
@@ -56,7 +89,7 @@ function(input, output, session) {
   observeEvent(input$hiddenUpload,{
     file.list <- input$hiddenUpload
     req(file.list)
-    print(file.list)
+    #print(file.list)
     dataname.list <- c()
     for(i in 1:nrow(file.list)) {
       file <- file.list[i,]
@@ -96,25 +129,76 @@ function(input, output, session) {
       pair <- paste0(list.organism,"-",list.organism)
       ortho.list[[pair]] <<- readRDS(paste0("Data/Orthologs/",pair,".rds"))
     }
+    
+    #Update list of selectable pathways and nodes
     list.pathways <- sapply(list.organism,function(org){unique(pathway.list[[org]]$pathwayName)})
     if(is.list(list.pathways)) {
-      common.pathways <- Reduce(intersect,list.pathways)
+      common.pathways <<- Reduce(intersect,list.pathways)
     } else {
-      common.pathways <- list.pathways
+      common.pathways <<- list.pathways
     }
-    updateSelectizeInput(session,"pathwaySel",choices=sort(common.pathways), server=TRUE)
+    list.all.nodes <<- get.list.selectable.nodes(sort(common.pathways),names(data.list),input$hideElements)
+    
+    #Make elements visible
+    shinyjs::show("searchOpt")
+    shinyjs::show("startSel")
+    shinyjs::show("networkSel")
+    shinyjs::show("hideElements")
+    
+    #Update picker lists
+    if(input$searchOpt=="Pathway"){
+      updatePickerInput(session,"pathwaySel",choices=sort(common.pathways),selected=NULL)
+      updatePickerInput(session,"geneSel",choices=list(),selected=NULL)
+      last.sel.genes(NULL)
+    } else {
+      updatePickerInput(session,"geneSel",choices=list.all.nodes,selected=NULL)
+      updatePickerInput(session,"pathwaySel",choices=NULL,selected=NULL)
+      last.sel.pathways(NULL)
+    }
     max.opt <- 3
     if(length(data.list)==2)
       max.opt <- 2
     updatePickerInput(session,"networkSel",choices=names(data.list),selected = names(data.list)[1:max.opt])
   })
   
-  observeEvent(input$pathwaySel,{
-    if(input$pathwaySel!="" && !is.null(input$networkSel)) {
-      updated.list <- get.list.selectable.nodes(input$pathwaySel,input$networkSel,input$hideElements)
-      updateSelectizeInput(session,"geneSel",choices=updated.list, selected="All", server=TRUE)
-    } else {
-      updateSelectizeInput(session,"geneSel",choices=NULL,server=T)
+  observeEvent(input$searchOpt,{
+    if(exists("common.pathways")){
+      if(input$searchOpt=="Pathway"){
+        updatePickerInput(session,"pathwaySel",choices=sort(common.pathways),selected=NULL)
+        last.sel.pathways(NULL)
+        updatePickerInput(session,"geneSel",choices=list(),selected=NULL)
+        last.sel.genes(NULL)
+      } else {
+        list.selectable.nodes <- filter.selectable.nodes(list.all.nodes,input$networkSel,input$hideElements)
+        updatePickerInput(session,"geneSel",choices=list.selectable.nodes,selected=NULL)
+        last.sel.genes(NULL)
+        updatePickerInput(session,"pathwaySel",choices=NULL,selected=NULL)
+        last.sel.pathways(NULL)
+      }
+    }
+  })
+  
+  observeEvent(last.sel.pathways(),{
+    if (input$searchOpt == "Pathway"){
+      if(!is.null(last.sel.pathways()) && !is.null(input$networkSel)) {
+        updated.list.nodes <- get.list.selectable.nodes(last.sel.pathways(),input$networkSel,input$hideElements)
+        updatePickerInput(session,"geneSel",choices=updated.list.nodes)
+      } else {
+        updatePickerInput(session,"geneSel",choices=list(),selected=NULL)
+        last.sel.genes(NULL)
+      }
+    }
+  }, ignoreNULL = FALSE)
+  
+  observeEvent(last.sel.genes(),{
+    if(input$searchOpt == "Node"){
+      if(!is.null(last.sel.genes()) && !is.null(input$networkSel)) {
+        updated.list.pathways <- get.list.selectable.pathways(last.sel.genes())
+        updatePickerInput(session,"pathwaySel",choices=sort(updated.list.pathways),selected=NULL)
+      } else {
+        updatePickerInput(session,"pathwaySel",choices=NULL,selected=NULL)
+        last.sel.pathways(NULL)
+      }
     }
   }, ignoreNULL = FALSE)
   
@@ -122,24 +206,46 @@ function(input, output, session) {
     input$networkSel
     input$hideElements
   },{
-    if(input$pathwaySel!="" && !is.null(input$networkSel)) {
-      updated.list <- get.list.selectable.nodes(input$pathwaySel,input$networkSel,input$hideElements)
-      choice.info <- strsplit(last.choice(),"\n")[[1]]
-      if(last.choice() %in% updated.list[[choice.info[2]]]) {
-        updateSelectizeInput(session, "geneSel", selected=last.choice(), choices=updated.list, server=TRUE)
-      } else{
-        updateSelectizeInput(session, "geneSel", selected="All", choices=updated.list, server=TRUE)
+    if(input$searchOpt=="Pathway"){
+      if(!is.null(last.sel.pathways()) && !is.null(input$networkSel)) {
+        updated.list <- get.list.selectable.nodes(last.sel.pathways(),input$networkSel,input$hideElements)
+        updated.gene.list <- unname(unlist(updated.list))
+        if(any(last.sel.genes() %in% updated.gene.list)) {
+          updatePickerInput(session, "geneSel", selected=last.sel.genes()[last.sel.genes() %in% updated.gene.list], choices=updated.list)
+        } else{
+          updatePickerInput(session, "geneSel", selected=NULL, choices=updated.list)
+          last.sel.genes(NULL)
+        }
+      } else {
+        updatePickerInput(session,"geneSel", selected=NULL, choices=list())
+        last.sel.genes(NULL)
       }
     } else {
-      updateSelectizeInput(session,"geneSel",choices=NULL,server=T)
+      if(!is.null(last.sel.genes()) && !is.null(input$networkSel)) {
+        #Filter list of selectable genes
+        updated.gene.list <- filter.selectable.nodes(list.all.nodes,input$networkSel,input$hideElements)
+        #Update list of already selected genes (if needed)
+        if(any(last.sel.genes() %in% updated.gene.list)) {
+          updatePickerInput(session, "geneSel", selected=last.sel.genes()[last.sel.genes() %in% updated.gene.list], choices=updated.gene.list)
+        } else{
+          updatePickerInput(session, "geneSel", selected=NULL, choices=updated.gene.list)
+          last.sel.genes(NULL)
+        }
+      } else {
+        updatePickerInput(session,"geneSel", selected=NULL, choices=list())
+        last.sel.genes(NULL)
+      }
     }
   }, ignoreNULL = F)
   
   output$plotPathway <- renderVisNetwork({
-    if(input$pathwaySel!="" && input$geneSel!="" && !is.null(input$networkSel)){
+    print(paste0("PATHWAYS: ",last.sel.pathways()))
+    print(paste0("GENES: ",last.sel.genes()))
+    if(!is.null(last.sel.pathways()) && !is.null(last.sel.genes()) && !is.null(input$networkSel)){
+      print("prova")
       multilayer.net <- build.pathway.net(data.list,metapathway.list,pathway.list,ortho.list,
-                            input$networkSel,input$pathwaySel,input$geneSel,input$hideElements)
-      pathway.plot <- plot.pathway(multilayer.net$nodes,multilayer.net$edges,input$pathwaySel)
+                            input$networkSel,last.sel.pathways(),last.sel.genes(),input$hideElements)
+      pathway.plot <- plot.pathway(multilayer.net$nodes,multilayer.net$edges)
       pathway.plot
     }
   })
