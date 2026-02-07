@@ -108,8 +108,11 @@ Next, upload the two files into PACO and click on the "Compare" button. In the v
 
 <b>References:</b>
 
-- Alaimo S, Giugno R, Acunzo M, Veneziano D, Ferro A, Pulvirenti A (2016). <i>Post-transcriptional knowledge in pathway analysis increases the accuracy of phenotypes classification.</i> Oncotarget 7(34):54572-54582. <a href="https://doi.org/10.18632/oncotarget.9788">https://doi.org/10.18632/oncotarget.9788</a>
+- Micale G, Alaimo S, Pulvirenti A (2025). <i>PACO: a Shiny app for comparing perturbed pathways associated with different phenotypes.</i> Bioinformatics Advances 5(1). <a href="https://doi.org/10.1093/bioadv/vbaf212">https://doi.org/10.1093/bioadv/vbaf212</a>
 
 - Alaimo S, Rapicavoli RV, Marceca GP, La Ferlita A, Serebrennikova OB, et al. (2021). <i>PHENSIM: Phenotype Simulator.</i> PLOS Computational Biology 17(6): e1009069. <a href="https://doi.org/10.1371/journal.pcbi.1009069">https://doi.org/10.1371/journal.pcbi.1009069</a>
+
+- Alaimo S, Giugno R, Acunzo M, Veneziano D, Ferro A, Pulvirenti A (2016). <i>Post-transcriptional knowledge in pathway analysis increases the accuracy of phenotypes classification.</i> Oncotarget 7(34):54572-54582. <a href="https://doi.org/10.18632/oncotarget.9788">https://doi.org/10.18632/oncotarget.9788</a>
+
 
 [^1]: Before using PHENSIM web portal, a registration is required. After registration, log in to start new simulations.
