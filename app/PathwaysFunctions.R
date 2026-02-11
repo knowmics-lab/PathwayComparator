@@ -303,19 +303,23 @@ filter.selectable.nodes <- function(starting.list.nodes,list.networks,hide.eleme
 {
   list.selectable.nodes <- starting.list.nodes[list.networks]
   list.selectable.nodes <- lapply(list.selectable.nodes,function(el){
+    el.genes <- sapply(strsplit(el,"\n"),function(x){x[1]})
+    ref.net <- unique(sapply(strsplit(el,"\n"),function(x){x[2]}))
     if("Hide chemical entities" %in% hide.elements) {
-      el <- el[!startsWith(el,"chebi:")]
-      el <- el[!startsWith(el,"cpd:")]
-      el <- el[!startsWith(el,"gl:")]
+      el.genes <- el.genes[!startsWith(el.genes,"chebi:")]
+      el.genes <- el.genes[!startsWith(el.genes,"cpd:")]
+      el.genes <- el.genes[!startsWith(el.genes,"gl:")]
     }
     if("Hide drugs" %in% hide.elements) {
-      el <- el[!startsWith(el,"dr:")]
+      el.genes <- el.genes[!startsWith(el.genes,"dr:")]
     }
     if("Hide miRNAs" %in% hide.elements) {
-      el <- el[!grepl("-miR",el)]
-      el <- el[!grepl("-let",el)]
+      el.genes <- el.genes[!grepl("-miR",el.genes)]
+      el.genes <- el.genes[!grepl("-let",el.genes)]
     }
-    return(el)
+    final.options <- paste0(el.genes,"\n",ref.net)
+    names(final.options) <- el.genes
+    return(final.options)
   })
   return(list.selectable.nodes)
 }

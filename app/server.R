@@ -137,6 +137,7 @@ function(input, output, session) {
     } else {
       common.pathways <<- list.pathways
     }
+    common.pathways <<- unique(as.character(common.pathways))
     list.all.nodes <<- get.list.selectable.nodes(sort(common.pathways),names(data.list),input$hideElements)
     
     #Make elements visible
@@ -227,22 +228,27 @@ function(input, output, session) {
         #Update list of already selected genes (if needed)
         if(any(last.sel.genes() %in% updated.gene.list)) {
           updatePickerInput(session, "geneSel", selected=last.sel.genes()[last.sel.genes() %in% updated.gene.list], choices=updated.gene.list)
+          updated.list.pathways <- get.list.selectable.pathways(last.sel.genes())
+          updatePickerInput(session,"pathwaySel",choices=sort(updated.list.pathways),selected=NULL)
         } else{
           updatePickerInput(session, "geneSel", selected=NULL, choices=updated.gene.list)
           last.sel.genes(NULL)
+          updatePickerInput(session,"pathwaySel",choices=NULL,selected=NULL)
+          last.sel.pathways(NULL)
         }
       } else {
         updatePickerInput(session,"geneSel", selected=NULL, choices=list())
         last.sel.genes(NULL)
+        updatePickerInput(session,"pathwaySel",choices=NULL,selected=NULL)
+        last.sel.pathways(NULL)
       }
     }
   }, ignoreNULL = F)
   
   output$plotPathway <- renderVisNetwork({
-    print(paste0("PATHWAYS: ",last.sel.pathways()))
-    print(paste0("GENES: ",last.sel.genes()))
+    #print(paste0("PATHWAYS: ",last.sel.pathways()))
+    #print(paste0("GENES: ",last.sel.genes()))
     if(!is.null(last.sel.pathways()) && !is.null(last.sel.genes()) && !is.null(input$networkSel)){
-      print("prova")
       multilayer.net <- build.pathway.net(data.list,metapathway.list,pathway.list,ortho.list,
                             input$networkSel,last.sel.pathways(),last.sel.genes(),input$hideElements)
       pathway.plot <- plot.pathway(multilayer.net$nodes,multilayer.net$edges)
