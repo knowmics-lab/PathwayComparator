@@ -62,6 +62,7 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
     pathway.info <- unique(pathway.info[pathway.info$pathwayName %in% pathways,c("node","nodeName","endpoint")])
     pathway.nodes.info <- merge(pathway.info,net.node.data$data,all.x=T)
     pathway.nodes.info[is.na(pathway.nodes.info$activity),"activity"] <- 0
+    
     #Hide extra element, if needed
     if("Hide chemical entities" %in% hide.elements){
       pathway.nodes.info <- pathway.nodes.info[!startsWith(pathway.nodes.info$node,"chebi:"),]
@@ -72,8 +73,10 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
       pathway.nodes.info <- pathway.nodes.info[!startsWith(pathway.nodes.info$node,"dr:"),]
     }
     if("Hide miRNAs" %in% hide.elements){
-      pathway.nodes.info <- pathway.nodes.info[!grepl("-miR",pathway.nodes.info$node),]
-      pathway.nodes.info <- pathway.nodes.info[!grepl("-let",pathway.nodes.info$node),]
+      pathway.nodes.info <- pathway.nodes.info[!grepl("-miR",pathway.nodes.info$node,ignore.case = T),]
+      pathway.nodes.info <- pathway.nodes.info[!grepl("-let",pathway.nodes.info$node,ignore.case = T),]
+      pathway.nodes.info <- pathway.nodes.info[!grepl("miR-",pathway.nodes.info$node,ignore.case = T),]
+      pathway.nodes.info <- pathway.nodes.info[!grepl("let-",pathway.nodes.info$node,ignore.case = T),]
     }
     pathway.nodes.info$layer <- net
     
@@ -199,6 +202,7 @@ plot.pathway <- function(multilayer.nodes,multilayer.edges)
     #Set arrow type for inhibition and activation edges
     arrow.type <- rep("arrow",nrow(multilayer.edges))
     arrow.type[multilayer.edges$weight<0] <- "bar"
+    arrow.type[multilayer.edges$type=="intra" & multilayer.edges$weight==0] <- NA
     arrow.type[multilayer.edges$type=="inter"] <- NA 
     multilayer.edges$arrows.to.type <- arrow.type
   
@@ -271,8 +275,10 @@ get.list.selectable.nodes <- function(list.pathways,list.networks,hide.elements)
       list.nodes <- list.nodes[!startsWith(list.nodes$node,"dr:"),]
     }
     if("Hide miRNAs" %in% hide.elements) {
-      list.nodes <- list.nodes[!grepl("-miR",list.nodes$node),]
-      list.nodes <- list.nodes[!grepl("-let",list.nodes$node),]
+      list.nodes <- list.nodes[!grepl("-miR",list.nodes$node,ignore.case=T),]
+      list.nodes <- list.nodes[!grepl("-let",list.nodes$node,ignore.case=T),]
+      list.nodes <- list.nodes[!grepl("miR-",list.nodes$node,ignore.case=T),]
+      list.nodes <- list.nodes[!grepl("let-",list.nodes$node,ignore.case=T),]
     }
     list.nodes <- sort(list.nodes$nodeName)
     final.options <- paste0(list.nodes,"\n",network)
@@ -314,8 +320,10 @@ filter.selectable.nodes <- function(starting.list.nodes,list.networks,hide.eleme
       el.genes <- el.genes[!startsWith(el.genes,"dr:")]
     }
     if("Hide miRNAs" %in% hide.elements) {
-      el.genes <- el.genes[!grepl("-miR",el.genes)]
-      el.genes <- el.genes[!grepl("-let",el.genes)]
+      el.genes <- el.genes[!grepl("-miR",el.genes,ignore.case = T)]
+      el.genes <- el.genes[!grepl("-let",el.genes,ignore.case = T)]
+      el.genes <- el.genes[!grepl("miR-",el.genes,ignore.case = T)]
+      el.genes <- el.genes[!grepl("let-",el.genes,ignore.case = T)]
     }
     final.options <- paste0(el.genes,"\n",ref.net)
     names(final.options) <- el.genes
