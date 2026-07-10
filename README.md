@@ -17,6 +17,10 @@ Currently supported organisms:
 - Human
 - Mouse
 - Rat
+- Worm
+- Fly
+- Zebrafish
+- Arabidopsis
 
 More organisms will be supported in the future.
 
