@@ -2,3 +2,7 @@ Code	Organism
 hsa	Human
 mmu	Mouse
 rno	Rat
+cel	Worm
+dme	Fly
+ath	Arabidopsis
+dre	Zebrafish
