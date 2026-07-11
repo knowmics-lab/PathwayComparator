@@ -57,6 +57,36 @@ read.phensim.file <- function(file)
   return(final.data)
 }
 
+#-----------------------------------------------------------------------------
+# Given a directed edge list (columns "source","target", plus any other
+# columns to preserve) and a set of target node ids, returns ONLY the rows
+# of edges.df that are "discovery edges" of a backward breadth-first search
+# rooted at the target nodes: for each ancestor, the edge(s) through which
+# it was first reached while walking backward from EACH selected node.
+#
+# BUG FIX (multiple selected nodes sharing an ancestor): this used to run a
+# SINGLE combined BFS from a virtual "super sink" connected to every
+# selected node at once. That meant a shared ancestor X of two selected
+# nodes T1 and T2 (edges X->T1 and X->T2 both exist) kept only ONE of those
+# two edges - whichever selected node's traversal happened to "claim" X
+# first - making X appear connected to only one of the two selected nodes
+# even though it is a genuine, direct predecessor of both. The fix is to
+# run a SEPARATE backward BFS for each selected node and take the UNION of
+# all their discovery edges, so a shared ancestor keeps an edge toward
+# EVERY selected node it actually connects to, not just the first one
+# found. Within each individual node's own BFS, a lateral edge between two
+# nodes already discovered FOR THAT SAME target is still correctly dropped
+# (see the earlier note below) - only edges toward OTHER selected nodes are
+# now preserved that previously were not.
+#
+# max.hops caps how many edges back from a selected node the search is
+# allowed to go, counted separately per selected node (max.hops=1 keeps
+# only direct predecessors of each, 2 also keeps their predecessors, and so
+# on); Inf (the default) means no cap.
+#
+# Used for the "Show all paths to selected nodes" visualization mode, as an
+# alternative to the default "selected nodes + immediate neighbors" view.
+#-----------------------------------------------------------------------------
 get.ancestor.tree.edges <- function(edges.df, target.nodes, max.hops = Inf)
 {
   empty.result <- list(edges = edges.df[0,], hops = data.frame(node = character(0), hop = numeric(0), stringsAsFactors = FALSE))
@@ -67,31 +97,56 @@ get.ancestor.tree.edges <- function(edges.df, target.nodes, max.hops = Inf)
   
   g <- igraph::graph_from_data_frame(unique(edges.df[,c("source","target")]), directed = TRUE,
                                      vertices = data.frame(name = all.nodes, stringsAsFactors = FALSE))
-  g.super.sink <- igraph::add_vertices(g, 1, name = "__SUPERSINK__")
-  super.sink.id <- which(igraph::V(g.super.sink)$name == "__SUPERSINK__")
-  target.ids <- match(target.nodes, igraph::V(g.super.sink)$name)
-  g.super.sink <- igraph::add_edges(g.super.sink, as.vector(rbind(target.ids, rep(super.sink.id, length(target.ids)))))
   
-  bfs.res <- igraph::bfs(g.super.sink, root = super.sink.id, mode = "in", father = TRUE, dist = TRUE)
-  father <- as.integer(bfs.res$father)
-  dist <- as.integer(bfs.res$dist)
+  all.tree.pairs <- character(0)
+  hop.list <- list()
   
-  discovered <- setdiff(which(!is.na(father)), super.sink.id)
-  if(length(discovered) == 0) return(empty.result)
-  if(is.finite(max.hops)) {
-    discovered <- discovered[dist[discovered] <= (max.hops + 1)]
+  for(tgt in target.nodes) {
+    #BFS all'indietro (segue gli archi entranti) separata per QUESTO
+    #singolo nodo selezionato - non condivisa con gli altri, cosi' che un
+    #antenato in comune tra piu' nodi selezionati mantenga un arco di
+    #scoperta verso OGNUNO di essi. father[v] e' il nodo da cui v e' stato
+    #scoperto per primo durante QUESTA visita (l'arco di scoperta e'
+    #v -> father[v] nel grafo originale); dist[v] e' la distanza da tgt
+    #(0 = tgt stesso, 1 = predecessore diretto, ...).
+    #NOTA: dist assegna 0 anche ai nodi MAI raggiunti (non solo alla
+    #radice) - per distinguere "raggiunto" da "mai raggiunto" bisogna
+    #guardare father, che invece resta NA per i nodi non raggiunti (e per
+    #la radice stessa, che pero' va comunque considerata "raggiunta").
+    tgt.id <- match(tgt, igraph::V(g)$name)
+    bfs.res <- igraph::bfs(g, root = tgt.id, mode = "in", father = TRUE, dist = TRUE)
+    father <- as.integer(bfs.res$father)
+    dist <- as.integer(bfs.res$dist)
+    
+    reached <- (seq_along(father) == tgt.id) | !is.na(father)
+    discovered <- which(reached)
+    if(is.finite(max.hops)) {
+      discovered <- discovered[dist[discovered] <= max.hops]
+    }
+    if(length(discovered) == 0) next
+    
+    node.names <- igraph::V(g)$name[discovered]
+    hop.list[[length(hop.list)+1]] <- data.frame(node = node.names, hop = dist[discovered], stringsAsFactors = FALSE)
+    
+    non.root <- discovered[discovered != tgt.id]
+    if(length(non.root) > 0) {
+      edge.src <- igraph::V(g)$name[non.root]
+      edge.tgt <- igraph::V(g)$name[father[non.root]]
+      all.tree.pairs <- c(all.tree.pairs, paste(edge.src, edge.tgt, sep = "->"))
+    }
   }
-  if(length(discovered) == 0) return(empty.result)
   
-  node.names <- igraph::V(g.super.sink)$name[discovered]
-  hops.df <- data.frame(node = node.names, hop = dist[discovered] - 1, stringsAsFactors = FALSE)
+  all.tree.pairs <- unique(all.tree.pairs)
+  if(length(all.tree.pairs) == 0) return(empty.result)
+  tree.edges <- edges.df[paste(edges.df$source, edges.df$target, sep = "->") %in% all.tree.pairs, , drop = FALSE]
   
-  edge.src <- node.names
-  edge.tgt <- igraph::V(g.super.sink)$name[father[discovered]]
-  keep <- edge.tgt != "__SUPERSINK__"  #scarta gli "archi" verso il nodo virtuale
-  tree.pairs <- paste(edge.src[keep], edge.tgt[keep], sep = "->")
+  #Un nodo puo' comparire nella visita di piu' nodi selezionati, a distanze
+  #diverse da ciascuno: per la dimensione visiva (piu' vicino = piu'
+  #grande) usiamo la distanza MINIMA, cioe' quella dal nodo selezionato a
+  #cui e' effettivamente piu' vicino.
+  hops.combined <- do.call(rbind, hop.list)
+  hops.df <- aggregate(hop ~ node, data = hops.combined, FUN = min)
   
-  tree.edges <- edges.df[paste(edges.df$source, edges.df$target, sep = "->") %in% tree.pairs, , drop = FALSE]
   list(edges = tree.edges, hops = hops.df)
 }
 
