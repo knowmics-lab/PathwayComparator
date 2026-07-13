@@ -4,7 +4,7 @@ Shiny R web-app for comparing perturbed pathways associated to different phenoty
 <b>URL:</b>
 <a href="https://paco.dioncogen.eu/">https://paco.dioncogen.eu/</a>.
 
-<b>Input data:</b>
+<h2>Input data</h2>
 
 Three types of text files can be uploaded by the user for pathway comparison:
 - Custom file
@@ -24,9 +24,7 @@ Currently supported organisms:
 
 More organisms will be supported in the future.
 
-<br/>
-
-<b>Custom file:</b>
+<h3>Custom file</h3>
 
 The user can provide the app with any custom text file containing a score for each biological element.
 The first line of the text file must contain the common name of one of the supported organisms (e.g. 'Human', 'Mouse') to which biological elements belong. 
@@ -50,9 +48,7 @@ hsa-miR-214-3p	0
 chebi:43474	0
 </pre>
 
-<br/>
-
-<b>MITHrIL perturbation file:</b>
+<h3>MITHrIL perturbation file</h3>
 
 MITHrIL evaluate the de-regulation of pathways due to expression changes of one or more pathway elements. MITHrIL requires a list of biological entities with their log-fold expression changes as input. De-regulation of pathway nodes is measured by a perturbation score, which can be positive or negative. MITHril is available as a command line tool (<a href="https://github.com/alaimos/mithril-standalone">https://github.com/alaimos/mithril-standalone</a>), and its output is a perturbation file that can be directly uploaded as input to PACO. The scores associated with nodes and used by PACO are the values of the "Perturbation" column.
 
@@ -65,9 +61,7 @@ path:hsa00190	Oxidative phosphorylation - Enriched	5464	PPA1	2.10	3.56	1.0
 path:hsa00190	Oxidative phosphorylation - Enriched	hsa-miR-101-3p	hsa-miR-101-3p	-0.79	-2.45	1.0
 </pre>
 
-<br/>
-
-<b>PHENSIM simulation file:</b>
+<h3>PHENSIM simulation file</h3>
 
 PHENSIM (PHENotype SIMulator) (<a href="https://phensim.tech/">https://phensim.tech/</a>) is a tool developed to simulate the de-regulation of pathways biological elements, as a result of the over- or under-expression of user-specified molecules (e.g. genes or miRNAs). De-regulation of pathway nodes is measured by an activity score, which can be positive or negative, denoting a biological element which is more or less active than normal condition. Scores associated to nodes are the values of "Activity Score" column.
 
@@ -80,9 +74,7 @@ R-HSA-198753	ERK/MAPK targets	6196	RPS6KA2	No	No	0.0	0.9960000000000008	1.0	-20.
 R-HSA-198753	ERK/MAPK targets	hsa-miR-199b-3p	hsa-miR-199b-3p	No	No	0.0	0.9970000000000008	1.0	-20.72326583994641,-20.72326583994641,-1.999999945436137E-9	0.0	0.5760000000000004	1.0	-20.72326583994641,-20.72326583994641,-1.999999945436137E-9		-6.314636151692764E-13	-2.4006391023997053E-5
 </pre>
 
-<br/>
-
-<b>Example of usage:</b>
+<h2>Examples of usage</h2>
 
 We want to compare perturbed immune system pathways (specifically the "Interferon Signaling" pathway) in mice and humans, following the upregulation of Interferon (IFN)-stimulated gene 15 (ISG15), a ubiquitin-like protein that functions both as an extracellular cytokine and an intracellular protein modifier.
 
@@ -105,12 +97,40 @@ The launched simulation will then appear on the list of all simulations launched
 
 To perform a PHENSIM simulation by upregulating ISG15 in mice, repeat the same steps on the PHENSIM portal, selecting now "Mus Musculus" as organism.
 
-Next, upload the two files into PACO and click on the "Compare" button. In the visualization panel, choose "Interferon Signaling" as "Pathway" and (optionally) "ISG15" as "Gene" to focus only on ISG15 gene and on its direct neighbors in the "Interferon Signaling" pathway of human and mouse.
+Next, upload the two files into PACO and click on the "Compare" button. 
 
-![PACOApp](https://github.com/user-attachments/assets/ccccbfd7-ff06-4215-a2aa-ba94d05c3881)
+![PACO_Upload](https://github.com/user-attachments/assets/9a1ad865-2e21-433d-948e-904986d64cde)
 
+<h3>Search by pathway</h3>
 
-<b>References:</b>
+In the first case study, we want to compare the interferon signaling pathway in Human and in Mouse and, in particular, the role of human ISG15 gene and its ortholog in mouse in this pathway. 
+
+First, in the "2. Search by" Section of the visualization panel, select "Pathway". Then, in the Section "3. Compare & filter", choose "Interferon Signaling" as "Pathway" and "ISG15" as "Gene".
+
+![PACO_ByPathways](https://github.com/user-attachments/assets/3bb47fe2-7d5f-4ff7-87b8-8c718ee0a21b)
+
+A multilayer network will be visualized, where layers correspond to the perturbation score files we are comparing. Each layer shows the ISG15 gene, its direct neighbors and the links between all these nodes in the selected "Interferon Signaling" pathway of the organism to which the score file refers. Dashed lines connect homologous genes, equal chemical compounds, equal drugs or equal miRNAs in the compared layers. Perturbation scores are represented by using colors (red for positive scores, blue for negative scores) and square nodes represent pathway endpoints (nodes with no incoming edges in the pathway).
+
+An alternative visualization consists in showing all the paths in the interferon signaling pathway going backward from ISG15 gene to its upstream predecessors up to a specified distance.
+
+For example, we want to visualize all backward paths from ISG15 to its predecessors up to distance 3. To do this, select the visualization option 
+"Show all paths to selected nodes" and set "Max hops" to 3.
+
+![PACO_ByPathwaysHops](https://github.com/user-attachments/assets/3f26b92f-55e7-45f7-a1b9-f3acf26d01b9)
+
+In the visualized network of all possible paths, the size of the nodes is proportional to their distance to ISG15: the higher is the distance, the smaller is the node.
+
+<h3>Search by node</h3>
+
+As a second case study, let's investigate all pathways in which ISG15 gene is involved and how ISG15 gene is connected to the other nodes in these pathways.
+
+First, in the "2. Search by" Section of the visualization panel, select "Node". Then, in the Section "3. Compare & filter", choose "ISG15" as "Node". In the "Pathway" dropdown-menu click on "Select All" to select all pathways in which ISG15 gene is present in all compared layers. Finally, select (if not already done) "Show selected nodes in selected pathways". The result is the same type of multilayer network descripted in the first case study, depicting ISG15 gene, its direct neighbors and the links between all these genes in the network given by the union of all selected pathways.
+
+![PACO_ByNodes](https://github.com/user-attachments/assets/1d21af5c-9dfb-4821-a3af-6343373b8228)
+
+Likewise, it is possible to visualize all backward paths from ISG15 to upstream nodes up to a certain distance in the network given by the union of all selected pathways, by clicking on "Show all paths to selected nodes".
+
+<h2>References:</h2>
 
 - Micale G, Alaimo S, Pulvirenti A (2025). <i>PACO: a Shiny app for comparing perturbed pathways associated with different phenotypes.</i> Bioinformatics Advances 5(1). <a href="https://doi.org/10.1093/bioadv/vbaf212">https://doi.org/10.1093/bioadv/vbaf212</a>
 
