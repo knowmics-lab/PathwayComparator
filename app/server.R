@@ -14,7 +14,6 @@ function(input, output, session) {
   shinyjs::hide("startSel")
   shinyjs::hide("networkSel")
   shinyjs::hide("hideElements")
-  shinyjs::hide("filterStepLabel")
   shinyjs::hide("viewMode")
   shinyjs::hide("updatingMsg")
   
@@ -37,19 +36,18 @@ function(input, output, session) {
     last.sel.genes(input$geneSel)
   })
   
-  # Renderizza dinamicamente i picker in base alla selezione
   output$startSel <- renderUI({
     if (input$searchOpt == "Pathway") {
       # Prima pathway, poi gene
-      tagList(
-        pickerInput("pathwaySel","Pathway",choices=NULL,multiple = T,width="100%",options=pickerOptions(actionsBox=T,liveSearch = T)),
-        pickerInput("geneSel","Node",choices=NULL,multiple = T,options=pickerOptions(actionsBox=T,liveSearch = T))
+      fluidRow(
+        column(6, pickerInput("pathwaySel","Pathway",choices=NULL,multiple = T,width="100%",options=pickerOptions(actionsBox=T,liveSearch = T))),
+        column(6, pickerInput("geneSel","Node",choices=NULL,multiple = T,width="100%",options=pickerOptions(actionsBox=T,liveSearch = T)))
       )
     } else {
       # Prima gene, poi pathway
-      tagList(
-        pickerInput("geneSel","Node",choices=NULL,multiple = T,options=pickerOptions(actionsBox=T,liveSearch = T)),
-        pickerInput("pathwaySel","Pathway",choices=NULL,multiple = T,width="100%",options=pickerOptions(actionsBox=T,liveSearch = T))
+      fluidRow(
+        column(6, pickerInput("geneSel","Node",choices=NULL,multiple = T,width="100%",options=pickerOptions(actionsBox=T,liveSearch = T))),
+        column(6, pickerInput("pathwaySel","Pathway",choices=NULL,multiple = T,width="100%",options=pickerOptions(actionsBox=T,liveSearch = T)))
       )
     }
   })
@@ -95,7 +93,6 @@ function(input, output, session) {
     shinyjs::hide("startSel")
     shinyjs::hide("networkSel")
     shinyjs::hide("hideElements")
-    shinyjs::hide("filterStepLabel")
     shinyjs::hide("viewMode")
     shinyjs::hide("updatingMsg")
     
@@ -180,7 +177,6 @@ function(input, output, session) {
     shinyjs::show("startSel")
     shinyjs::show("networkSel")
     shinyjs::show("hideElements")
-    shinyjs::show("filterStepLabel")
     shinyjs::show("viewMode")
     
     max.opt <- 3
@@ -315,6 +311,8 @@ function(input, output, session) {
     shinyjs::show("updatingMsg")
   }, ignoreInit = TRUE)
   
+  legend.info <- reactiveVal(NULL)
+  
   output$plotPathway <- renderVisNetwork({
     trig <- plot.trigger.d()
     on.exit({
@@ -335,8 +333,36 @@ function(input, output, session) {
                                           trig$networks,trig$pathways,trig$genes,trig$hide,
                                           view.mode = resolved.view.mode, max.hops = resolved.max.hops)
       pathway.plot <- plot.pathway(multilayer.net$nodes,multilayer.net$edges,view.mode = resolved.view.mode)
+      legend.info(if(nrow(multilayer.net$nodes)>0) get.legend.info(multilayer.net$nodes) else NULL)
       pathway.plot
+    } else {
+      legend.info(NULL)
+      NULL
     }
+  })
+  
+  output$graphLegend <- renderUI({
+    info <- legend.info()
+    if(is.null(info)) return(NULL)
+    tagList(
+      lapply(seq_along(info$net.names), function(i) {
+        tags$div(style = "display:flex; align-items:center; gap:8px; margin-bottom:8px;",
+                 tags$div(style = paste0("width:16px; height:16px; border-radius:50%; flex-shrink:0; background:grey; border:3px solid ", info$colors[i], ";")),
+                 tags$span(info$net.names[i], style = "font-size:13px; word-break:break-word;")
+        )
+      }),
+      tags$div(style = "display:flex; align-items:center; gap:8px; margin-bottom:14px;",
+               tags$div(style = "width:14px; height:14px; flex-shrink:0; background:white; border:3px solid black;"),
+               tags$span("Endpoint", style = "font-size:13px;")
+      ),
+      tags$div(
+        tags$div("Score", style = "font-size:13px; text-align:center; margin-bottom:3px;"),
+        tags$div(style = "width:100%; height:14px; border:1px solid #999; background:linear-gradient(to right, blue, grey, red);"),
+        tags$div(style = "display:flex; justify-content:space-between; font-size:11px; margin-top:2px;",
+                 tags$span("MIN"), tags$span("MAX")
+        )
+      )
+    )
   })
   
 }

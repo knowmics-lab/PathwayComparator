@@ -57,36 +57,6 @@ read.phensim.file <- function(file)
   return(final.data)
 }
 
-#-----------------------------------------------------------------------------
-# Given a directed edge list (columns "source","target", plus any other
-# columns to preserve) and a set of target node ids, returns ONLY the rows
-# of edges.df that are "discovery edges" of a backward breadth-first search
-# rooted at the target nodes: for each ancestor, the edge(s) through which
-# it was first reached while walking backward from EACH selected node.
-#
-# BUG FIX (multiple selected nodes sharing an ancestor): this used to run a
-# SINGLE combined BFS from a virtual "super sink" connected to every
-# selected node at once. That meant a shared ancestor X of two selected
-# nodes T1 and T2 (edges X->T1 and X->T2 both exist) kept only ONE of those
-# two edges - whichever selected node's traversal happened to "claim" X
-# first - making X appear connected to only one of the two selected nodes
-# even though it is a genuine, direct predecessor of both. The fix is to
-# run a SEPARATE backward BFS for each selected node and take the UNION of
-# all their discovery edges, so a shared ancestor keeps an edge toward
-# EVERY selected node it actually connects to, not just the first one
-# found. Within each individual node's own BFS, a lateral edge between two
-# nodes already discovered FOR THAT SAME target is still correctly dropped
-# (see the earlier note below) - only edges toward OTHER selected nodes are
-# now preserved that previously were not.
-#
-# max.hops caps how many edges back from a selected node the search is
-# allowed to go, counted separately per selected node (max.hops=1 keeps
-# only direct predecessors of each, 2 also keeps their predecessors, and so
-# on); Inf (the default) means no cap.
-#
-# Used for the "Show all paths to selected nodes" visualization mode, as an
-# alternative to the default "selected nodes + immediate neighbors" view.
-#-----------------------------------------------------------------------------
 get.ancestor.tree.edges <- function(edges.df, target.nodes, max.hops = Inf)
 {
   empty.result <- list(edges = edges.df[0,], hops = data.frame(node = character(0), hop = numeric(0), stringsAsFactors = FALSE))
@@ -102,19 +72,8 @@ get.ancestor.tree.edges <- function(edges.df, target.nodes, max.hops = Inf)
   hop.list <- list()
   
   for(tgt in target.nodes) {
-    #BFS all'indietro (segue gli archi entranti) separata per QUESTO
-    #singolo nodo selezionato - non condivisa con gli altri, cosi' che un
-    #antenato in comune tra piu' nodi selezionati mantenga un arco di
-    #scoperta verso OGNUNO di essi. father[v] e' il nodo da cui v e' stato
-    #scoperto per primo durante QUESTA visita (l'arco di scoperta e'
-    #v -> father[v] nel grafo originale); dist[v] e' la distanza da tgt
-    #(0 = tgt stesso, 1 = predecessore diretto, ...).
-    #NOTA: dist assegna 0 anche ai nodi MAI raggiunti (non solo alla
-    #radice) - per distinguere "raggiunto" da "mai raggiunto" bisogna
-    #guardare father, che invece resta NA per i nodi non raggiunti (e per
-    #la radice stessa, che pero' va comunque considerata "raggiunta").
     tgt.id <- match(tgt, igraph::V(g)$name)
-    bfs.res <- igraph::bfs(g, root = tgt.id, mode = "in", father = TRUE, dist = TRUE)
+    bfs.res <- igraph::bfs(g, root = tgt.id, mode = "in", father = TRUE, dist = TRUE, unreachable = FALSE)
     father <- as.integer(bfs.res$father)
     dist <- as.integer(bfs.res$dist)
     
@@ -140,10 +99,6 @@ get.ancestor.tree.edges <- function(edges.df, target.nodes, max.hops = Inf)
   if(length(all.tree.pairs) == 0) return(empty.result)
   tree.edges <- edges.df[paste(edges.df$source, edges.df$target, sep = "->") %in% all.tree.pairs, , drop = FALSE]
   
-  #Un nodo puo' comparire nella visita di piu' nodi selezionati, a distanze
-  #diverse da ciascuno: per la dimensione visiva (piu' vicino = piu'
-  #grande) usiamo la distanza MINIMA, cioe' quella dal nodo selezionato a
-  #cui e' effettivamente piu' vicino.
   hops.combined <- do.call(rbind, hop.list)
   hops.df <- aggregate(hop ~ node, data = hops.combined, FUN = min)
   
@@ -194,7 +149,8 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
     metapathway.info <- metapathway.list[[net.node.data$organism]]
     
     #Retrieve pathway nodes
-    pathway.info <- unique(pathway.info[pathway.info$pathwayName %in% pathways,c("node","nodeName","endpoint","node.type")])
+    pathway.info <- pathway.info[pathway.info$pathwayName %in% pathways,c("node","nodeName","endpoint","node.type")]
+    pathway.info <- aggregate(endpoint ~ node + nodeName + node.type, data = pathway.info, FUN = any)
     pathway.nodes.info <- merge(pathway.info,net.node.data$data,all.x=T)
     pathway.nodes.info[is.na(pathway.nodes.info$activity),"activity"] <- 0
     
@@ -311,6 +267,14 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
   
 }
 
+get.legend.info <- function(multilayer.nodes)
+{
+  net.names <- unique(multilayer.nodes$layer)
+  num.layers <- length(net.names)
+  col.borders <- c("#0072B2","#D55E00","#009E73")
+  list(net.names = net.names, colors = col.borders[seq_len(num.layers)])
+}
+
 plot.pathway <- function(multilayer.nodes,multilayer.edges,background="white",view.mode="neighbors")
 {
   if(nrow(multilayer.nodes)==0) {
@@ -390,13 +354,6 @@ plot.pathway <- function(multilayer.nodes,multilayer.edges,background="white",vi
   net.names <- unique(multilayer.nodes$layer)
   num.layers <- length(net.names)
   col.borders <- c("#0072B2","#D55E00","#009E73")
-  legend.nodes <- data.frame(label = c(net.names,"Endpoint", "Score"),
-                             shape = c(rep("dot",num.layers),"square","image"),
-                             color.background = c(rep("grey",num.layers),"white","white"),
-                             color.border = c(col.borders[1:num.layers], "black","black"),
-                             font.size = c(rep(16,num.layers),16,16),
-                             borderWidth = c(rep(3,num.layers),3,3),
-                             image=c(rep("",num.layers),"","Icons/ScoreBar.png"))
   
   #Set edge weights for plotting network
   edge.plot.weigths <- rep(1,nrow(multilayer.edges))
@@ -410,7 +367,6 @@ plot.pathway <- function(multilayer.nodes,multilayer.edges,background="white",vi
     visEdges(arrows="to",color = "black") %>%
     visOptions(clickToUse = F) %>%
     visInteraction(hover = TRUE) %>%
-    visLegend(addNodes = legend.nodes, useGroups = FALSE, width=0.25, position="right", zoom=F) %>%
     visNodes(font=list(color="black", size=20))
   if(num.layers==1) {
     multilayer.plot <- visIgraphLayout(multilayer.plot,layout="layout_with_kk", type = "full", weights=edge.plot.weigths)

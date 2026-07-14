@@ -14,19 +14,19 @@ source("PathwaysFunctions.R")
 
 app.theme <- create_theme(
   adminlte_sidebar(
-    width = "300px",
+    width = "250px",
     dark_bg = "black"
   )
 )
 
 header <- dashboardHeader(tags$li(a(icon("github"), "Github", target = "_blank", href = "https://github.com/GMicale/PathwayComparator",
-                                    style = "font-size: 18px;"),class= 'dropdown'),
-                          title = span("PAthway COmparator", style = "color: white; font-size: 23px; font-family: 'Segoe Print', 'Bradley Hand', cursive;"), titleWidth = 350)
+                                    style = "font-size: 14px;"),class= 'dropdown'),
+                          title = span("PAthway COmparator", style = "color: white; font-size: 17px; font-family: 'Segoe Print', 'Bradley Hand', cursive;"), titleWidth = 250)
 
 sidebar <- dashboardSidebar(
   sidebarMenu(
     hidden(selectInput("uploadedFiles",label=NULL,choices=NULL,multiple=T)),
-    p(HTML("<b>1. Pathway files</b> &nbsp;"),
+    p(HTML("<b>Pathway files</b> &nbsp;"),
       span(icon("circle-question"), id="listPath",
            title="Supported organisms: Human, Mouse, Rat, Worm, Fly, Zebrafish, Arabidopsis"),
       class="section-label"),
@@ -53,21 +53,18 @@ body <- dashboardBody(
   ),
   
   fluidRow(
-    column(12,radioButtons("searchOpt","2. Search by:",choices=c("Pathway","Node"),inline=T,selected="Pathway"))
+    column(12,radioButtons("searchOpt","Search by",choices=c("Pathway","Node"),inline=T,selected="Pathway"))
   ),
   fluidRow(
-    column(12, tags$p("3. Compare & filter", id="filterStepLabel", class="step-label"))
-  ),
-  fluidRow(
-    column(6,uiOutput("startSel")),
+    column(7,uiOutput("startSel")),
     column(2,
            pickerInput("networkSel",
                        label = tagList("Layer ", icon("circle-question",
                                                       title="You can compare up to 3 layers at a time.")),
                        choices=NULL,multiple = T,width="100%",options=list(`max-options`=3))
     ),
-    column(4,
-           tags$p("", style="margin-left:20px; margin-top:30px; margin-bottom:5px; font-weight:bold;"),
+    column(3,
+           tags$p("", style="margin-left:20px; margin-top:26px; margin-bottom:4px; font-weight:bold;"),
            checkboxGroupInput("hideElements", NULL, c("Hide chemical entities","Hide drugs","Hide miRNAs"),
                               selected = c("Hide chemical entities","Hide drugs","Hide miRNAs"), inline=T)
     )
@@ -81,7 +78,9 @@ body <- dashboardBody(
                             selected = "neighbors", inline = TRUE),
                conditionalPanel(
                  condition = "input.viewMode == 'paths'",
-                 numericInput("maxHops", "Max hops", value = 2, min = 1, max = 50, step = 1, width = "140px")
+                 div(class = "max-hops-inline",
+                     numericInput("maxHops", "Max hops", value = 2, min = 1, max = 50, step = 1)
+                 )
                )
            )
     )
@@ -91,7 +90,8 @@ body <- dashboardBody(
                       id="updatingMsg", class="updating-msg"))
   ),
   fluidRow(
-    column(12,visNetworkOutput("plotPathway",height="80vh") %>% withSpinner(color = "#8a7fd1"))
+    column(10,visNetworkOutput("plotPathway",height="80vh") %>% withSpinner(color = "#8a7fd1")),
+    column(2, tags$div(style = "margin-top:20px;", uiOutput("graphLegend")))
   ),
   
   tags$head(tags$style(sass(sass_file("www/bootswatch-cyborg.scss")))),
@@ -101,26 +101,33 @@ body <- dashboardBody(
     .content-wrapper { background-color: white; }
     .box {
       -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;
-      font-size: 18px;
+      font-size: 14px;
       border: 1px solid rgba(0,0,0,0.08);
     }
-    .main-sidebar { font-size: 18px; }
+    .main-sidebar { font-size: 14px; }
     .sidebar { background-color: black; }
-    .control-label { font-size: 18px; }
-    .form-group { font-size: 18px; }
-    .section-label { margin-left: 20px; margin-top: 20px; font-size: 18px; font-weight: bold; }
-    .step-label { margin-left: 0; margin-top: 5px; margin-bottom: 10px; font-size: 18px; font-weight: bold; }
-    .updating-msg { margin-left: 0; margin-top: 5px; margin-bottom: 5px; font-size: 16px; color: #8a7fd1; }
-    input[type=checkbox] { transform: scale(1.4); }
+    .control-label { font-size: 14px; }
+    .form-group { font-size: 14px; margin-bottom: 8px; }
+    .section-label { margin-left: 20px; margin-top: 12px; margin-bottom: 4px; font-size: 15px; font-weight: bold; }
+    .step-label { margin-left: 0; margin-top: 4px; margin-bottom: 6px; font-size: 15px; font-weight: bold; }
+    #searchOpt { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; margin-bottom: 4px; }
+    #searchOpt > label { font-size: 15px; font-weight: bold; margin-bottom: 0; }
+    .updating-msg { margin-left: 0; margin-top: 4px; margin-bottom: 4px; font-size: 13px; color: #8a7fd1; }
+    input[type=checkbox] { transform: scale(1.15); }
     .view-mode-row { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
     .view-mode-row .form-group { margin-bottom: 0; }
-    .selectize-input { font-size: 18px; line-height: 20px; }
-    .selectize-dropdown { font-size: 16px; line-height: 18px; }
-    .dropdown-menu ul li:nth-child(n) a { color: black !important; font-size: 18px; }
-    .picker { font-size: 16px; color: black; }
-    .btn-file { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .max-hops-inline .form-group { display: flex; align-items: center; gap: 10px; margin-bottom: 0; }
+    .max-hops-inline .form-group label { margin-bottom: 0; white-space: nowrap; }
+    .max-hops-inline .form-group input { width: 70px; }
+    #listFiles thead { display: none; }
+    #listFiles table.dataTable td { padding: 3px 8px; font-size: 13px; vertical-align: middle; }
+    .selectize-input { font-size: 14px; line-height: 16px; }
+    .selectize-dropdown { font-size: 13px; line-height: 15px; }
+    .dropdown-menu ul li:nth-child(n) a { color: black !important; font-size: 13px; }
+    .picker { font-size: 13px; color: black; }
+    .btn-file { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .input-group, .form-group .input-group { max-width: 100%; }
-    .btn-delete-row { color: #fff; background-color: #2a2a2a; border: 1px solid #444; }
+    .btn-delete-row { color: #fff; background-color: #2a2a2a; border: 1px solid #444; padding: 1px 8px; font-size: 12px; }
     .btn-delete-row:hover { background-color: #c0392b; border-color: #c0392b; color: #fff; }
   ")))
 )
