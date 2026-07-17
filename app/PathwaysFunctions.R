@@ -57,88 +57,134 @@ read.phensim.file <- function(file)
   return(final.data)
 }
 
-get.ancestor.tree.edges <- function(edges.df, target.nodes, max.hops = Inf)
+expand.to.ortho.nodes <- function(genes, data.list, pathway.list, ortho.list)
 {
-  empty.result <- list(edges = edges.df[0,], hops = data.frame(node = character(0), hop = numeric(0), stringsAsFactors = FALSE))
-  if(nrow(edges.df) == 0) return(empty.result)
-  all.nodes <- unique(c(edges.df$source, edges.df$target))
-  target.nodes <- intersect(target.nodes, all.nodes)
-  if(length(target.nodes) == 0) return(empty.result)
-  
-  g <- igraph::graph_from_data_frame(unique(edges.df[,c("source","target")]), directed = TRUE,
-                                     vertices = data.frame(name = all.nodes, stringsAsFactors = FALSE))
-  
-  all.tree.pairs <- character(0)
-  hop.list <- list()
-  
-  for(tgt in target.nodes) {
-    tgt.id <- match(tgt, igraph::V(g)$name)
-    bfs.res <- igraph::bfs(g, root = tgt.id, mode = "in", father = TRUE, dist = TRUE, unreachable = FALSE)
-    father <- as.integer(bfs.res$father)
-    dist <- as.integer(bfs.res$dist)
-    
-    reached <- (seq_along(father) == tgt.id) | !is.na(father)
-    discovered <- which(reached)
-    if(is.finite(max.hops)) {
-      discovered <- discovered[dist[discovered] <= max.hops]
-    }
-    if(length(discovered) == 0) next
-    
-    node.names <- igraph::V(g)$name[discovered]
-    hop.list[[length(hop.list)+1]] <- data.frame(node = node.names, hop = dist[discovered], stringsAsFactors = FALSE)
-    
-    non.root <- discovered[discovered != tgt.id]
-    if(length(non.root) > 0) {
-      edge.src <- igraph::V(g)$name[non.root]
-      edge.tgt <- igraph::V(g)$name[father[non.root]]
-      all.tree.pairs <- c(all.tree.pairs, paste(edge.src, edge.tgt, sep = "->"))
-    }
-  }
-  
-  all.tree.pairs <- unique(all.tree.pairs)
-  if(length(all.tree.pairs) == 0) return(empty.result)
-  tree.edges <- edges.df[paste(edges.df$source, edges.df$target, sep = "->") %in% all.tree.pairs, , drop = FALSE]
-  
-  hops.combined <- do.call(rbind, hop.list)
-  hops.df <- aggregate(hop ~ node, data = hops.combined, FUN = min)
-  
-  list(edges = tree.edges, hops = hops.df)
-}
-
-build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list,
-                              networks,pathways,genes,hide.elements,view.mode="neighbors",max.hops=Inf)
-{
-  multilayer.net <- list()
-  
-  #Get reference genes for gene-centric visualization
-  ref.genes <- sapply(strsplit(genes,"\n"),function(x){x[1]})
+  ref.genes <- if(length(genes)==0) character(0) else sapply(strsplit(genes,"\n"),function(x){x[1]})
   ortho.nodes <- c()
-  if(!"All" %in% ref.genes) {
-    ref.nets <- unique(sapply(strsplit(genes,"\n"),function(x){x[2]}))
-    ref.nets <- ref.nets[ref.nets %in% names(data.list)]
-    if(length(ref.nets) > 0) {
-      ref.organisms <- unname(sapply(data.list[ref.nets],function(x){x$organism}))
-      ref.organisms <- unique(ref.organisms[!is.na(ref.organisms) & ref.organisms %in% names(pathway.list)])
-      if(length(ref.organisms) > 0) {
-        ref.pathways <- pathway.list[ref.organisms]
-        ref.ids <- lapply(ref.pathways,function(x){unique(x[x$nodeName %in% ref.genes,"node"])})
-        ortho.nodes <- c(unname(unlist(ref.ids)))
-        for(ref.organism in names(ref.ids)) {
-          for(net.organism in names(pathway.list)) {
-            if(net.organism!=ref.organism) {
-              if(ref.organism<=net.organism) {
-                ref.ortho <- ortho.list[[paste0(ref.organism,"-",net.organism)]]
-              } else {
-                ref.ortho <- ortho.list[[paste0(net.organism,"-",ref.organism)]]
-              }
-              if(!is.null(ref.ortho) && nrow(ref.ortho) > 0) {
-                ortho.nodes <- c(ortho.nodes,ref.ortho[ref.ortho[,paste0(ref.organism," id")] %in% ref.ids[[ref.organism]],paste0(net.organism," id")])
-              }
+  if(length(ref.genes)==0 || "All" %in% ref.genes) return(list(ref.genes=ref.genes, ortho.nodes=ortho.nodes))
+  ref.nets <- unique(sapply(strsplit(genes,"\n"),function(x){x[2]}))
+  ref.nets <- ref.nets[ref.nets %in% names(data.list)]
+  if(length(ref.nets) > 0) {
+    ref.organisms <- unname(sapply(data.list[ref.nets],function(x){x$organism}))
+    ref.organisms <- unique(ref.organisms[!is.na(ref.organisms) & ref.organisms %in% names(pathway.list)])
+    if(length(ref.organisms) > 0) {
+      ref.pathways <- pathway.list[ref.organisms]
+      ref.ids <- lapply(ref.pathways,function(x){unique(x[x$nodeName %in% ref.genes,"node"])})
+      ortho.nodes <- c(unname(unlist(ref.ids)))
+      for(ref.organism in names(ref.ids)) {
+        for(net.organism in names(pathway.list)) {
+          if(net.organism!=ref.organism) {
+            if(ref.organism<=net.organism) {
+              ref.ortho <- ortho.list[[paste0(ref.organism,"-",net.organism)]]
+            } else {
+              ref.ortho <- ortho.list[[paste0(net.organism,"-",ref.organism)]]
+            }
+            if(!is.null(ref.ortho) && nrow(ref.ortho) > 0) {
+              ortho.nodes <- c(ortho.nodes,ref.ortho[ref.ortho[,paste0(ref.organism," id")] %in% ref.ids[[ref.organism]],paste0(net.organism," id")])
             }
           }
         }
       }
     }
+  }
+  list(ref.genes=ref.genes, ortho.nodes=unique(ortho.nodes))
+}
+
+get.paths.between.edges <- function(edges.df, source.nodes, dest.nodes, max.length = Inf)
+{
+  empty.result <- list(edges = edges.df[0,], roles = data.frame(node = character(0), path.role = character(0), stringsAsFactors = FALSE))
+  if(nrow(edges.df) == 0) return(empty.result)
+  all.nodes <- unique(c(edges.df$source, edges.df$target))
+  source.nodes <- intersect(source.nodes, all.nodes)
+  dest.nodes <- intersect(dest.nodes, all.nodes)
+  if(length(source.nodes) == 0 || length(dest.nodes) == 0) return(empty.result)
+  
+  g <- igraph::graph_from_data_frame(unique(edges.df[,c("source","target")]), directed = TRUE,
+                                     vertices = data.frame(name = all.nodes, stringsAsFactors = FALSE))
+  
+  dist.from <- function(root.name, mode) {
+    root.id <- match(root.name, igraph::V(g)$name)
+    bfs.res <- igraph::bfs(g, root = root.id, mode = mode, father = TRUE, dist = TRUE, unreachable = FALSE)
+    father <- as.integer(bfs.res$father)
+    dist <- as.integer(bfs.res$dist)
+    reached <- (seq_along(father) == root.id) | !is.na(father)
+    out <- rep(NA_integer_, length(dist))
+    out[reached] <- dist[reached]
+    names(out) <- igraph::V(g)$name
+    out
+  }
+  
+  min.forward <- setNames(rep(NA_integer_, length(igraph::V(g))), igraph::V(g)$name)
+  for(src in source.nodes) min.forward <- pmin(min.forward, dist.from(src, "out"), na.rm = TRUE)
+  min.backward <- setNames(rep(NA_integer_, length(igraph::V(g))), igraph::V(g)$name)
+  for(dst in dest.nodes) min.backward <- pmin(min.backward, dist.from(dst, "in"), na.rm = TRUE)
+  
+  relevant.nodes <- names(min.forward)[!is.na(min.forward) & !is.na(min.backward)]
+  if(length(relevant.nodes) == 0) return(empty.result)
+  if(is.finite(max.length)) {
+    total.dist <- min.forward[relevant.nodes] + min.backward[relevant.nodes]
+    relevant.nodes <- relevant.nodes[total.dist <= max.length]
+  }
+  if(length(relevant.nodes) == 0) return(empty.result)
+  
+  relevant.edges <- edges.df[edges.df$source %in% relevant.nodes & edges.df$target %in% relevant.nodes, , drop = FALSE]
+  
+  is.source <- relevant.nodes %in% source.nodes
+  is.dest <- relevant.nodes %in% dest.nodes
+  roles.df <- data.frame(node = relevant.nodes,
+                         path.role = ifelse(is.source & is.dest, "both", ifelse(is.source, "source", ifelse(is.dest, "destination", NA_character_))),
+                         stringsAsFactors = FALSE)
+  
+  list(edges = relevant.edges, roles = roles.df)
+}
+
+get.ego.network.edges <- function(edges.df, ref.nodes, max.hops = 1)
+{
+  empty.result <- list(edges = edges.df[0,], roles = data.frame(node = character(0), path.role = character(0), stringsAsFactors = FALSE))
+  if(nrow(edges.df) == 0) return(empty.result)
+  all.nodes <- unique(c(edges.df$source, edges.df$target))
+  ref.nodes <- intersect(ref.nodes, all.nodes)
+  if(length(ref.nodes) == 0) return(empty.result)
+  if(is.null(max.hops) || is.na(max.hops) || max.hops < 0) max.hops <- 1
+  
+  g <- igraph::graph_from_data_frame(unique(edges.df[,c("source","target")]), directed = TRUE,
+                                     vertices = data.frame(name = all.nodes, stringsAsFactors = FALSE))
+  
+  neighborhood.nodes <- character(0)
+  for(ref in ref.nodes) {
+    ref.id <- match(ref, igraph::V(g)$name)
+    bfs.res <- igraph::bfs(g, root = ref.id, mode = "all", father = TRUE, dist = TRUE, unreachable = FALSE)
+    father <- as.integer(bfs.res$father)
+    dist <- as.integer(bfs.res$dist)
+    reached <- (seq_along(father) == ref.id) | !is.na(father)
+    within.hops <- reached & !is.na(dist) & dist <= max.hops
+    neighborhood.nodes <- c(neighborhood.nodes, igraph::V(g)$name[which(within.hops)])
+  }
+  neighborhood.nodes <- unique(neighborhood.nodes)
+  if(length(neighborhood.nodes) == 0) return(empty.result)
+  
+  relevant.edges <- edges.df[edges.df$source %in% neighborhood.nodes & edges.df$target %in% neighborhood.nodes, , drop = FALSE]
+  roles.df <- data.frame(node = ref.nodes, path.role = "ego", stringsAsFactors = FALSE)
+  
+  list(edges = relevant.edges, roles = roles.df)
+}
+
+build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list,
+                              networks,pathways,genes,hide.elements,view.mode="neighbors",
+                              source.genes=NULL,dest.genes=NULL,max.hops=1,max.length=Inf)
+{
+  multilayer.net <- list()
+  
+  if(view.mode=="paths") {
+    src.expansion <- expand.to.ortho.nodes(source.genes, data.list, pathway.list, ortho.list)
+    dst.expansion <- expand.to.ortho.nodes(dest.genes, data.list, pathway.list, ortho.list)
+    ref.genes <- unique(c(src.expansion$ref.genes, dst.expansion$ref.genes))
+    source.ortho.nodes <- src.expansion$ortho.nodes
+    dest.ortho.nodes <- dst.expansion$ortho.nodes
+  } else {
+    gene.expansion <- expand.to.ortho.nodes(genes, data.list, pathway.list, ortho.list)
+    ref.genes <- gene.expansion$ref.genes
+    ortho.nodes <- gene.expansion$ortho.nodes
   }
   id.count <- 1
   
@@ -154,35 +200,42 @@ build.pathway.net <- function(data.list,metapathway.list,pathway.list,ortho.list
     pathway.nodes.info <- merge(pathway.info,net.node.data$data,all.x=T)
     pathway.nodes.info[is.na(pathway.nodes.info$activity),"activity"] <- 0
     
-    #Hide extra elements, if needed (single shared implementation, see apply.hide.filters)
-    pathway.nodes.info <- apply.hide.filters(pathway.nodes.info,"node",hide.elements)
-    pathway.nodes.info$layer <- net
+    #Hide extra elements, if needed
+    always.allowed <- if(view.mode=="paths") unique(c(source.ortho.nodes, dest.ortho.nodes)) else ortho.nodes
+    pathway.nodes.filtered <- apply.hide.filters(pathway.nodes.info,"node",hide.elements)
+    pathway.nodes.info <- pathway.nodes.info[pathway.nodes.info$node %in% pathway.nodes.filtered$node | pathway.nodes.info$node %in% always.allowed,]
+    pathway.nodes.info$layer <- rep(net, nrow(pathway.nodes.info))
     
     #Retrieve pathway edges
     pathway.edges.info <- metapathway.info[metapathway.info$source %in% pathway.nodes.info$node & metapathway.info$target %in% pathway.nodes.info$node,]
-    node.hops <- NULL
-    if(!"All" %in% ref.genes) {
-      if(view.mode=="paths") {
-        ancestor.result <- get.ancestor.tree.edges(pathway.edges.info, ortho.nodes, max.hops = max.hops)
-        pathway.edges.info <- ancestor.result$edges
-        node.hops <- ancestor.result$hops
+    node.roles <- NULL
+    if(view.mode=="paths") {
+      if(length(source.genes)>0 && length(dest.genes)>0) {
+        path.result <- get.paths.between.edges(pathway.edges.info, source.ortho.nodes, dest.ortho.nodes, max.length = max.length)
+        pathway.edges.info <- path.result$edges
+        node.roles <- path.result$roles
       } else {
-        gene.edges <- pathway.edges.info[pathway.edges.info$source %in% ortho.nodes | pathway.edges.info$target %in% ortho.nodes,]
-        sub.nodes.list <- unique(c(gene.edges$source,gene.edges$target))
-        pathway.edges.info <- pathway.edges.info[pathway.edges.info$source %in% sub.nodes.list & pathway.edges.info$target %in% sub.nodes.list,]
+        pathway.edges.info <- pathway.edges.info[0,]
       }
+    } else if(!"All" %in% ref.genes) {
+      ego.result <- get.ego.network.edges(pathway.edges.info, ortho.nodes, max.hops = max.hops)
+      pathway.edges.info <- ego.result$edges
+      node.roles <- ego.result$roles
     }
     if(nrow(pathway.edges.info)>0) {
       pathway.nodes.ids <- unique(c(pathway.edges.info$source,pathway.edges.info$target))
-      pathway.nodes.info <- unique(pathway.nodes.info[pathway.nodes.info$node %in% pathway.nodes.ids | pathway.nodes.info$node %in% ortho.nodes,])
+      if(view.mode!="paths" && !"All" %in% ref.genes) pathway.nodes.ids <- unique(c(pathway.nodes.ids, ortho.nodes))
+      pathway.nodes.info <- unique(pathway.nodes.info[pathway.nodes.info$node %in% pathway.nodes.ids,])
+    } else if(view.mode=="paths") {
+      pathway.nodes.info <- pathway.nodes.info[0,]
     } else if(!"All" %in% ref.genes) {
       pathway.nodes.info <- pathway.nodes.info[pathway.nodes.info$node %in% ortho.nodes,]
     }
     
-    if(!is.null(node.hops) && nrow(node.hops)>0) {
-      pathway.nodes.info <- merge(pathway.nodes.info, node.hops, by="node", all.x=TRUE)
+    if(!is.null(node.roles) && nrow(node.roles)>0) {
+      pathway.nodes.info <- merge(pathway.nodes.info, node.roles, by="node", all.x=TRUE)
     } else {
-      pathway.nodes.info$hop <- NA_real_
+      pathway.nodes.info$path.role <- rep(NA_character_, nrow(pathway.nodes.info))
     }
     
     #Re-map ids
@@ -319,20 +372,28 @@ plot.pathway <- function(multilayer.nodes,multilayer.edges,background="white",vi
     nodes.shape[multilayer.nodes$endpoint==T] <- "square"
     multilayer.nodes$shape <- nodes.shape
     
-    #Set node size by hop distance
-    default.size <- 25
-    if("hop" %in% colnames(multilayer.nodes) && any(!is.na(multilayer.nodes$hop))) {
-      multilayer.nodes$size <- ifelse(is.na(multilayer.nodes$hop), default.size,
-                                      pmax(40 - multilayer.nodes$hop*8, 12))
-    } else {
-      multilayer.nodes$size <- default.size
-    }
+    #Node size
+    multilayer.nodes$size <- 25
     
     #Set tooltip string for nodes
     multilayer.nodes$title <- paste0("Score: ",round(multilayer.nodes$activity,3))
-    if("hop" %in% colnames(multilayer.nodes)) {
-      multilayer.nodes$title <- ifelse(is.na(multilayer.nodes$hop), multilayer.nodes$title,
-                                       paste0(multilayer.nodes$title,"<br>Hop: ",multilayer.nodes$hop))
+    
+    #Highlight source/destination/reference nodes
+    if("path.role" %in% colnames(multilayer.nodes)) {
+      is.source <- !is.na(multilayer.nodes$path.role) & multilayer.nodes$path.role %in% c("source","both")
+      is.dest   <- !is.na(multilayer.nodes$path.role) & multilayer.nodes$path.role %in% c("destination","both")
+      is.ego    <- !is.na(multilayer.nodes$path.role) & multilayer.nodes$path.role == "ego"
+      multilayer.nodes$color.border[is.source & !is.dest] <- "#00A651"
+      multilayer.nodes$color.border[is.dest & !is.source] <- "#ED1C24"
+      multilayer.nodes$color.border[is.source & is.dest]  <- "#F7941D"
+      multilayer.nodes$color.border[is.ego] <- "#8E44AD"
+      multilayer.nodes$borderWidth[is.source | is.dest | is.ego] <- 6
+      role.label <- ifelse(is.source & is.dest, "Source &amp; destination node",
+                           ifelse(is.source, "Source node",
+                                  ifelse(is.dest, "Destination node",
+                                         ifelse(is.ego, "Reference node", NA_character_))))
+      multilayer.nodes$title <- ifelse(is.na(role.label), multilayer.nodes$title,
+                                       paste0(multilayer.nodes$title,"<br>",role.label))
     }
   }
   
@@ -391,17 +452,21 @@ plot.pathway <- function(multilayer.nodes,multilayer.edges,background="white",vi
   
 }
 
-get.list.selectable.nodes <- function(list.pathways,list.networks,hide.elements,data.list,pathway.list)
+truncate.label <- function(x, max.chars = 60)
+{
+  ifelse(nchar(x) > max.chars, paste0(substr(x, 1, max.chars - 1), "\u2026"), x)
+}
+
+get.list.selectable.nodes <- function(list.pathways,list.networks,data.list,pathway.list)
 {
   list.options <- list()
   for(network in list.networks) {
     organism <- data.list[[network]]$organism
     pathway.nodes <- pathway.list[[organism]]
     list.nodes <- unique(pathway.nodes[pathway.nodes$pathwayName %in% list.pathways,c("node","nodeName","node.type")])
-    list.nodes <- apply.hide.filters(list.nodes,"node",hide.elements)
     list.nodes <- list.nodes[order(list.nodes$nodeName),]
     final.options <- paste0(list.nodes$nodeName,"\n",network,"\n",list.nodes$node.type)
-    names(final.options) <- list.nodes$nodeName
+    names(final.options) <- truncate.label(list.nodes$nodeName)
     list.options[[network]] <- final.options
   }
   return(list.options)
@@ -421,32 +486,13 @@ get.list.selectable.pathways <- function(list.nodes,data.list,pathway.list)
     sel.pathways <- unique(pathway.info[pathway.info$nodeName %in% nodes.list,"pathwayName"])
     return(sel.pathways)
   })))
+  names(list.options) <- truncate.label(list.options)
   return(list.options)
 }
 
-filter.selectable.nodes <- function(starting.list.nodes,list.networks,hide.elements)
+filter.selectable.nodes <- function(starting.list.nodes,list.networks)
 {
-  list.selectable.nodes <- starting.list.nodes[list.networks]
-  list.selectable.nodes <- lapply(list.selectable.nodes,function(el){
-    if(length(el)==0) return(el)
-    parts <- do.call(rbind,strsplit(el,"\n"))
-    el.genes <- parts[,1]
-    ref.net  <- unique(parts[,2])
-    el.types <- if(ncol(parts)>=3) parts[,3] else classify.node.type(el.genes)
-    
-    hide.types <- c()
-    if("Hide chemical entities" %in% hide.elements) hide.types <- c(hide.types,"chemical")
-    if("Hide drugs" %in% hide.elements)             hide.types <- c(hide.types,"drug")
-    if("Hide miRNAs" %in% hide.elements)            hide.types <- c(hide.types,"mirna")
-    
-    keep <- !el.types %in% hide.types
-    el.genes <- el.genes[keep]
-    
-    final.options <- paste0(el.genes,"\n",ref.net)
-    names(final.options) <- el.genes
-    return(final.options)
-  })
-  return(list.selectable.nodes)
+  starting.list.nodes[list.networks]
 }
 
 metapathway.list <- list()
