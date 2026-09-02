@@ -1,0 +1,224 @@
+/* ==========================================================================
+   Search Wizard - componente JS autonomo per la cascata di selezione
+   (Search by -> Output type -> Pathway/Node/Source/Destination).
+   Sostituisce gli otto pickerInput di shinyWidgets con un unico widget
+   che gestisce il proprio stato internamente e comunica con Shiny tramite
+   un solo evento a selezione completata.
+   ========================================================================== */
+
+:root {
+  --wiz-accent: #6f63b8;
+  --wiz-accent-dark: #564c9c;
+  --wiz-text: #2c2c2c;
+  --wiz-text-muted: #767676;
+  --wiz-border: #e0dff0;
+  --wiz-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.search-wizard {
+  font-family: inherit;
+  color: var(--wiz-text);
+  margin-bottom: 12px;
+}
+
+/* ---------------- Indicatore di avanzamento (i cerchi numerati) --------- */
+.wiz-progress {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+.wiz-progress-step {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+}
+.wiz-progress-step:last-child {
+  flex: 0 0 auto;
+}
+.wiz-progress-circle {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+  border: 2px solid var(--wiz-border);
+  background: #fff;
+  color: var(--wiz-text-muted);
+  transition: all 0.15s ease;
+  cursor: default;
+}
+.wiz-progress-step.completed .wiz-progress-circle {
+  background: var(--wiz-accent);
+  border-color: var(--wiz-accent);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(111,99,184,0.4);
+}
+.wiz-progress-step.active .wiz-progress-circle {
+  border-color: var(--wiz-accent);
+  color: var(--wiz-accent);
+}
+.wiz-progress-label {
+  margin-left: 8px;
+  font-size: 13px;
+  color: var(--wiz-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wiz-progress-step.active .wiz-progress-label,
+.wiz-progress-step.completed .wiz-progress-label {
+  color: var(--wiz-text);
+  font-weight: 600;
+}
+.wiz-progress-line {
+  flex: 1 1 auto;
+  height: 2px;
+  background: var(--wiz-border);
+  margin: 0 10px;
+  min-width: 20px;
+}
+.wiz-progress-step.completed + .wiz-progress-line {
+  background: var(--wiz-accent);
+}
+
+/* ---------------- Corpo dei passi ---------------------------------- */
+.wiz-step-body { min-height: 40px; }
+
+.wiz-step-title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Riga di toggle (Search by / Output type) nel passo 1 */
+.wiz-toggle-row { display: flex; gap: 32px; flex-wrap: wrap; margin-bottom: 4px; }
+.wiz-toggle-group { display: flex; align-items: center; gap: 10px; }
+.wiz-toggle-group-label { font-weight: 600; font-size: 14px; white-space: nowrap; }
+.wiz-toggle-btns { display: inline-flex; border: 1px solid var(--wiz-border); border-radius: 6px; overflow: hidden; }
+.wiz-toggle-btn {
+  padding: 6px 14px;
+  font-size: 13px;
+  background: #fff;
+  border: none;
+  border-right: 1px solid var(--wiz-border);
+  cursor: pointer;
+  color: var(--wiz-text);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.wiz-toggle-btn:last-child { border-right: none; }
+.wiz-toggle-btn.selected { background: var(--wiz-accent); color: #fff; }
+.wiz-toggle-btn:hover:not(.selected) { background: #f5f5f5; }
+
+/* Riepilogo di un passo completato (chip cliccabile per tornare indietro) */
+.wiz-completed-summary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 0;
+}
+.wiz-summary-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #fff;
+  border: 1px solid var(--wiz-border);
+  border-radius: 14px;
+  padding: 3px 10px;
+  font-size: 13px;
+  max-width: 260px;
+  box-shadow: var(--wiz-shadow);
+}
+.wiz-summary-chip span.wiz-chip-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wiz-edit-hint {
+  font-size: 12px;
+  color: var(--wiz-accent);
+  text-decoration: underline;
+}
+
+/* ---------------- Componente lista con ricerca --------------------- */
+.wiz-list-picker { max-width: 480px; }
+.wiz-list-picker.wiz-list-double { display: flex; gap: 20px; max-width: 100%; flex-wrap: wrap; }
+.wiz-list-picker-col { flex: 1 1 320px; min-width: 260px; max-width: 480px; }
+.wiz-list-col-label { font-size: 13px; font-weight: 600; margin-bottom: 4px; color: var(--wiz-text-muted); }
+
+.wiz-selected-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; min-height: 0; }
+.wiz-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--wiz-accent); color: #fff;
+  border-radius: 12px; padding: 3px 6px 3px 10px; font-size: 12px;
+  max-width: 220px;
+}
+.wiz-tag span.wiz-tag-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wiz-tag-remove {
+  cursor: pointer; font-weight: bold; border: none; background: transparent;
+  color: #fff; font-size: 14px; line-height: 1; padding: 0 2px;
+  transition: color 0.15s ease;
+}
+.wiz-tag-remove:hover { color: #ffd; }
+
+.wiz-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 7px 11px;
+  font-size: 13px;
+  border: 1px solid var(--wiz-border);
+  border-radius: 6px;
+  margin-bottom: 4px;
+  background: #fff;
+}
+.wiz-search-input:focus { outline: none; border-color: var(--wiz-accent); }
+
+.wiz-option-list {
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid var(--wiz-border);
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: var(--wiz-shadow);
+}
+.wiz-option-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 11px;
+  font-size: 13px;
+  cursor: pointer;
+  border-bottom: 1px solid #f2f1f8;
+  transition: background-color 0.12s ease;
+}
+.wiz-option-row:last-child { border-bottom: none; }
+.wiz-option-row:hover { background: #f5f3fc; }
+.wiz-option-row.wiz-option-selected { background: #ece8f8; }
+.wiz-option-row input[type=checkbox] { pointer-events: none; }
+.wiz-option-row span.wiz-option-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wiz-option-empty { padding: 10px; font-size: 13px; color: var(--wiz-text-muted); text-align: center; }
+.wiz-option-more { padding: 6px 10px; font-size: 12px; color: var(--wiz-text-muted); text-align: center; font-style: italic; }
+
+.wiz-list-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
+.wiz-list-count { font-size: 12px; color: var(--wiz-text-muted); }
+.wiz-clear-link { font-size: 12px; color: var(--wiz-accent); cursor: pointer; text-decoration: underline; background: none; border: none; padding: 0; }
+
+.wiz-loading { font-size: 13px; color: var(--wiz-text-muted); padding: 8px 0; }
+.wiz-loading::before {
+  content: ""; display: inline-block; width: 12px; height: 12px;
+  border: 2px solid var(--wiz-border); border-top-color: var(--wiz-accent);
+  border-radius: 50%; margin-right: 8px; vertical-align: middle;
+  animation: wiz-spin 0.7s linear infinite;
+}
+@keyframes wiz-spin { to { transform: rotate(360deg); } }
+
+.wiz-reset-link {
+  font-size: 12px; color: var(--wiz-text-muted); text-decoration: underline;
+  cursor: pointer; background: none; border: none; padding: 0; margin-top: 10px;
+  transition: color 0.15s ease;
+}
+.wiz-reset-link:hover { color: var(--wiz-text); }

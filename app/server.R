@@ -7,45 +7,68 @@ function(input, output, session) {
     length(rv$data.list) > 0
   })
   outputOptions(output, "hasFiles", suspendWhenHidden = FALSE)
+  
+  # TRUE solo dopo che almeno un file e' stato caricato ed elaborato con
+  # successo - controlla la visibilita' del wizard di ricerca.
   output$compared <- reactive({ rv$compared })
   outputOptions(output, "compared", suspendWhenHidden = FALSE)
+  
   is.empty <- function(x) is.null(x) || length(x) == 0
   
-  output$readyToPlot <- reactive({
-    if(is.null(input$outputType) || is.null(input$searchOpt)) return(FALSE)
-    if(input$outputType == "paths") {
-      !is.empty(last.sel.pathways()) && !is.empty(last.sel.source()) && !is.empty(last.sel.dest())
-    } else {
-      !is.empty(last.sel.pathways()) && !is.empty(last.sel.genes())
+  # Mostra/nasconde l'indicatore di attesa in ENTRAMBE le schede durante
+  # un caricamento/eliminazione file. Usa shinyjs::show/hide (esecuzione
+  # JS IMMEDIATA lato client) invece di un reactiveValues + conditionalPanel:
+  # un valore reattivo che passa da TRUE a FALSE all'INTERNO dello stesso
+  # ciclo reattivo (come accade qui, dato che l'intero
+  # caricamento/eliminazione avviene in un solo observeEvent sincrono) non
+  # produce MAI un cambiamento osservabile lato client - Shiny raggruppa
+  # tutti i cambiamenti di un reactiveValues e invia al browser solo lo
+  # stato FINALE del ciclo, mai gli stati intermedi. shinyjs::show/hide,
+  # al contrario, invia il comando al client nel momento stesso in cui
+  # viene chiamato (stesso meccanismo gia' usato con successo altrove in
+  # questa app per "Updating visualization...").
+  start.loading <- function() {
+    shinyjs::hide("nodeComparisonContent")
+    shinyjs::hide("networkViewContent")
+    shinyjs::show("nodeComparisonLoading")
+    shinyjs::show("networkViewLoading")
+  }
+  stop.loading <- function() {
+    shinyjs::hide("nodeComparisonLoading")
+    shinyjs::hide("networkViewLoading")
+    if(isTRUE(rv$compared)) {
+      shinyjs::show("nodeComparisonContent")
+      shinyjs::show("networkViewContent")
     }
-  })
+  }
+  
+  # Normalizza un campo arrivato da input$wizardSelection o
+  # input$wizard_request_step2 (inviati dal widget JS) in un vero vettore
+  # di caratteri, qualunque sia la forma con cui Shiny lo ha deserializzato
+  # (un array JSON puo' arrivare come vettore o come lista a seconda del
+  # percorso di codice interno di Shiny - un test isolato su
+  # shiny:::safeFromJSON non si e' rivelato un indicatore affidabile del
+  # comportamento REALE di input$xxx, come confermato da un errore
+  # riscontrato in produzione: strsplit() falliva perche' il campo non
+  # era di tipo character). Meglio normalizzare una volta sola qui, al
+  # confine tra i dati del widget e il resto del codice R, che sperare che
+  # ogni funzione a valle gestisca correttamente ogni possibile forma.
+  to.char.vec <- function(x) {
+    if(is.null(x)) return(NULL)
+    x <- unlist(x, use.names = FALSE)
+    if(length(x) == 0) return(NULL)
+    as.character(x)
+  }
+  
+  # TRUE quando il wizard ha inviato una selezione completa - controlla la
+  # visibilita' dei parametri di visualizzazione (Layer, Show ...), che
+  # devono comparire insieme al grafico, non subito dopo il caricamento.
+  output$readyToPlot <- reactive({ !is.null(input$wizardSelection) })
   outputOptions(output, "readyToPlot", suspendWhenHidden = FALSE)
   
   uploaded.files <- reactive(input$uploadedFiles)
   
   shinyjs::hide("updatingMsg")
-  
-  last.sel.pathways <- reactiveVal(NULL)
-  last.sel.genes <- reactiveVal(NULL)
-  last.sel.source <- reactiveVal(NULL)
-  last.sel.dest <- reactiveVal(NULL)
-  
-  observe({
-    if(is.null(input$searchOpt) || input$searchOpt == "Pathway") last.sel.pathways(input$pathwaySel)
-    else last.sel.pathways(input$pathwaySelNode)
-  })
-  observe({
-    if(is.null(input$searchOpt) || input$searchOpt == "Node") last.sel.genes(input$geneSel)
-    else last.sel.genes(input$geneSelPathway)
-  })
-  observe({
-    if(is.null(input$searchOpt) || input$searchOpt == "Node") last.sel.source(input$sourceSel)
-    else last.sel.source(input$sourceSelPathway)
-  })
-  observe({
-    if(is.null(input$searchOpt) || input$searchOpt == "Node") last.sel.dest(input$destSel)
-    else last.sel.dest(input$destSelPathway)
-  })
   
   shinyInput <- function(FUN, len, id, ...) {
     inputs <- character(len)
@@ -55,6 +78,9 @@ function(input, output, session) {
     inputs
   }
   
+  # Traduce le checkbox "Show compounds/drugs/miRNAs" (di default tutte NON
+  # selezionate, quindi tutto nascosto) nel formato "Hide ..." atteso da
+  # apply.hide.filters() in PathwaysFunctions.R.
   resolve.hide.elements <- function(show.elements) {
     hide <- c()
     if(!("Show compounds" %in% show.elements)) hide <- c(hide, "Hide chemical entities")
@@ -63,24 +89,94 @@ function(input, output, session) {
     hide
   }
   
+  #---------------------------------------------------------------------
+  # Conversione delle scelte R (vettori con nome, o liste per network) nel
+  # formato JSON-friendly [{value,label}, ...] atteso dal widget JS
+  # (www/wizard.js).
+  #---------------------------------------------------------------------
+  
+  # Per le PATHWAY: value = nome completo, label = nome abbreviato se
+  # troppo lungo. Ri-tronchiamo qui direttamente sul valore (non ci
+  # affidiamo ai nomi eventualmente persi da funzioni come intersect()),
+  # dato che per le pathway value e label derivano dalla STESSA stringa.
+  pathways.to.js.choices <- function(pathway.names) {
+    if(is.null(pathway.names) || length(pathway.names) == 0) return(list())
+    pathway.names <- unname(pathway.names)
+    labels <- truncate.label(pathway.names)
+    lapply(seq_along(pathway.names), function(i) list(value = pathway.names[i], label = labels[i]))
+  }
+  
+  # Per i NODI: get.list.selectable.nodes()/filter.selectable.nodes()
+  # restituiscono gia' una lista (una per network) di vettori con nome
+  # (value = "nodeName\nnetwork\nnode.type", name = etichetta gia'
+  # abbreviata) - qui li appiattiamo in un unico elenco.
+  # Un nodo con lo stesso nome puo' comparire in piu' network (tipicamente
+  # quando piu' file caricati si riferiscono allo stesso organismo, come
+  # piu' condizioni/linee cellulari dello stesso esperimento) - in tal
+  # caso selezionare l'occorrenza da UNO QUALUNQUE di quei network produce
+  # lo stesso risultato finale, dato che l'espansione per ortologhi in
+  # build.pathway.net()/expand.to.ortho.nodes() lavora a livello di
+  # ORGANISMO (cerca il nodeName nei dati dell'organismo di riferimento),
+  # non di singolo file - quindi mostrare la stessa etichetta piu' volte,
+  # una per network, era ridondante e confondeva l'utente (come nella
+  # versione precedente dell'app, un nodo compare una sola volta, senza
+  # specificare il network tra parentesi). La deduplicazione avviene sul
+  # nodeName ESTRATTO dal valore (prima di un'eventuale troncatura per la
+  # lunghezza), non sull'etichetta gia' troncata, per evitare falsi
+  # duplicati se due nomi diversi si troncassero nello stesso identico
+  # modo.
+  nodes.to.js.choices <- function(list.options) {
+    result <- list()
+    seen.names <- character(0)
+    for(net in names(list.options)) {
+      opts <- list.options[[net]]
+      if(length(opts) == 0) next
+      labels <- names(opts)
+      for(i in seq_along(opts)) {
+        value.i <- unname(opts[i])
+        node.name <- strsplit(value.i, "\n", fixed = TRUE)[[1]][1]
+        if(node.name %in% seen.names) next
+        seen.names <- c(seen.names, node.name)
+        result[[length(result)+1]] <- list(value = value.i, label = unname(labels[i]))
+      }
+    }
+    result
+  }
+  
+  # Invia al widget le scelte "statiche" correnti (tutti i nodi per i
+  # layer selezionati, tutte le pathway comuni) - richiamata al
+  # caricamento/eliminazione file E ogni volta che cambia networkSel
+  # (dato che l'elenco dei nodi dipende da quali layer sono confrontati).
+  # Il parametro "networks" e' esplicito (invece di leggere sempre
+  # input$networkSel) perche' subito dopo updatePickerInput("networkSel",
+  # selected=...) il valore scelto non e' ancora riflesso in
+  # input$networkSel - serve un giro di andata e ritorno col client prima
+  # che lo sia - quindi refresh.search.setup() passa qui direttamente
+  # initial.networks, invece di rischiare di inviare un primo wizard_init
+  # con la lista nodi vuota.
+  send.static.choices <- function(networks = input$networkSel) {
+    if(!isTRUE(rv$compared) || is.null(rv$list.all.nodes)) {
+      session$sendCustomMessage("wizard_init", list(allNodes = list(), allPathways = list()))
+      return(invisible(NULL))
+    }
+    all.nodes.filtered <- filter.selectable.nodes(rv$list.all.nodes, networks)
+    session$sendCustomMessage("wizard_init", list(
+      allNodes = nodes.to.js.choices(all.nodes.filtered),
+      allPathways = pathways.to.js.choices(sort(rv$common.pathways))
+    ))
+  }
+  
+  # Ricalcola pathway comuni/nodi selezionabili in base al contenuto
+  # CORRENTE di rv$data.list - richiamata sia dopo un caricamento file
+  # riuscito sia dopo un'eliminazione, cosi' che il wizard compaia/si
+  # aggiorni automaticamente non appena i file cambiano.
   refresh.search.setup <- function() {
     if(length(rv$data.list) == 0) {
       rv$common.pathways <- NULL
       rv$list.all.nodes <- NULL
       rv$compared <- FALSE
-      last.sel.pathways(NULL)
-      last.sel.genes(NULL)
-      last.sel.source(NULL)
-      last.sel.dest(NULL)
-      updatePickerInput(session,"pathwaySel",choices=NULL,selected=NULL)
-      updatePickerInput(session,"pathwaySelNode",choices=NULL,selected=NULL)
-      updatePickerInput(session,"geneSel",choices=NULL,selected=NULL)
-      updatePickerInput(session,"geneSelPathway",choices=NULL,selected=NULL)
-      updatePickerInput(session,"sourceSel",choices=NULL,selected=NULL)
-      updatePickerInput(session,"sourceSelPathway",choices=NULL,selected=NULL)
-      updatePickerInput(session,"destSel",choices=NULL,selected=NULL)
-      updatePickerInput(session,"destSelPathway",choices=NULL,selected=NULL)
       updatePickerInput(session,"networkSel",choices=NULL,selected=NULL)
+      send.static.choices(NULL)
       return(invisible(NULL))
     }
     
@@ -110,97 +206,49 @@ function(input, output, session) {
     if(length(rv$data.list)==2)
       max.opt <- 2
     initial.networks <- names(rv$data.list)[1:max.opt]
-    
-    last.sel.pathways(NULL)
-    last.sel.genes(NULL)
-    last.sel.source(NULL)
-    last.sel.dest(NULL)
-    updatePickerInput(session,"pathwaySel",choices=NULL,selected=NULL)
-    updatePickerInput(session,"pathwaySelNode",choices=NULL,selected=NULL)
-    updatePickerInput(session,"geneSel",choices=NULL,selected=NULL)
-    updatePickerInput(session,"geneSelPathway",choices=NULL,selected=NULL)
-    updatePickerInput(session,"sourceSel",choices=NULL,selected=NULL)
-    updatePickerInput(session,"sourceSelPathway",choices=NULL,selected=NULL)
-    updatePickerInput(session,"destSel",choices=NULL,selected=NULL)
-    updatePickerInput(session,"destSelPathway",choices=NULL,selected=NULL)
     updatePickerInput(session,"networkSel",choices=names(rv$data.list),selected = initial.networks)
+    send.static.choices(initial.networks)
   }
   
-  refresh.pickers <- function() {
-    shinyjs::runjs("$('#pathwaySel, #pathwaySelNode, #geneSel, #geneSelPathway, #sourceSel, #sourceSelPathway, #destSel, #destSelPathway, #networkSel').selectpicker('refresh');")
-  }
+  # Quando cambia networkSel, i nodi "statici" vanno rimandati al widget
+  # (dipendono da quali layer sono confrontati) - le pathway comuni non
+  # dipendono da networkSel, ma le rimandiamo comunque per semplicita'
+  # (send.static.choices() le include sempre insieme).
+  observeEvent(input$networkSel, {
+    send.static.choices()
+  }, ignoreInit = TRUE)
   
-  all.nodes.choices <- reactive({
-    if(is.empty(input$networkSel) || is.null(rv$list.all.nodes)) list()
-    else filter.selectable.nodes(rv$list.all.nodes, input$networkSel)
-  })
-  
-  all.pathways.choices <- reactive({
-    if(is.null(rv$common.pathways)) NULL else {
-      sorted <- sort(rv$common.pathways)
-      setNames(sorted, truncate.label(sorted))
-    }
-  })
-  
-  nodes.for.selected.pathway <- reactive({
-    if(!is.empty(last.sel.pathways())) {
-      get.list.selectable.nodes(last.sel.pathways(), input$networkSel, rv$data.list, pathway.list)
+  #---------------------------------------------------------------------
+  # Risponde alle richieste del widget per le scelte dinamiche del
+  # secondo passo: nodi contenuti in una pathway scelta (ricerca by
+  # Pathway), oppure pathway contenenti i nodi scelti (ricerca by Node -
+  # con la stessa logica di intersezione, non unione, gia' in uso prima:
+  # una pathway compare solo se contiene ALMENO UN nodo sorgente E ALMENO
+  # UN nodo destinazione, quando la modalita' e' "paths").
+  #---------------------------------------------------------------------
+  observeEvent(input$wizard_request_step2, {
+    req <- input$wizard_request_step2
+    if(is.null(req)) return()
+    
+    if(req$role == "nodesForPathway") {
+      opts <- get.list.selectable.nodes(to.char.vec(req$value), input$networkSel, rv$data.list, pathway.list)
+      choices <- nodes.to.js.choices(opts)
     } else {
-      list()
-    }
-  })
-  
-  pathways.for.selected.nodes <- reactive({
-    if(input$outputType == "neighbors") {
-      if(!is.empty(last.sel.genes())) sort(get.list.selectable.pathways(last.sel.genes(), rv$data.list, pathway.list)) else NULL
-    } else {
-      if(!is.empty(last.sel.source()) && !is.empty(last.sel.dest())) {
-        pathways.with.source <- get.list.selectable.pathways(last.sel.source(), rv$data.list, pathway.list)
-        pathways.with.dest   <- get.list.selectable.pathways(last.sel.dest(), rv$data.list, pathway.list)
-        sort(intersect(pathways.with.source, pathways.with.dest))
+      if(req$outputType == "neighbors") {
+        genes <- to.char.vec(req$value)
+        pw <- sort(get.list.selectable.pathways(genes, rv$data.list, pathway.list))
       } else {
-        NULL
+        source.nodes <- to.char.vec(req$value$source)
+        dest.nodes <- to.char.vec(req$value$dest)
+        pathways.with.source <- get.list.selectable.pathways(source.nodes, rv$data.list, pathway.list)
+        pathways.with.dest   <- get.list.selectable.pathways(dest.nodes, rv$data.list, pathway.list)
+        pw <- sort(intersect(pathways.with.source, pathways.with.dest))
       }
+      choices <- pathways.to.js.choices(pw)
     }
+    
+    session$sendCustomMessage("wizard_step2_choices", list(seq = req$seq, choices = choices))
   })
-  
-  observeEvent(all.pathways.choices(), {
-    updatePickerInput(session, "pathwaySel", choices=all.pathways.choices(), selected=NULL)
-    if(is.null(input$searchOpt) || input$searchOpt == "Pathway") last.sel.pathways(NULL)
-    refresh.pickers()
-  }, ignoreNULL = FALSE)
-  
-  observeEvent(pathways.for.selected.nodes(), {
-    updatePickerInput(session, "pathwaySelNode", choices=pathways.for.selected.nodes(), selected=NULL)
-    if(!is.null(input$searchOpt) && input$searchOpt == "Node") last.sel.pathways(NULL)
-    refresh.pickers()
-  }, ignoreNULL = FALSE)
-  
-  observeEvent(all.nodes.choices(), {
-    choices <- all.nodes.choices()
-    updatePickerInput(session, "geneSel", choices=choices, selected=NULL)
-    updatePickerInput(session, "sourceSel", choices=choices, selected=NULL)
-    updatePickerInput(session, "destSel", choices=choices, selected=NULL)
-    if(is.null(input$searchOpt) || input$searchOpt == "Node") {
-      last.sel.genes(NULL)
-      last.sel.source(NULL)
-      last.sel.dest(NULL)
-    }
-    refresh.pickers()
-  }, ignoreNULL = FALSE)
-  
-  observeEvent(nodes.for.selected.pathway(), {
-    choices <- nodes.for.selected.pathway()
-    updatePickerInput(session, "geneSelPathway", choices=choices, selected=NULL)
-    updatePickerInput(session, "sourceSelPathway", choices=choices, selected=NULL)
-    updatePickerInput(session, "destSelPathway", choices=choices, selected=NULL)
-    if(!is.null(input$searchOpt) && input$searchOpt == "Pathway") {
-      last.sel.genes(NULL)
-      last.sel.source(NULL)
-      last.sel.dest(NULL)
-    }
-    refresh.pickers()
-  }, ignoreNULL = FALSE)
   
   output$listFiles <- DT::renderDT({
     if(length(uploaded.files())==0) {
@@ -215,13 +263,15 @@ function(input, output, session) {
       zeroRecords = "No files yet"),
       initComplete = JS(
         "function(settings, json) {",
-        "$(this.api().table().header()).css({'background-color': 'black','color': 'white'});",
-        "$(this.api().table().body()).css({'background-color': 'black','color': 'white'});",
+        "$(this.api().table().header()).css({'background-color': '#2f2f38','color': '#e4e4e8'});",
+        "$(this.api().table().body()).css({'background-color': '#2f2f38','color': '#e4e4e8'});",
         "}")
     ),rownames = F,escape=F)
   })
   
   observeEvent(input$delete_button, {
+    start.loading()
+    on.exit(stop.loading(), add = TRUE)
     selectedRow <- as.numeric(strsplit(input$delete_button, "_")[[1]][2])
     rem.organism <- rv$data.list[[selectedRow]]$organism
     freq.organisms <- table(sapply(rv$data.list,function(el){el$organism}))
@@ -239,6 +289,8 @@ function(input, output, session) {
   observeEvent(input$hiddenUpload,{
     file.list <- input$hiddenUpload
     req(file.list)
+    start.loading()
+    on.exit(stop.loading(), add = TRUE)
     dataname.list <- c()
     for(i in 1:nrow(file.list)) {
       file <- file.list[i,]
@@ -275,37 +327,30 @@ function(input, output, session) {
     refresh.search.setup()
   })
   
+  #---------------------------------------------------------------------
+  # Selezione finale, ricevuta come UN SOLO evento dal widget quando tutti
+  # i passi del flusso sono stati completati (vedi www/wizard.js).
+  #---------------------------------------------------------------------
   plot.trigger <- reactive({
-    list(pathways = last.sel.pathways(),
-         genes = last.sel.genes(),
-         source.genes = last.sel.source(),
-         dest.genes = last.sel.dest(),
+    sel <- input$wizardSelection
+    list(pathways = if(is.null(sel)) NULL else to.char.vec(sel$pathway),
+         genes = if(is.null(sel)) NULL else to.char.vec(sel$gene),
+         source.genes = if(is.null(sel)) NULL else to.char.vec(sel$source),
+         dest.genes = if(is.null(sel)) NULL else to.char.vec(sel$dest),
          networks = input$networkSel,
          hide = resolve.hide.elements(input$showElements),
-         view.mode = input$outputType,
-         max.hops = input$maxHopsEgo,
-         max.length = if(isTRUE(input$limitPathLength)) input$maxPathLength else Inf,
+         view.mode = if(is.null(sel)) "neighbors" else sel$outputType,
+         max.hops = if(is.null(sel)) 1 else sel$maxHops,
+         max.length = if(!is.null(sel) && isTRUE(sel$limitPathLength)) sel$maxPathLength else Inf,
+         only.perturbed.paths = !is.null(sel) && isTRUE(sel$onlyPerturbedPaths),
          data.list = rv$data.list)
   })
   plot.trigger.d <- debounce(plot.trigger, 400)
   
   observeEvent(plot.trigger(), {
-    shinyjs::disable("searchOpt")
-    shinyjs::disable("outputType")
-    shinyjs::disable("pathwaySel")
-    shinyjs::disable("pathwaySelNode")
-    shinyjs::disable("geneSel")
-    shinyjs::disable("geneSelPathway")
-    shinyjs::disable("sourceSel")
-    shinyjs::disable("sourceSelPathway")
-    shinyjs::disable("destSel")
-    shinyjs::disable("destSelPathway")
     shinyjs::disable("networkSel")
     shinyjs::disable("showElements")
-    shinyjs::disable("maxHopsEgo")
-    shinyjs::disable("limitPathLength")
-    shinyjs::disable("maxPathLength")
-    refresh.pickers()
+    shinyjs::runjs("$('#networkSel').selectpicker('refresh');")
     shinyjs::show("updatingMsg")
   }, ignoreInit = TRUE)
   
@@ -314,22 +359,9 @@ function(input, output, session) {
   output$plotPathway <- renderVisNetwork({
     trig <- plot.trigger.d()
     on.exit({
-      shinyjs::enable("searchOpt")
-      shinyjs::enable("outputType")
-      shinyjs::enable("pathwaySel")
-      shinyjs::enable("pathwaySelNode")
-      shinyjs::enable("geneSel")
-      shinyjs::enable("geneSelPathway")
-      shinyjs::enable("sourceSel")
-      shinyjs::enable("sourceSelPathway")
-      shinyjs::enable("destSel")
-      shinyjs::enable("destSelPathway")
       shinyjs::enable("networkSel")
       shinyjs::enable("showElements")
-      shinyjs::enable("maxHopsEgo")
-      shinyjs::enable("limitPathLength")
-      shinyjs::enable("maxPathLength")
-      refresh.pickers()
+      shinyjs::runjs("$('#networkSel').selectpicker('refresh');")
       shinyjs::hide("updatingMsg")
     })
     resolved.view.mode <- if(is.null(trig$view.mode)) "neighbors" else trig$view.mode
@@ -345,7 +377,8 @@ function(input, output, session) {
                                           trig$networks,trig$pathways,trig$genes,trig$hide,
                                           view.mode = resolved.view.mode,
                                           source.genes = trig$source.genes, dest.genes = trig$dest.genes,
-                                          max.hops = resolved.max.hops, max.length = resolved.max.length)
+                                          max.hops = resolved.max.hops, max.length = resolved.max.length,
+                                          only.perturbed.paths = isTRUE(trig$only.perturbed.paths))
       pathway.plot <- plot.pathway(multilayer.net$nodes,multilayer.net$edges,view.mode = resolved.view.mode)
       legend.info(if(nrow(multilayer.net$nodes)>0) c(get.legend.info(multilayer.net$nodes), list(view.mode=resolved.view.mode)) else NULL)
       pathway.plot
@@ -394,5 +427,173 @@ function(input, output, session) {
       )
     )
   })
+  
+  #---------------------------------------------------------------------
+  # Scheda "Node comparison": tabella nodo x network con delta e colore -
+  # vedi build.node.comparison.table()/compute.abs.max() in
+  # PathwaysFunctions.R. Ricalcolata automaticamente ogni volta che
+  # rv$data.list cambia (caricamento/eliminazione file) o che il filtro
+  # pathway (input$nodeComparisonPathwayFilter) cambia - mostra tutti i
+  # nodi di tutti i file correntemente caricati (ristretti alle pathway
+  # selezionate, se presenti), non solo quelli perturbati.
+  #---------------------------------------------------------------------
+  observeEvent(rv$common.pathways, {
+    choices <- if(is.null(rv$common.pathways)) list() else pathways.to.js.choices(sort(rv$common.pathways))
+    session$sendCustomMessage("pathway_filter_init", list(choices = choices))
+  }, ignoreNULL = FALSE)
+  
+  node.comparison.data <- reactive({
+    build.node.comparison.table(rv$data.list, pathway.list, pathways = to.char.vec(input$nodeComparisonPathwayFilter))
+  })
+  
+  output$nodeComparisonTable <- DT::renderDT({
+    tbl <- node.comparison.data()
+    if(nrow(tbl) == 0) {
+      return(datatable(data.frame(Message = "No nodes to show (no files loaded, or no node matches the selected pathways)"), options = list(dom = "t"), rownames = FALSE))
+    }
+    
+    abs.max <- compute.abs.max(tbl)
+    score.cols <- setdiff(colnames(tbl), c("nodeName","delta","pathwaysList"))
+    #Indici di colonna 0-based per DT (rownames=FALSE, quindi la colonna 0
+    #e' "nodeName"): servono per applicare la colorazione SOLO alle
+    #colonne dei punteggi, non a "Node" o "Delta". "pathwaysList" resta
+    #nella tabella dati (necessaria per il tooltip sul nome del nodo) ma
+    #viene nascosta dalla visualizzazione.
+    score.col.indices <- match(score.cols, colnames(tbl)) - 1
+    delta.col.index <- match("delta", colnames(tbl)) - 1
+    node.col.index <- match("nodeName", colnames(tbl)) - 1
+    pathways.col.index <- match("pathwaysList", colnames(tbl)) - 1
+    
+    display.tbl <- tbl
+    display.tbl[,c(score.cols,"delta")] <- lapply(display.tbl[,c(score.cols,"delta"),drop=FALSE], function(x) round(x,2))
+    
+    #Colorazione delle celle: stessa interpolazione blue/grey/red gia'
+    #usata per i nodi nel grafico della rete (vedi build.pathway.net,
+    #"Set node colors"), ma con una trasformazione a radice quadrata
+    #(segno preservato) prima della normalizzazione - riduce il peso
+    #visivo dei rari valori estremi e aumenta la distinguibilita' dei
+    #valori comuni piu' piccoli, restando pero' una scala ASSOLUTA (stesso
+    #valore = sempre stesso colore, indipendentemente da pagina/ricerca
+    #correnti - abs.max e' calcolato sull'INTERA tabella, non sulla
+    #pagina mostrata). Il numero non viene mostrato direttamente nella
+    #cella (solo il colore): resta leggibile al passaggio del mouse
+    #tramite un tooltip personalizzato (non l'attributo HTML "title": il
+    #tooltip nativo del browser e' un elemento di sistema, il cui font
+    #NON e' controllabile via CSS - da qui la scelta di un tooltip fatto
+    #a mano, per poterne controllare la dimensione del testo). Un bordo
+    #bianco attorno a ciascuna cella separa visivamente le celle
+    #adiacenti nella stessa riga, che altrimenti si fondono quando hanno
+    #colori simili.
+    color.js <- sprintf("
+      function(td, cellData, rowData, row, col) {
+        $(td).css('border', '3px solid #fff');
+        $(td).css('position', 'relative');
+        if (cellData === null || cellData === undefined) {
+          $(td).css('background-color', '#fff');
+          td.innerHTML = '<span style=\"color:#aaa; font-style:italic; font-size:12px;\">Not present</span>';
+          return;
+        }
+        var v = parseFloat(cellData);
+        var ABS_MAX = %s;
+        var sign = v < 0 ? -1 : (v > 0 ? 1 : 0);
+        var transformed = sign * Math.sqrt(Math.abs(v));
+        var transformedMax = Math.sqrt(ABS_MAX);
+        var t = Math.max(0, Math.min(1, (transformed + transformedMax) / (2*transformedMax)));
+        var r,g,b;
+        if (t <= 0.5) {
+          var k = t / 0.5;
+          r = Math.round(k*190); g = Math.round(k*190); b = Math.round(255 + k*(190-255));
+        } else {
+          var k = (t-0.5) / 0.5;
+          r = Math.round(190 + k*(255-190)); g = Math.round(190 - k*190); b = Math.round(190 - k*190);
+        }
+        $(td).css('background-color', 'rgb('+r+','+g+','+b+')');
+        $(td).addClass('node-cmp-score-cell');
+        td.innerHTML = '<span class=\"node-cmp-tooltip\">' + v.toFixed(2) + '</span>';
+      }", abs.max)
+    
+    #Elenco delle pathway a cui appartiene il nodo (colonna "Node"),
+    #letto dalla colonna nascosta "pathwaysList" (indice %s) tramite
+    #rowData - DataTables include SEMPRE tutte le colonne in rowData,
+    #anche quelle nascoste dalla visualizzazione (visible=FALSE non le
+    #rimuove dai dati, solo dal rendering).
+    #
+    #BUG FIX (segnalato in produzione): un tooltip al passaggio del mouse
+    #con contenuto scorrevole e' problematico quando si trova dentro un
+    #contenitore che ha GIA' un proprio scroll orizzontale (qui, la
+    #tabella) - il gesto di scorrimento del mouse viene conteso tra i due
+    #scroll annidati, rendendo difficile scorrere l'elenco. Sostituito
+    #con un popover attivato al CLICK, in position:fixed (ancorato alla
+    #finestra del browser, non alla tabella): il suo scroll verticale e'
+    #cosi' completamente indipendente da qualunque contenitore scorrevole
+    #della pagina. Un unico elemento popover viene creato una volta sola
+    #e riusato per tutte le celle (evita di duplicare l'elemento per ogni
+    #riga), con un pulsante di chiusura esplicito e chiusura al click
+    #fuori dal popover.
+    node.tooltip.js <- sprintf("
+      function(td, cellData, rowData, row, col) {
+        var pathwaysList = rowData[%s];
+        if (!pathwaysList) { return; }
+        $(td).addClass('node-cmp-name-cell');
+        var pathwayNames = pathwaysList.split('|||');
+        td.innerHTML = cellData + ' <span class=\"node-cmp-pathway-badge\">' + pathwayNames.length + '</span>';
+        td.onclick = function(ev) {
+          ev.stopPropagation();
+          var pop = document.getElementById('nodeCmpPathwayPopover');
+          if (!pop) {
+            pop = document.createElement('div');
+            pop.id = 'nodeCmpPathwayPopover';
+            pop.className = 'node-cmp-pathway-popover';
+            pop.innerHTML = '<div class=\"node-cmp-popover-header\">' +
+              '<span class=\"node-cmp-popover-title\"></span>' +
+              '<button type=\"button\" class=\"node-cmp-popover-close\">\\u00d7</button></div>' +
+              '<div class=\"node-cmp-popover-body\"></div>';
+            document.body.appendChild(pop);
+            pop.querySelector('.node-cmp-popover-close').addEventListener('click', function(e) {
+              e.stopPropagation();
+              pop.style.display = 'none';
+            });
+            document.addEventListener('click', function(e) {
+              if (pop.style.display === 'block' && !pop.contains(e.target)) {
+                pop.style.display = 'none';
+              }
+            });
+          }
+          pop.querySelector('.node-cmp-popover-title').textContent = cellData + ' \\u2014 pathways';
+          pop.querySelector('.node-cmp-popover-body').innerHTML = pathwayNames.join('<br>');
+          pop.style.display = 'block';
+          pop.style.visibility = 'hidden';
+          var rect = td.getBoundingClientRect();
+          var popRect = pop.getBoundingClientRect();
+          var left = Math.min(rect.left, window.innerWidth - popRect.width - 10);
+          left = Math.max(10, left);
+          pop.style.left = left + 'px';
+          if (rect.bottom + popRect.height + 8 > window.innerHeight) {
+            pop.style.top = 'auto';
+            pop.style.bottom = (window.innerHeight - rect.top + 4) + 'px';
+          } else {
+            pop.style.bottom = 'auto';
+            pop.style.top = (rect.bottom + 4) + 'px';
+          }
+          pop.style.visibility = 'visible';
+        };
+      }", pathways.col.index)
+    
+    datatable(display.tbl,
+              colnames = c("Node" = "nodeName", "Delta" = "delta"),
+              rownames = FALSE,
+              filter = "none",
+              selection = "none",
+              options = list(
+                pageLength = 20,
+                lengthMenu = list(c(20,50,100), c("20","50","100")),
+                order = list(list(delta.col.index, "desc")),
+                columnDefs = list(
+                  list(targets = score.col.indices, createdCell = JS(color.js)),
+                  list(targets = node.col.index, createdCell = JS(node.tooltip.js)),
+                  list(targets = pathways.col.index, visible = FALSE)
+                )
+              ))
+  }, server = TRUE)
   
 }
